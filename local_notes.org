@@ -1,0 +1,20 @@
+-*- mode:org; fill-column:70; coding:utf-8; -*-
+* org-mode configuration
+#+STARTUP: overview customtime noalign logdone hidestars
+#+TAGS: ARCHIVE(a) WORK(w) LIFE(l) EMACS(e) IMPORTANT(i) Debug(d) Communication(c) RECOMMENDATE(r) Tool(t) Habit(h) noexport(n) Share (s) BLOG(b)
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+DRAWERS: HIDDEN CODE CONF EMAIL WEBPAGE SNIP
+#+PRIORITIES: A D C
+#+ARCHIVE: %s_done::** Finished Tasks
+#+OPTIONS: H:nil num:nil
+#+AUTHOR: dennyzhang.com (contact@dennyzhang.com)
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.dennyzhang.com/wp-content/uploads/org.css">
+* Similar GitHub Repo
+** https://github.com/jrue/JavaScript-Quiz
+** https://github.com/google/html-quiz
+** https://github.com/imujjwal96/prelimQuiz
+** https://github.com/energyapps/quizzer
+** https://github.com/schoettl/regex-quiz
+** https://github.com/MightyJoeW/JavaScript-Quiz
+** https://github.com/rafalratajczyk/QuizJavaScript
