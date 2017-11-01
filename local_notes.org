@@ -10,6 +10,7 @@
 #+AUTHOR: dennyzhang.com (contact@dennyzhang.com)
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.dennyzhang.com/wp-content/uploads/org.css">
+* jiuzhang.com: https://www.jiuzhang.com/qa/?channel=2
 * Similar GitHub Repo
 ** https://github.com/jrue/JavaScript-Quiz
 ** https://github.com/google/html-quiz
