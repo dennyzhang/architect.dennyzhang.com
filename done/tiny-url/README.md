@@ -14,6 +14,7 @@ http://bit.ly/2h90xzb
 - Tags:
 - Original Link:
 ```
+   http://blog.gainlo.co/index.php/2016/03/08/system-design-interview-question-create-tinyurl-system/
    http://blog.wenhaolee.com/system-design-tinyurl/
    https://www.interviewbit.com/courses/system-design/topics/interview-questions/
 ```
