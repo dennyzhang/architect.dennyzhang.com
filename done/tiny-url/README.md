@@ -12,7 +12,11 @@ http://bit.ly/2h90xzb
 
 - Difficulty: Medium
 - Tags:
-- Original Link: https://www.interviewbit.com/courses/system-design/topics/interview-questions/
+- Original Link:
+```
+   http://blog.wenhaolee.com/system-design-tinyurl/
+   https://www.interviewbit.com/courses/system-design/topics/interview-questions/
+```
 - Highlights:
 
 # Answers
