@@ -13,6 +13,8 @@ Check quiz in [here](quiz)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
+See more challenges from Denny: [here](https://www.dennyzhang.com/battle)
+
 # Contributors
 Below are folks who have contributed via GitHub!
 - TODO:
