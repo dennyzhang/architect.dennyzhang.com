@@ -7,6 +7,8 @@
 
 File me [tickets](https://github.com/DennyZhang/challenges-system-design/issues) or star [the repo](https://github.com/DennyZhang/challenges-system-design).
 
+**Similar Challenges**: https://www.dennyzhang.com/battle
+
 # What For?
 
 **Challenge For System Design**
@@ -17,6 +19,8 @@ Check quiz in [here](quiz)
 
 See more challenges from Denny: [here](https://www.dennyzhang.com/battle)
 
+<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+
 # Contributors
 Below are folks who have contributed via GitHub!
 - TODO:
@@ -24,4 +28,4 @@ Below are folks who have contributed via GitHub!
 # License
 - Code is licensed under [MIT License](https://www.dennyzhang.com/wp-content/mit_license.txt).
 
-<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
