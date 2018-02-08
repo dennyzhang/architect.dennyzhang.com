@@ -7,13 +7,11 @@
 
 File me [tickets](https://github.com/DennyZhang/challenges-system-design/issues) or star [the repo](https://github.com/DennyZhang/challenges-system-design).
 
-**Similar Challenges**: https://www.dennyzhang.com/battle
-
 # What For?
 
 **Challenge For System Design**
 
-Check quiz in [here](quiz)
+https://brain.dennyzhang.com/system-design-interview
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
