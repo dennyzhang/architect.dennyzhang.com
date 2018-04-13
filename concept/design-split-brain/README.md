@@ -1,4 +1,4 @@
-# Design: What You Will Do, If Your DB Runs Into Split Brain?     :BLOG:Medium:
+# Design: What You Will Do, If Your DB Runs Into Split Brain?     :Concept:
 
 
 ---

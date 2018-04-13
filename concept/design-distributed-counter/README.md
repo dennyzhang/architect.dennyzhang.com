@@ -1,4 +1,4 @@
-# Design: A Distributed Counter     :BLOG:Medium:
+# Design: A Distributed Counter     :Concept:
 
 
 ---

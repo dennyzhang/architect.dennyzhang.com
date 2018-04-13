@@ -1,4 +1,4 @@
-# Explain CAP Theorem     :BLOG:Design:
+# Explain CAP Theorem     :Concept:
 
 
 ---

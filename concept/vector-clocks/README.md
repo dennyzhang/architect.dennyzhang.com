@@ -1,4 +1,4 @@
-# Explain: Vector Clocks/Version Vectors     :BLOG:Basic:
+# Explain: Vector Clocks/Version Vectors     :Concept:
 
 
 ---

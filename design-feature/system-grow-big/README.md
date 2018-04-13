@@ -1,4 +1,4 @@
-# Typical Question: What If Your System Grow 10M Users?     :BLOG:Medium:
+# Typical Question: What If Your System Grow 10M Users?     :Feature:
 
 
 ---

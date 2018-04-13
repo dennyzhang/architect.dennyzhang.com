@@ -1,4 +1,4 @@
-# Design: How To Migrate Cluster Across Regions     :BLOG:Design:
+# Design: How To Migrate Cluster Across Regions     :Feature:
 
 
 ---

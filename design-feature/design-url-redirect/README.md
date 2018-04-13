@@ -1,4 +1,4 @@
-# Design: A URL Redirecting Feature     :BLOG:Medium:
+# Design: A URL Redirecting Feature     :Feature:
 
 
 ---

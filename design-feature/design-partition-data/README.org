@@ -1,4 +1,4 @@
-* Design: How To Partition Data At Scale                        :BLOG:Design:
+* Design: How To Partition Data At Scale                        :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

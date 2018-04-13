@@ -1,4 +1,4 @@
-# Explain: Pessimistic And Optimistic Locking     :BLOG:Design:
+# Explain: Pessimistic And Optimistic Locking     :Concept:
 
 
 ---

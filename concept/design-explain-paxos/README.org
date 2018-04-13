@@ -1,4 +1,4 @@
-* [#A] Explain Paxos Algorithm                                   :BLOG:Design:
+* [#A] Explain Paxos Algorithm                                   :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

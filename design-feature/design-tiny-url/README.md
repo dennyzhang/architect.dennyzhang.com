@@ -1,4 +1,4 @@
-# Design: A URL Shorterner Service     :BLOG:Medium:
+# Design: A URL Shorterner Service     :Feature:
 
 
 ---

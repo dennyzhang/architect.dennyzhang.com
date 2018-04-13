@@ -1,4 +1,4 @@
-# Design: How Does DNS Work?     :BLOG:Design:
+# Design: How Does DNS Work?     :Concept:
 
 
 ---

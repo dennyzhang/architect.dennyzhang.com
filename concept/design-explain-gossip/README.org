@@ -1,4 +1,4 @@
-* Explain: Gossip Protocol                                      :BLOG:Medium:
+* Explain: Gossip Protocol                                     :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

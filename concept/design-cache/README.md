@@ -1,4 +1,4 @@
-# Design: How Does Caching Work     :BLOG:Design:
+# Design: How Does Caching Work     :Concept:
 
 
 ---

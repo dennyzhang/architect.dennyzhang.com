@@ -1,4 +1,4 @@
-# Concurrency & Communication     :BLOG:Design:
+# Concurrency & Communication     :Concept:
 
 
 ---

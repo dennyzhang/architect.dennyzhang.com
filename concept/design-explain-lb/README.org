@@ -1,4 +1,4 @@
-* Design: How Does LoadBalancer Work?                           :BLOG:Design:
+* Design: How Does LoadBalancer Work?                           :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

@@ -1,4 +1,4 @@
-* [#A] Explain CAP Theorem                                       :BLOG:Design:
+* [#A] Explain CAP Theorem                                       :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

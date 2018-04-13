@@ -1,4 +1,4 @@
-# Design: Google Suggestion Service     :BLOG:Medium:
+# Design: Google Suggestion Service     :Feature:
 
 
 ---

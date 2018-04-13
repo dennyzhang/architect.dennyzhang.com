@@ -1,4 +1,4 @@
-# Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster     :BLOG:Medium:
+# Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster     :Feature:
 
 
 ---

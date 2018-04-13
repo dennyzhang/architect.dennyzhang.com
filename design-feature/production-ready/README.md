@@ -1,4 +1,4 @@
-# Typical Question: How You Make Your Design Production Ready?     :BLOG:Medium:
+# Typical Question: How You Make Your Design Production Ready?     :Feature:
 
 
 ---

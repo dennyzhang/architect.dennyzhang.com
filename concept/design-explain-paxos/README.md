@@ -1,4 +1,4 @@
-# Explain Paxos Algorithm     :BLOG:Design:
+# Explain Paxos Algorithm     :Concept:
 
 
 ---

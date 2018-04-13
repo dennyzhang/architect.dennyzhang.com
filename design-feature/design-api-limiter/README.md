@@ -1,4 +1,4 @@
-# Design: An API Rate Limiter     :BLOG:Medium:
+# Design: An API Rate Limiter     :Feature:
 
 
 ---

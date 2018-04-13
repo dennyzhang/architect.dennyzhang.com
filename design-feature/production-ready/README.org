@@ -1,4 +1,4 @@
-* Typical Question: How You Make Your Design Production Ready? :BLOG:Medium:
+* Typical Question: How You Make Your Design Production Ready? :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

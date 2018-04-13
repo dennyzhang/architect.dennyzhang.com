@@ -1,4 +1,4 @@
-* Explain: Vector Clocks/Version Vectors                         :BLOG:Basic:
+* Explain: Vector Clocks/Version Vectors                         :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

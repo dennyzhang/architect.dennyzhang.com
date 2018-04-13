@@ -1,4 +1,4 @@
-* Design: Poll vs Push                                           :BLOG:Design:
+* Design: Poll vs Push                                           :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

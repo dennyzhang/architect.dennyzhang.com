@@ -1,4 +1,4 @@
-# Explain: How Redis HA Model Works?     :BLOG:Medium:
+# Explain: How Redis HA Model Works?     :Feature:
 
 
 ---

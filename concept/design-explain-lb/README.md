@@ -1,4 +1,4 @@
-# Design: How Does LoadBalancer Work?     :BLOG:Design:
+# Design: How Does LoadBalancer Work?     :Concept:
 
 
 ---

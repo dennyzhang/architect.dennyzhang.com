@@ -1,4 +1,4 @@
-* [#A] Design: How Does Caching Work                            :BLOG:Design:
+* [#A] Design: How Does Caching Work                            :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

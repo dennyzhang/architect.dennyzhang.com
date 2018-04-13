@@ -1,4 +1,4 @@
-# Design: DB Replication     :BLOG:Design:
+# Design: DB Replication     :Concept:
 
 
 ---

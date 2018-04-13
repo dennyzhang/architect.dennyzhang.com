@@ -1,4 +1,4 @@
-# Design: Poll vs Push     :BLOG:Design:
+# Design: Poll vs Push     :Concept:
 
 
 ---

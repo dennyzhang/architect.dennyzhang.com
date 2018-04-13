@@ -1,4 +1,4 @@
-* [#A] Concurrency & Communication                              :BLOG:Design:
+* [#A] Concurrency & Communication                              :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

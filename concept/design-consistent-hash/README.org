@@ -1,4 +1,4 @@
-* [#A] Typical Question: How Does Consistent Hashing Work?      :BLOG:Design:
+* [#A] Typical Question: How Does Consistent Hashing Work?      :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

@@ -1,4 +1,4 @@
-# Explain: Gossip Protocol     :BLOG:Medium:
+# Explain: Gossip Protocol     :Concept:
 
 
 ---

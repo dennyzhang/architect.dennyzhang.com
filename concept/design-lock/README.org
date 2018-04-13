@@ -1,4 +1,4 @@
-* [#A] Design: A Distributed Lock                               :BLOG:Medium:
+* [#A] Design: A Distributed Lock                               :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

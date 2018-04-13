@@ -1,4 +1,4 @@
-# Explain: What Problems Of MySQL Master HA Are?     :BLOG:Medium:
+# Explain: What Problems Of MySQL Master HA Are?     :Feature:
 
 
 ---

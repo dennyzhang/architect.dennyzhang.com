@@ -1,4 +1,4 @@
-# Design: In Deployment Pipeline, How To Support Customizing DB Password?     :BLOG:Medium:
+# Design: In Deployment Pipeline, How To Support Customizing DB Password?     :Feature:
 
 
 ---

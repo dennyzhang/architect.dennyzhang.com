@@ -1,4 +1,4 @@
-# Design: A Distributed Lock     :BLOG:Medium:
+# Design: A Distributed Lock     :Concept:
 
 
 ---

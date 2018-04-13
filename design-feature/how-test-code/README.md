@@ -1,4 +1,4 @@
-# Typical Question: How You Will Test Your Code?     :BLOG:Medium:
+# Typical Question: How You Will Test Your Code?     :Feature:
 
 
 ---

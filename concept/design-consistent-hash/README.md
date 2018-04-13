@@ -1,4 +1,4 @@
-# Typical Question: How Does Consistent Hashing Work?     :BLOG:Design:
+# Typical Question: How Does Consistent Hashing Work?     :Concept:
 
 
 ---

@@ -1,4 +1,4 @@
-* Design: What Are Your Experience With Session Design?         :BLOG:Medium:
+* Design: What Are Your Experience With Session Design?         :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:
