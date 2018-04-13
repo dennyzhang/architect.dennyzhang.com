@@ -1,4 +1,3 @@
--*- mode:org; fill-column:70; coding:utf-8; -*-
 * YouTube For System Design                                   :BLOG:Resource:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
