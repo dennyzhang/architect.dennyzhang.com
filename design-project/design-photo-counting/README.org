@@ -1,0 +1,15 @@
+* Design: A Photo Reference Counting System At Scale            :BLOG:Medium:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designservice
+:END:
+---------------------------------------------------------------------
+Design: A Photo Reference Counting System At Scale
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]]
+---------------------------------------------------------------------
+TODO
+** misc                                                            :noexport:
+https://mp.weixin.qq.com/s?__biz=MzA5MzE4MjgyMw==&mid=2649456374&idx=1&sn=ec726a160388e11b3a13992e34060e1d&chksm=887e10febf0999e86c38f1d51cc5a677a2c6b901c66c9a48741b2a2a76dfcc10b2f6d4671f24&mpshare=1&scene=1&srcid=0317upUj0h1DoUcAzh2m9zz7&key=7e3acfcaa22ffc5155be68ceb6546fde4eb7b1ca75877fffeaff461b819b6efb3bb393de50b4a2a0ad8ae630d87ca301f19ea54951ad74971899653e86c68517eff661ce019193e801b1ea7cade971df&ascene=0&uin=MTUyMzg3NjAwMA%3D%3D&devicetype=iMac+MacBookAir7%2C1+OSX+OSX+10.12.3+build(16D32)&version=12020010&nettype=WIFI&fontScale=100&pass_ticket=0AiIToHJN8yqpuqRAsA5PaaQMJr8KtvlnZ2EqkX0zx%2BEZweRvHKyF%2ByjmycpUbVn

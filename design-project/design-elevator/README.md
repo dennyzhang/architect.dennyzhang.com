@@ -1,14 +1,14 @@
-# Design: Explain Google FileSystem Service     :BLOG:Basic:
+# Design: An Elevator Service     :BLOG:Medium:
 
 
 ---
 
-Design: Explain Google FileSystem Service  
+Design an Elevator Service  
 
 ---
 
 Similar Posts:  
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designproject](https://brain.dennyzhang.com/tag/designproject)
+-   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice)
 
 ---
 

@@ -1,16 +1,16 @@
-# Typical Question: What If Your System Grow 10M Users?     :BLOG:Medium:
+# Design: Google Suggestion Service     :BLOG:Medium:
 
 
 ---
 
-How you make your design to be production ready?  
+Design: Google Suggestion Service  
 
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign)
+-   [Design Search Autocomplete System](https://brain.dennyzhang.com/design-search-autocomplete-system)
+-   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice), [#datastructure](https://brain.dennyzhang.com/tag/datastructure)
 
 ---
 
-TODO
+Related reading: [here](https://www.interviewbit.com/problems/design-search-typeahead/)
