@@ -1,0 +1,14 @@
+* Design: A URL Redirecting Feature                             :BLOG:Medium:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+Design: A URL Redirecting Feature
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-tiny-url][Design: A URL Shorterner Service]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]]
+---------------------------------------------------------------------
+TODO
