@@ -1,4 +1,4 @@
-* [#A] Design: Explain Google FileSystem Service                 :BLOG:Basic:
+* [#A] Design: Explain Google FileSystem Service                 :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

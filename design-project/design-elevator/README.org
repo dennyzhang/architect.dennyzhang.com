@@ -1,4 +1,4 @@
-* Design: An Elevator Service                                   :BLOG:Medium:
+* Design: An Elevator Service                                   :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

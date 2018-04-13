@@ -1,4 +1,4 @@
-* Design: A Key-Value Data Store                                :BLOG:Medium:
+* Design: A Key-Value Data Store                                :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

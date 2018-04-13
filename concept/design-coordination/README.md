@@ -12,8 +12,8 @@ So what are the common approaches for this? And what are the pros and cons?
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
 
 ---
 

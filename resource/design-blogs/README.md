@@ -10,9 +10,9 @@ Please leave me comments, if you have better recommendations!
 ---
 
 Similar Posts:  
--   [Books For System Design](https://brain.dennyzhang.com/design-books)
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#designresource](https://brain.dennyzhang.com/tag/designresource), [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign)
+-   [Books For System Design](https://code.dennyzhang.com/design-books)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
+-   Tag: [#designresource](https://code.dennyzhang.com/tag/designresource), [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
 
 ---
 
@@ -21,4 +21,4 @@ Similar Posts:
 -   Blog: [<http://blog.gainlo.co>](http://blog.gainlo.co/index.php/category/system-design-interview-questions/)
 -   Blog: [Grokking the System Design Interview](https://www.educative.io/collection/5668639101419520/5649050225344512)
 -   Blog: [<http://highscalability.com>](http://highscalability.com)
--   [#oodesign](https://brain.dennyzhang.com/tag/oodesign): OO design questions in this blog
+-   [#oodesign](https://code.dennyzhang.com/tag/oodesign): OO design questions in this blog

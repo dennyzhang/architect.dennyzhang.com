@@ -8,7 +8,7 @@ Design an API Rate Limiter
 ---
 
 Similar Posts:  
--   Tag: [#designfeature](https://brain.dennyzhang.com/tag/designfeature)
+-   Tag: [#designfeature](https://code.dennyzhang.com/tag/designfeature)
 
 ---
 

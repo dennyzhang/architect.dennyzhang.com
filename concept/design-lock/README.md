@@ -8,8 +8,8 @@ Design: A Distributed lock
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice), [#datastructure](https://brain.dennyzhang.com/tag/datastructure)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice), [#datastructure](https://code.dennyzhang.com/tag/datastructure)
 
 ---
 

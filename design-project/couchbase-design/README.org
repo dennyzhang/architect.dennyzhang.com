@@ -1,4 +1,4 @@
-* [#A] Deep Dive Into Couchbase System Design                   :BLOG:Medium:
+* [#A] Deep Dive Into Couchbase System Design                   :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

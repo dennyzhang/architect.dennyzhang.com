@@ -8,8 +8,8 @@ How you make your design to be production ready?
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
 
 ---
 

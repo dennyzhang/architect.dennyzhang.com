@@ -8,8 +8,8 @@ Design: How Does DNS Work?
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
 
 ---
 
@@ -26,7 +26,7 @@ CNAME and A records are the most frequent ones we will manage.
 People can use names instead of ip addresses to find our websites in an easier way.  
 e.g:  
 
-    brain.dennyzhang.com.  CNAME   dennyzhang.com
+    code.dennyzhang.com.  CNAME   dennyzhang.com
     www.dennyzhang.com.    CNAME   dennyzhang.com
     dennyzhang.com.        A       54.156.174.148
 

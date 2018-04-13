@@ -1,4 +1,4 @@
-# Design: A Key-Value Data Store     :BLOG:Medium:
+# Design: A Key-Value Data Store     :Project:
 
 
 ---
@@ -8,7 +8,7 @@ Design: A Key-Value Data Store
 ---
 
 Similar Posts:  
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designproject](https://brain.dennyzhang.com/tag/designproject)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designproject](https://code.dennyzhang.com/tag/designproject)
 
 ---
 

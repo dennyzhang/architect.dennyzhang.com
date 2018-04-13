@@ -8,15 +8,15 @@ Design A URL Shorterner Service
 ---
 
 Similar Posts:  
--   [Encode and Decode TinyURL](https://brain.dennyzhang.com/encode-and-decode-tinyurl)
--   [A URL Redirecting Feature](https://brain.dennyzhang.com/design-url-redirect)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice)
+-   [Encode and Decode TinyURL](https://code.dennyzhang.com/encode-and-decode-tinyurl)
+-   [A URL Redirecting Feature](https://code.dennyzhang.com/design-url-redirect)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice)
 
 ---
 
 TinyURL service provides short aliases for redirection of long URLs. Thus people can type or share easily.  
 
-e.g, from <https://brain.dennyzhang.com/design-tiny-url> to [<https://goo.gl/ojcPMV>](https://goo.gl/ojcPMV).  
+e.g, from <https://code.dennyzhang.com/design-tiny-url> to [<https://goo.gl/ojcPMV>](https://goo.gl/ojcPMV).  
 
 There are many similar services like [Google URL Shortener](https://goo.gl/), [Bitly](https://bitly.com/) etc.  
 
@@ -42,7 +42,7 @@ Hints:
     - Make sure the API(s) you have designed are restful
     - How to support API breaking changes
 
-Related Reading: [Common Mistakes In REST API Design](https://brain.dennyzhang.com/design-rest-api)  
+Related Reading: [Common Mistakes In REST API Design](https://code.dennyzhang.com/design-rest-api)  
 
 -   **Create a new TinyURL**
 
@@ -97,11 +97,11 @@ With the length of 6, it can support ~56.8 million URLs. (pow(62, 6) = 56,800,23
 
 new\_url = f(old\_url). f can be md5 or base64  
 
-    denny@dennyzhang.com:/opt# echo "https://brain.dennyzhang.com/design-tiny-url" | md5
+    denny@dennyzhang.com:/opt# echo "https://code.dennyzhang.com/design-tiny-url" | md5
     dcf31c911b752c668f466e40b337e5f2
     YWJjCg==
     
-    denny@dennyzhang.com:/opt# echo "https://brain.dennyzhang.com/design-tiny-url" | base64
+    denny@dennyzhang.com:/opt# echo "https://code.dennyzhang.com/design-tiny-url" | base64
     echo "abc" | md5
     aHR0cHM6Ly9icmFpbi5kZW5ueXpoYW5nLmNvbS9kZXNpZ24tdGlueS11cmwK
 
@@ -130,7 +130,7 @@ Q: What db schema you will use?
 <tbody>
 <tr>
 <td class="right">1</td>
-<td class="left"><https://brain.dennyzhang.com/>&#x2026;</td>
+<td class="left"><https://code.dennyzhang.com/>&#x2026;</td>
 <td class="left"><https://mytinyurl.com/ojcPMV>&#x2026;</td>
 </tr>
 

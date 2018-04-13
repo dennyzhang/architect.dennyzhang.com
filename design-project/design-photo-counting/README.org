@@ -1,4 +1,4 @@
-* Design: A Photo Reference Counting System At Scale            :BLOG:Medium:
+* Design: A Photo Reference Counting System At Scale            :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

@@ -1,4 +1,4 @@
-# Design: A Photo Reference Counting System At Scale     :BLOG:Medium:
+# Design: A Photo Reference Counting System At Scale     :Project:
 
 
 ---
@@ -8,7 +8,7 @@ Design: A Photo Reference Counting System At Scale
 ---
 
 Similar Posts:  
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice)
 
 ---
 

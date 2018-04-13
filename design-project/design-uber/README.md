@@ -1,4 +1,4 @@
-# Design: Uber Backend     :BLOG:Medium:
+# Design: Uber Backend     :Project:
 
 
 ---
@@ -8,7 +8,7 @@ Design uber backend - define use cases, scope on your own, come up with various 
 ---
 
 Similar Posts:  
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice)
 
 ---
 

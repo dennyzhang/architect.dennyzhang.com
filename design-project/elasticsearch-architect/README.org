@@ -1,4 +1,4 @@
-* [#A] Deep Dive Into Elasticsearch System Design               :BLOG:Medium:
+* [#A] Deep Dive Into Elasticsearch System Design               :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

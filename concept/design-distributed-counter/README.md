@@ -8,8 +8,8 @@ Design: A Distributed Counter
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice), [#datastructure](https://brain.dennyzhang.com/tag/datastructure)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice), [#datastructure](https://code.dennyzhang.com/tag/datastructure)
 
 ---
 
@@ -49,7 +49,7 @@ TODO
 
 Q: What about using vector clocks to accept distributed writes, then merge them?  
 
-[Explain: Vector Clocks/Version Vectors](https://brain.dennyzhang.com/vector-clocks)  
+[Explain: Vector Clocks/Version Vectors](https://code.dennyzhang.com/vector-clocks)  
 
 TODO  
 
@@ -64,7 +64,7 @@ A: Use Redis INCR command. The counter pattern is the most obvious thing you can
 ---
 
 Related Readings:  
--   [Concepts For System Design](https://brain.dennyzhang.com/design-concept)
+-   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
 -   [Distributed Counters in Cassandra](http://www.datastax.com/wp-content/uploads/2011/07/cassandra_sf_counters.pdf)
 -   [JGroups CounterService](https://github.com/belaban/JGroups/blob/master/doc/design/CounterService.txt)
 -   [Highly Available Counters Using Cassandra](http://rockthecode.io/blog/highly-available-counters-using-cassandra/)

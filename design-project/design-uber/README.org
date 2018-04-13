@@ -1,4 +1,4 @@
-* Design: Uber Backend                                          :BLOG:Medium:
+* Design: Uber Backend                                          :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 :PROPERTIES:

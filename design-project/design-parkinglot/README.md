@@ -1,4 +1,4 @@
-# Design: A Parking Lot Service     :BLOG:Medium:
+# Design: A Parking Lot Service     :Project:
 
 
 ---
@@ -8,7 +8,7 @@ Design  A Parking Lot Service
 ---
 
 Similar Posts:  
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice)
+-   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice)
 
 ---
 
