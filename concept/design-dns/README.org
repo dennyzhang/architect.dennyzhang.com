@@ -1,0 +1,214 @@
+* Design: How Does DNS Work?                                    :BLOG:Design:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Design: How Does DNS Work?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+Useful Websites to check DNS: [[url-external:http://dnscheck.pingdom.com/][http://dnscheck.pingdom.com/]]
+---------------------------------------------------------------------
+Q: What are CNAME and A records?
+- A record: points a name to specific public ip(s).
+- CNAME(Canonical Name) record: points to another name, instead of ip.
+
+CNAME and A records are the most frequent ones we will manage.
+
+People can use names instead of ip addresses to find our websites in an easier way.
+e.g:
+#+BEGIN_EXAMPLE
+brain.dennyzhang.com.  CNAME   dennyzhang.com
+www.dennyzhang.com.    CNAME   dennyzhang.com
+dennyzhang.com.        A       54.156.174.148
+#+END_EXAMPLE
+
+See more in [[url-external:https://en.wikipedia.org/wiki/CNAME_record][wikipedia]]
+---------------------------------------------------------------------
+Q: What is NS record and SOA?
+
+*You must use your own primary nameservers to manage your DNS records*.
+
+SOA(*Start of Authority record*): Every domain must have a Start of Authority record at the cutover point where the domain is delegated from its parent domain. (See [[url-external:https://support.dnsimple.com/articles/soa-record/][more]])
+
+#+BEGIN_EXAMPLE
+Denny-mac:denny mac$ dig dennyzhang.com NS
+
+; <<>> DiG 9.8.3-P1 <<>> dennyzhang.com NS
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54520
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;dennyzhang.com.			IN	NS
+
+;; ANSWER SECTION:
+dennyzhang.com.		3599	IN	NS	ns30.domaincontrol.com.
+dennyzhang.com.		3599	IN	NS	ns29.domaincontrol.com.
+
+;; Query time: 128 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Fri Mar  2 14:41:45 2018
+;; MSG SIZE  rcvd: 84
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: [[color:#c7254e][Explain the workflow of domain transfer.]]
+How to switch authorized server? Nameserver.
+
+SOA and NS?
+---------------------------------------------------------------------
+Q: What is TXT record?
+
+e.g:
+[[image-blog:Design: How Does DNS Work][https://raw.githubusercontent.com/DennyZhang/images/master/design/dns_sample.png]]
+
+#+BEGIN_EXAMPLE
+dig dennyzhang.com NS
+dig dennyzhang.com MX
+dig dennyzhang.com SOA
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: What is MX record?
+
+wikipedia: [[url-external:https://en.wikipedia.org/wiki/List_of_DNS_record_types][List of DNS record types]]
+---------------------------------------------------------------------
+Q: AWS Route53 Routing policy
+
+[[image-blog:Design: How Does DNS Work][https://raw.githubusercontent.com/DennyZhang/images/master/design/aws_route53_routing_policy.png]]
+---------------------------------------------------------------------
+Q: [[color:#c7254e][Diversity of different DNS services]].
+
+Route 53 DNS vs GoDaddy?
+---------------------------------------------------------------------
+Q: How does DDoS attack work with Cloudflare DNS protection?
+
+TODO
+** misc                                                            :noexport:
+*** DONE How we know whether a DNS is CNAME or A entry: dig $dns_name
+    CLOSED: [2018-03-05 Mon 16:57]
+
+*** DONE get all ip for a dns name: dig $dns_name
+  CLOSED: [2018-03-05 Mon 13:17]
+Denny-mac:mdmdevops.wiki mac$ dig amazon-smtp.amazon.com 
+
+; <<>> DiG 9.8.3-P1 <<>> amazon-smtp.amazon.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22822
+;; flags: qr rd ra; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;amazon-smtp.amazon.com.		IN	A
+
+;; ANSWER SECTION:
+amazon-smtp.amazon.com.	52	IN	A	207.171.188.9
+amazon-smtp.amazon.com.	52	IN	A	207.171.188.182
+amazon-smtp.amazon.com.	52	IN	A	52.119.213.148
+amazon-smtp.amazon.com.	52	IN	A	52.94.124.5
+amazon-smtp.amazon.com.	52	IN	A	207.171.188.200
+amazon-smtp.amazon.com.	52	IN	A	207.171.188.202
+
+;; Query time: 40 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Mon Mar  5 13:17:00 2018
+;; MSG SIZE  rcvd: 136
+
+*** DONE [#A] dig resolve DNS for a given nameserver: dig @8.8.8.8 education.carol.ai
+  CLOSED: [2018-03-05 Mon 13:27]
+
+dig @ns4.eurodns.com education.carol.ai
+
+#+BEGIN_EXAMPLE
+➜  ~ dig @ns4.eurodns.com education.carol.ai
+
+; <<>> DiG 9.8.3-P1 <<>> @ns4.eurodns.com education.carol.ai
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52058
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+;; WARNING: recursion requested but not available
+
+;; QUESTION SECTION:
+;education.carol.ai.		IN	A
+
+;; ANSWER SECTION:
+education.carol.ai.	600	IN	CNAME	825610.parkingcrew.net.
+
+;; Query time: 21 msec
+;; SERVER: 2001:502:4612::8d#53(2001:502:4612::8d)
+;; WHEN: Mon Mar  5 13:29:17 2018
+;; MSG SIZE  rcvd: 72
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+➜  ~ dig @8.8.8.8 education.carol.ai
+
+; <<>> DiG 9.8.3-P1 <<>> @8.8.8.8 education.carol.ai
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 40962
+;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;education.carol.ai.		IN	A
+
+;; ANSWER SECTION:
+education.carol.ai.	261	IN	CNAME	app.carol.ai.
+app.carol.ai.		261	IN	A	159.89.150.186
+app.carol.ai.		261	IN	A	159.89.150.185
+
+;; Query time: 32 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Mon Mar  5 13:26:32 2018
+;; MSG SIZE  rcvd: 86
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+➜  ~ dig +trace education.carol.ai
+
+; <<>> DiG 9.8.3-P1 <<>> +trace education.carol.ai
+;; global options: +cmd
+.			240013	IN	NS	d.root-servers.net.
+.			240013	IN	NS	m.root-servers.net.
+.			240013	IN	NS	h.root-servers.net.
+.			240013	IN	NS	l.root-servers.net.
+.			240013	IN	NS	i.root-servers.net.
+.			240013	IN	NS	g.root-servers.net.
+.			240013	IN	NS	a.root-servers.net.
+.			240013	IN	NS	f.root-servers.net.
+.			240013	IN	NS	c.root-servers.net.
+.			240013	IN	NS	j.root-servers.net.
+.			240013	IN	NS	k.root-servers.net.
+.			240013	IN	NS	b.root-servers.net.
+.			240013	IN	NS	e.root-servers.net.
+;; Received 228 bytes from 8.8.8.8#53(8.8.8.8) in 80 ms
+
+ai.			172800	IN	NS	ns.cocca.fr.
+ai.			172800	IN	NS	ns1.pair.com.
+ai.			172800	IN	NS	pch.whois.ai.
+ai.			172800	IN	NS	whois.ai.
+ai.			172800	IN	NS	ns2.offshore.ai.
+;; Received 288 bytes from 199.7.91.13#53(199.7.91.13) in 50 ms
+
+carol.ai.		86400	IN	NS	ns-374.awsdns-46.com.
+carol.ai.		86400	IN	NS	ns-1629.awsdns-11.co.uk.
+carol.ai.		86400	IN	NS	ns-550.awsdns-04.net.
+carol.ai.		86400	IN	NS	ns-1292.awsdns-33.org.
+;; Received 176 bytes from 108.166.113.245#53(108.166.113.245) in 1184 ms
+
+education.carol.ai.	300	IN	CNAME	app.carol.ai.
+app.carol.ai.		300	IN	A	159.89.150.186
+app.carol.ai.		300	IN	A	159.89.150.185
+carol.ai.		300	IN	NS	ns-1292.awsdns-33.org.
+carol.ai.		300	IN	NS	ns-1629.awsdns-11.co.uk.
+carol.ai.		300	IN	NS	ns-374.awsdns-46.com.
+carol.ai.		300	IN	NS	ns-550.awsdns-04.net.
+;; Received 226 bytes from 2600:9000:5305:c00::1#53(2600:9000:5305:c00::1) in 23 ms
+#+END_EXAMPLE

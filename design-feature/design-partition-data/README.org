@@ -1,0 +1,49 @@
+* Design: How To Partition Data At Scale                        :BLOG:Design:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Let's design a sharding scheme for key-value storage.
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+[[image-blog:Design: How To Partition Data At Scale][https://raw.githubusercontent.com/DennyZhang/challenges-leetcode-interesting/master/images/design/partition_data.png]]
+
+[[color:#c7254e][Question1: Clarity the requirements from your experience/viewpoints.]]
+
+You can discuss with the interviewer to sort out all vague parts. Or make reasonable assumptions by your own.
+
+Thinkings:
+- How much data it should support?
+#+BEGIN_EXAMPLE
+A key question for the whole discussion.
+#+END_EXAMPLE
+- What the read/write OPS would be? 
+#+BEGIN_EXAMPLE
+Better understand the characteristic of service
+Thus we can have better estimation for RAM/CPU/Disk usage
+#+END_EXAMPLE
+- Do we need to keep very old data? 
+#+BEGIN_EXAMPLE
+Data retention. If yes, we usually can have some assumption for the maximum size of the whole data.
+#+END_EXAMPLE
+- How large the hot data would be? 
+#+BEGIN_EXAMPLE
+Resource planning for RAM
+#+END_EXAMPLE
+---------------------------------------------------------------------
+[[color:#c7254e][Question2: What typical ways of partitioning data?]]
+
+Thinkings:
+- Consistent hash
+- In RDMBS, B-tree/segment tree
+---------------------------------------------------------------------
+[[color:#c7254e][Question3: Propose your architecture diagram.]]
+---------------------------------------------------------------------
+[[color:#c7254e][Question4: Suppose one node is down, how the partition would keep working?]]
+---------------------------------------------------------------------
+Credits To: [[url-external:https://www.interviewbit.com/problems/sharding-a-database/][interviewbit.com]]
