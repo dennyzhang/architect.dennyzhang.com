@@ -1,9 +1,9 @@
-# Design: Poll vs Push     :BLOG:Design:
+# Typical Question: What If Your System Grow 10M Users?     :BLOG:Medium:
 
 
 ---
 
-Long-Polling, WebSockets, Server-Sent Events, Queue-based subscription.  
+How you make your design to be production ready?  
 
 ---
 
@@ -13,4 +13,4 @@ Similar Posts:
 
 ---
 
-TODO:
+TODO

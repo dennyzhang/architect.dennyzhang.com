@@ -1,0 +1,20 @@
+* [#A] Design: How Does Caching Work                            :BLOG:Design:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Caching design
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+TODO
+
+Cache validation
+---------------------------------------------------------------------
+** misc                                                            :noexport:
+- [[url-external:https://www.educative.io/collection/page/5668639101419520/5649050225344512/5643440998055936][Caching]]
+

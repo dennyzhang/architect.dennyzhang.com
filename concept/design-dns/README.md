@@ -1,9 +1,9 @@
-# Typical Question: How Does Consistent Hashing Work?     :BLOG:Design:
+# Design: How Does DNS Work?     :BLOG:Design:
 
 
 ---
 
-Design: How Does Consistent Hashing Work?  
+Design: How Does DNS Work?  
 
 ---
 
@@ -13,55 +13,91 @@ Similar Posts:
 
 ---
 
-Q: What consistent hashing for?  
-Setting up the initial shards for a new service is relatively straightforward: you set up the appropriate shards and the roots to perform the sharding, and you are off to the races. However, what happens when you need to change the number of shards in your sharded service? Such "re-sharding" is often a complicated process.  
-
-**Consistent hashing** allows distribution of data across a cluster to minimize reorganization **when nodes are added or removed**.  
-
-![img](//raw.githubusercontent.com/DennyZhang/images/master/design/consistent_hashing.png)  
-
-Two Principles For Paritioning Data:  
-1.  **Determinism**. The output should always be the same for a unique input.
-2.  **Uniformity**. The distribution of outputs across the output space should be equal.
+Useful Websites to check DNS: [<http://dnscheck.pingdom.com/>](http://dnscheck.pingdom.com/)  
 
 ---
 
-Q: What are the old ways before consistent hashing?  
--   Use mod function to partition data.
+Q: What are CNAME and A records?  
+-   A record: points a name to specific public ip(s).
+-   CNAME(Canonical Name) record: points to another name, instead of ip.
 
-When we add a new node to the cluster, we need to shuffle the whole data set. Very very time consuming. When we want to remove one node to scale in, we need to change everything again.  
+CNAME and A records are the most frequent ones we will manage.  
 
--   Use hash tables as metadata routing.
+People can use names instead of ip addresses to find our websites in an easier way.  
+e.g:  
 
-The data can't be easily balanced across nodes.  
+    brain.dennyzhang.com.  CNAME   dennyzhang.com
+    www.dennyzhang.com.    CNAME   dennyzhang.com
+    dennyzhang.com.        A       54.156.174.148
 
----
-
-Q: Examples of consistent hashing usage.  
--   Distributed caches
--   Load balancing with consistent hashing algorithm.
--   Couchbase automated data partitioning
--   OpenStack swift
--   Amazon Dynamo
--   Apache Cassandra
--   Etc
+See more in [wikipedia](https://en.wikipedia.org/wiki/CNAME_record)  
 
 ---
 
-Q: Please explain the workflow when a node is down.  
+Q: What is NS record and SOA?  
 
-    If a bucket becomes unavailable (for example because the computer it resides on is not reachable), then the points it maps to will be removed. Requests for resources that would have mapped to each of those points now map to the next highest points. Since each bucket is associated with many pseudo-randomly distributed points, the resources that were held by that bucket will now map to many different buckets. The items that mapped to the lost bucket must be redistributed among the remaining ones, but values mapping to other buckets will still do so and do not need to be moved.
+**You must use your own primary nameservers to manage your DNS records**.  
+
+SOA(**Start of Authority record**): Every domain must have a Start of Authority record at the cutover point where the domain is delegated from its parent domain. (See [more](https://support.dnsimple.com/articles/soa-record/))  
+
+    Denny-mac:denny mac$ dig dennyzhang.com NS
+    
+    ; <<>> DiG 9.8.3-P1 <<>> dennyzhang.com NS
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54520
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 0
+    
+    ;; QUESTION SECTION:
+    ;dennyzhang.com.                        IN      NS
+    
+    ;; ANSWER SECTION:
+    dennyzhang.com.         3599    IN      NS      ns30.domaincontrol.com.
+    dennyzhang.com.         3599    IN      NS      ns29.domaincontrol.com.
+    
+    ;; Query time: 128 msec
+    ;; SERVER: 8.8.8.8#53(8.8.8.8)
+    ;; WHEN: Fri Mar  2 14:41:45 2018
+    ;; MSG SIZE  rcvd: 84
 
 ---
 
-Q: Please explain the workflow, when the failed node has come.  
+Q: Explain the workflow of domain transfer.  
+How to switch authorized server? Nameserver.  
+
+SOA and NS?  
 
 ---
 
-Q: Consistent hashing itself doesn't provide HA. How you can provide HA?  
+Q: What is TXT record?  
+
+e.g:  
+![img](//raw.githubusercontent.com/DennyZhang/images/master/design/dns_sample.png)  
+
+    dig dennyzhang.com NS
+    dig dennyzhang.com MX
+    dig dennyzhang.com SOA
 
 ---
 
-Related Reading:  
--   [wikipedia](https://en.wikipedia.org/wiki/Consistent_hashing)
--   [Consistent hashing by Cassandra](https://docs.datastax.com/en/cassandra/2.1/cassandra/architecture/architectureDataDistributeHashing_c.html)
+Q: What is MX record?  
+
+wikipedia: [List of DNS record types](https://en.wikipedia.org/wiki/List_of_DNS_record_types)  
+
+---
+
+Q: AWS Route53 Routing policy  
+
+![img](//raw.githubusercontent.com/DennyZhang/images/master/design/aws_route53_routing_policy.png)  
+
+---
+
+Q: Diversity of different DNS services.  
+
+Route 53 DNS vs GoDaddy?  
+
+---
+
+Q: How does DDoS attack work with Cloudflare DNS protection?  
+
+TODO

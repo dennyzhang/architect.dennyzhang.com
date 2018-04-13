@@ -1,9 +1,9 @@
-# Typical Question: How Does Consistent Hashing Work?     :BLOG:Design:
+# Design: How Does LoadBalancer Work?     :BLOG:Design:
 
 
 ---
 
-Design: How Does Consistent Hashing Work?  
+Design: How Does LoadBalancer Work?  
 
 ---
 
@@ -13,55 +13,42 @@ Similar Posts:
 
 ---
 
-Q: What consistent hashing for?  
-Setting up the initial shards for a new service is relatively straightforward: you set up the appropriate shards and the roots to perform the sharding, and you are off to the races. However, what happens when you need to change the number of shards in your sharded service? Such "re-sharding" is often a complicated process.  
+Q: How LoadBalancer route requests  
 
-**Consistent hashing** allows distribution of data across a cluster to minimize reorganization **when nodes are added or removed**.  
+Generally speaking, load balancers fall into three categories:  
 
-![img](//raw.githubusercontent.com/DennyZhang/images/master/design/consistent_hashing.png)  
+-   DNS Round Robin (rarely used): clients get a randomly-ordered list of IP addresses.
 
-Two Principles For Paritioning Data:  
-1.  **Determinism**. The output should always be the same for a unique input.
-2.  **Uniformity**. The distribution of outputs across the output space should be equal.
+    pros: easy to implement and free; 
+    cons: hard to control and not responsive, since DNS cache needs time to expire
 
----
+-   L3/L4 Load Balancer: traffic is routed by IP address and port. L3 is network layer (IP). L4 is session layer (TCP).
+-   L7 Load Balancer: traffic is routed by what is inside the HTTP protocol. L7 is application layer (HTTP).
 
-Q: What are the old ways before consistent hashing?  
--   Use mod function to partition data.
+Credits to: [link](http://www.puncsky.com/blog/2016/02/14/crack-the-system-design-interview/)  
 
-When we add a new node to the cluster, we need to shuffle the whole data set. Very very time consuming. When we want to remove one node to scale in, we need to change everything again.  
+Typical algorithms:  
 
--   Use hash tables as metadata routing.
+    - round robin, weighted round robin
+    - least loaded, least loaded with slow start
+    - utilization limit
+    - latency, cascade, etc
 
-The data can't be easily balanced across nodes.  
+Commonly used algorithms for HAProxy:  
 
----
+-   **roundrobin**: Round Robin selects servers in turns. This is the default algorithm.
+-   **leastconn**: Selects the server with the least number of connections&#x2013;it is recommended for longer sessions. Servers in the same backend are also rotated in a round-robin fashion.
+-   **source**: This selects which server to use based on a hash of the source IP i.e. your user's IP address. This is one method to ensure that a user will connect to the same server.
 
-Q: Examples of consistent hashing usage.  
--   Distributed caches
--   Load balancing with consistent hashing algorithm.
--   Couchbase automated data partitioning
--   OpenStack swift
--   Amazon Dynamo
--   Apache Cassandra
--   Etc
+See more: [link](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts#load-balancing-algorithms)  
 
 ---
 
-Q: Please explain the workflow when a node is down.  
+Q: What are sticky sessions?  
 
-    If a bucket becomes unavailable (for example because the computer it resides on is not reachable), then the points it maps to will be removed. Requests for resources that would have mapped to each of those points now map to the next highest points. Since each bucket is associated with many pseudo-randomly distributed points, the resources that were held by that bucket will now map to many different buckets. The items that mapped to the lost bucket must be redistributed among the remaining ones, but values mapping to other buckets will still do so and do not need to be moved.
-
----
-
-Q: Please explain the workflow, when the failed node has come.  
+Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the appsession parameter in the backend that requires it.  
 
 ---
 
-Q: Consistent hashing itself doesn't provide HA. How you can provide HA?  
-
----
-
-Related Reading:  
--   [wikipedia](https://en.wikipedia.org/wiki/Consistent_hashing)
--   [Consistent hashing by Cassandra](https://docs.datastax.com/en/cassandra/2.1/cassandra/architecture/architectureDataDistributeHashing_c.html)
+how the Readiness Probe is done for backend services?  
+Often, session tracking is accomplished via a consistent hashing function.

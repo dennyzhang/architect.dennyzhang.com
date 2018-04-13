@@ -1,9 +1,9 @@
-# Design: Poll vs Push     :BLOG:Design:
+# Design: How Does Caching Work     :BLOG:Design:
 
 
 ---
 
-Long-Polling, WebSockets, Server-Sent Events, Queue-based subscription.  
+Caching design  
 
 ---
 
@@ -13,4 +13,8 @@ Similar Posts:
 
 ---
 
-TODO:
+TODO  
+
+Cache validation  
+
+---

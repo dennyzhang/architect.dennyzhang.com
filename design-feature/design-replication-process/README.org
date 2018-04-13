@@ -1,0 +1,15 @@
+* [#A] Design Replication Process For Huge File Changes         :BLOG:Design:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Design a replication process. Sync changes to other nodes
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+** misc                                                            :noexport:
+https://named-data.net/wp-content/uploads/TRFileSync.pdf

@@ -1,9 +1,9 @@
-# Design: Poll vs Push     :BLOG:Design:
+# Design Replication Process For Huge File Changes     :BLOG:Design:
 
 
 ---
 
-Long-Polling, WebSockets, Server-Sent Events, Queue-based subscription.  
+Design a replication process. Sync changes to other nodes  
 
 ---
 
@@ -12,5 +12,3 @@ Similar Posts:
 -   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign)
 
 ---
-
-TODO:

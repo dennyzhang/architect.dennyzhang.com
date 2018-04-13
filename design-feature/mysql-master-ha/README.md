@@ -1,9 +1,9 @@
-# Design: Poll vs Push     :BLOG:Design:
+# Explain: What Problems Of MySQL Master HA Are?     :BLOG:Medium:
 
 
 ---
 
-Long-Polling, WebSockets, Server-Sent Events, Queue-based subscription.  
+What Problems We Might Run Into With MySQL Master HA?  
 
 ---
 
@@ -13,4 +13,4 @@ Similar Posts:
 
 ---
 
-TODO:
+sync conflicts for primary key

@@ -1,0 +1,16 @@
+* Explain: What Problems Of MySQL Master HA Are?                :BLOG:Medium:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+What Problems We Might Run Into With MySQL Master HA?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+sync conflicts for primary key
+** misc                                                            :noexport:
+https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651960253&idx=1&sn=cce01d9d305024b5cc7e1e7149507ae9&chksm=bd2d06618a5a8f77db3731e8687f9a116c0c3113a4b9a8574149530610dc95fbcf7e4ab92ae5&scene=21#wechat_redirect
