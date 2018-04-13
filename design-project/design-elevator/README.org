@@ -1,0 +1,13 @@
+* Design: An Elevator Service                                   :BLOG:Medium:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designservice
+:END:
+---------------------------------------------------------------------
+Design an Elevator Service
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]]
+---------------------------------------------------------------------
+TODO
