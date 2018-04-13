@@ -1,0 +1,58 @@
+* Explain: Vector Clocks/Version Vectors                         :BLOG:Basic:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designservice
+:END:
+---------------------------------------------------------------------
+Explain: What vector clocks/version vectors are
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+Vector clocks is an algorithm for generating a partial ordering of events in a distributed system and *detecting causality violations*. [[url-external:https://en.wikipedia.org/wiki/Vector_clock][See in wikipedia]]
+
+[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/DennyZhang/images/master/design/vector-clock.png]]
+
+- Vector clocks/version vectors are about detecting conflicting/updates ...
+- ... but says nothing about how to resolve those conflicts.
+
+Many NoSQL DB choose vector clock to control the ordering of multi-version records.
+---------------------------------------------------------------------
+Q: Why we can't use machines' timestamp to version changes in distributed system?
+
+A: Using the physical timestamp of a record is no good because you can't guarantee that time will move forward in a uniform manner across all nodes in the cluster.
+
+It means a 'later' record might have an earlier timestamp than some record produced before it.
+---------------------------------------------------------------------
+Q: What is Lamport Clock?
+
+A: Lamport Clock can be considered as a logical timestamp. A Lamport Clock is a single integer value that is passed around the cluster with every message sent between nodes. 
+
+Each node keeps a record of what it thinks the latest (i.e. highest) Lamport Clock value is, and if it hears a larger value from some other node, it updates its own value.
+
+[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/DennyZhang/images/master/design/lamport-sample.jpg]]
+---------------------------------------------------------------------
+Q: What are the difference in between of Lamport Clock and Vector Clock?
+
+last-write-win issue.
+
+TODO:
+---------------------------------------------------------------------
+Q: Problems with vector clocks?
+
+[[url-external:https://www.datastax.com/dev/blog/why-cassandra-doesnt-need-vector-clocks][Why Cassandra doesn't need vector clocks]]
+
+Cassandra breaks a row up into columns that can be updated independently.
+---------------------------------------------------------------------
+
+Related Readings:
+- [[url-external:https://goo.gl/Nx77nZ][Why do distributed databases choose the Vector Clock...]]
+** misc                                                            :noexport:
+https://www.cnblogs.com/bangerlee/p/5448766.html
+
+通过Lamport timestamps可以建立事件的全序关系，通过Vector clock可以比较任意两个事件的顺序关系并且能表示无因果关系的事件，将Vector clock的方法用于发现数据版本冲突，于是有了Version vector。
+
+https://www.cnblogs.com/foxmailed/archive/2012/01/11/2319854.html
+https://www.zhihu.com/question/19994133

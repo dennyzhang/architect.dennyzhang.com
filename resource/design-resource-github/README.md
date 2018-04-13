@@ -1,5 +1,3 @@
--\*- mode:org; fill-column:70; coding:utf-8; -\*-  
-
 # GitHub For System Design     :BLOG:Resource:
 
 

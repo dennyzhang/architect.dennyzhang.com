@@ -1,0 +1,100 @@
+* [#A] Explain Paxos Algorithm                                   :BLOG:Design:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Explain Paxos Algorithm
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+Q: What problem(s) Paxos algorithm solves?
+TODO
+---------------------------------------------------------------------
+Q: What is Byzantine problem?
+TODO
+---------------------------------------------------------------------
+Q: Explain key concepts in distributed system.
+#+BEGIN_EXAMPLE
+- leader
+- quorum
+- lease
+- split-brain
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: What are 2PC? What the workflow of 2PC looks like?
+
+2PC: two phase commit. 2PC is one *atomic commitment protocol(ACP)*.
+The protocol achieves its goal even in many cases of temporary system failure.
+
+Assumptions of 2PC:
+#+BEGIN_EXAMPLE
+- 1. There is stable storage at each node with a write-ahead log
+- 2. No node crashes forever
+- 3. The data in the write-ahead log is never lost or corrupted
+- 4. That any two nodes can communicate with each other
+#+END_EXAMPLE
+
+Basic algorithm:
+- 1. Voting Phase
+  If any cohort votes No, the coordinator sends a rollback message to all the cohorts.
+- 2. Commit Phase
+  The coordinator completes the transaction when all acknowledgments have been received.
+
+#+BEGIN_EXAMPLE
+Coordinator                              Cohort
+                   QUERY TO COMMIT
+                --------------------->
+                   VOTE YES/NO           prepare*/abort*
+                <--------------------
+commit*/abort*     COMMIT/ROLLBACK
+                --------------------->
+                   ACKNOWLEDGMENT        commit*/abort*
+                <---------------------  
+end
+#+END_EXAMPLE
+See more in [[url-external:https://en.wikipedia.org/wiki/Two-phase_commit_protocol][wikipedia]]
+---------------------------------------------------------------------
+Q: What are the problems with 2PC?
+
+1. It is a blocking protocol.
+- If the coordinator fails permanently, some cohorts will never resolve their transactions
+---------------------------------------------------------------------
+Q: What are 3PC protocol?
+
+Motivation of 3PC: 2PC cannot dependably recover from a failure of both the coordinator and a cohort member during the Commit phase.
+
+#+BEGIN_EXAMPLE
+If only the coordinator had failed, and no cohort members had received a commit message, it could safely be inferred that no commit had happened. If, however, both the coordinator and a cohort member failed, it is possible that the failed cohort member was the first to be notified, and had actually done the commit. Even if a new coordinator is selected, it cannot confidently proceed with the operation until it has received an agreement from all cohort members, and hence must block until all cohort members respond.
+#+END_EXAMPLE
+
+3PC(three phase commit): compared to 2PC, it add one extra step. [[color:#c7254e][prepare to commit]].
+
+[[image-blog:Explain Paxos Algorithm][https://raw.githubusercontent.com/DennyZhang/images/master/design/paxos-3pc.png]]
+
+See more in [[url-external:https://en.wikipedia.org/wiki/Three-phase_commit_protocol][wikipedia]]
+---------------------------------------------------------------------
+Q: How 3PC can be helpful for my system design?
+TODO
+
+---------------------------------------------------------------------
+Q: Explain some common improvements of paxos algorithm?
+TODO
+
+---------------------------------------------------------------------
+Q: Difference between Raft and Paxos algorithm?
+
+Raft is a consensus algorithm designed as an alternative to Paxos. It was meant to be more understandable than Paxos by means of separation of logic, but it is also formally proven safe and offers some additional features.
+
+TODO
+
+(See Raft in [[url-external:https://en.wikipedia.org/wiki/Raft_(computer_science)][wikipedia]])
+** misc                                                       :noexport:
+http://www.cnblogs.com/bangerlee/p/6189646.html
+分布式系统理论进阶 - Paxos变种和优化
+http://www.cnblogs.com/bangerlee/p/5268485.html
+分布式系统理论基础 - 一致性、2PC和3PC
+http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/

@@ -1,0 +1,92 @@
+* Explain: Pessimistic And Optimistic Locking                   :BLOG:Design:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Pessimistic And Optimistic Locking.
+
+As a developer, how I can benefit from knowing the difference?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+Q: What do *Pessimistic Locking* and *Optimistic Locking* mean?
+
+*Pessimistic Locking*: It assumes the worst. It thinks conflicts are very likely to happen. So it locks as early as it can.
+
+*Optimistic Locking*: It assumes conflicts are unlikely to happen, though it might happen. So it locks as late as it can.
+
+Conclusions:
+- Pessimistic locking provides better integer with the cost of performance. Many financial transactions would probably need to use pessimistic locking for data integrity.
+- Optimistic locking is useful, if our DB has lots of read and very rare writes. Most web applications are fine with dirty reads - on the rare occasion the data doesn't exactly tally the next reload does. 
+
+Link: [[url-external:https://www.ibm.com/support/knowledgecenter/en/SSPK3V_7.0.0/com.ibm.swg.im.soliddb.sql.doc/doc/pessimistic.vs.optimistic.concurrency.control.html][PESSIMISTIC vs. OPTIMISTIC concurrency control]]
+YouTube: [[url-external:https://www.youtube.com/watch?v=VxGKvqHhU5c][Optimistic vs Pessimistic Locking]]
+---------------------------------------------------------------------
+Q: What is *CAS*? Please explain the workflow of *Optimistic Locking*.
+
+CAS: check-and-set.
+
+CAS determines if an object has been updated by another client between the time it was initially read and the time the save was attempted.
+
+Optimistic Locking is a strategy where you read a record, *take note of a version number* (other methods to do this involve dates, timestamps or checksums/hashes) and check that the version hasn't changed before you write the record back.
+
+#+BEGIN_EXAMPLE
+The solidDB implementation of optimistic concurrency control uses multiversioning.
+
+1. Each time that the server reads a record to try to update it, the server makes a copy of the version number of the record and stores that copy for later reference.
+
+2. When it is time to commit the transaction, the server compares the original version number that it read against the version number of the currently committed data.
+- 2.1 If the version numbers are the same, then no one else changed the record and the system can write the updated value.
+- 2.2 If the originally read value and the current value on the disk are not the same, then someone has changed the data since it was read, and the current operation is probably out-of-date. Thus the system discards the version of the data, aborts the transaction, and returns an error message.
+- 2.3 The step of checking the version numbers is called validation. The validation can be performed at the commit time (normal validation) or at the time of writing each statement (early validation). In solidDB, early validation is the default method (General.TransactionEarlyValidate=yes).
+
+Each time a record is updated, the version number is updated as well.
+#+END_EXAMPLE
+Link: [[url-external:http://www.orafaq.com/papers/locking.pdf][Optimistic Locking with Concurrency in Oracle]]
+YouTube: [[url-external:https://www.youtube.com/watch?v=oKXGAOho1JM][SCPT 37: Optimistic and Pessimistic Locking]]
+---------------------------------------------------------------------
+Q: Would pessimistic locking leads to dirty reads at application level?
+
+With pessimistic locking, *you may have read outdated data*.
+
+But thanks to CAS mechanism, the updates are guaranteed to be correct.
+---------------------------------------------------------------------
+Q: Give me one example of locking usage in your real life.
+
+The workflow of using pessimistic lock and optimistic lock in couchbase database
+#+BEGIN_EXAMPLE
+Obtaining a pessimistic lock in Couchbase Server consists of the following steps :
+
+1. Use the get-and-lock API to retrieve a value for a given key and lock that key
+2. The application now has exclusive control over the document
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Obtaining an optimistic lock in Couchbase Server consists of the following steps :
+
+1. Use the check-and-set (CAS) API to retrieve a CAS revision number
+2. Releasing a lock in Couchbase Server
+3. Perform these steps to manually release a lock
+4. Use CAS to modify the value and release the lock
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: *As a developer, how I can benefit from knowing the difference?*
+
+Let's say you need to implement a counter service.
+
+You might choose pessimistic/optimistic locking differently, depending on the requirements.
+
+- Optimistic Locking: This strategy is most applicable to high-volume systems and three-tier architectures where you do not necessarily maintain a connection to the database for your session. In this situation the client cannot actually maintain database locks as the connections are taken from a pool and you may not be using the same connection from one access to the next. See [[url-external:https://stackoverflow.com/a/129397][more]].
+- To use pessimistic locking you need either a direct connection to the database (as would typically be the case in a two tier client server application) or an externally available transaction ID that can be used independently of the connection.
+---------------------------------------------------------------------
+More Reading:
+- StackOverflow: [[url-external:https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking/][Optimistic vs. Pessimistic locking]]
+- Couchbase Blog: [[url-external:https://blog.couchbase.com/optimistic-or-pessimistic-locking-which-one-should-you-pick/][Optimistic or pessimistic locking]]
+- Wikipedia: [[url-external:https://en.wikipedia.org/wiki/Isolation_(database_systems)][Isolation (database systems)]]
+** misc                                                            :noexport:
+https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651960240&idx=1&sn=18c4ce7c3baf6705940847c1c9bf49e3&chksm=bd2d066c8a5a8f7a27acb5603611b5cbcf6396a8a5e5d06571dcd41deaa64e615b097e84fef3&scene=21#wechat_redirect
+CAS下ABA问题及优化方案 | 架构师之路

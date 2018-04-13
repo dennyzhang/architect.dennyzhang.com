@@ -1,5 +1,3 @@
--\*- mode:org; fill-column:70; coding:utf-8; -\*-  
-
 # Books For System Design     :BLOG:Resource:
 
 
