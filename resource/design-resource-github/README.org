@@ -1,0 +1,24 @@
+-*- mode:org; fill-column:70; coding:utf-8; -*-
+* GitHub For System Design                                    :BLOG:Resource:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designresource
+:END:
+---------------------------------------------------------------------
+GitHub For System Design
+
+Please leave me comments, if you have better recommendations!
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+- GitHub Repo: [[url-external:https://github.com/donnemartin/system-design-primer][system-design-primer]]
+- GitHub Repo: [[url-external:https://github.com/FreemanZhang/system-design][system-design]]
+- GitHub Repo: [[url-external:https://github.com/yangshun/tech-interview-handbook/tree/master/design][yangshun/tech-interview-handbook]]
+- Github Repo: [[https://gist.github.com/vasanthk/485d1c25737e8e72759f][System Design Cheatsheet by vasanthk]]
+- GitHub Repo: [[url-external:https://github.com/DennyZhang/challenges-system-design][challenges-system-design by DennyZhang]]
+---------------------------------------------------------------------
+- Examples from highscalability.com: [[url-external:http://highscalability.com/blog/category/example][here]]
+- Web pages: [[url-external:https://www.hanselman.com/blog/NewInterviewQuestionsForSeniorSoftwareEngineers.aspx][link]], [[url-external:https://www.interviewbit.com/courses/system-design/topics/interview-questions/][link]], [[url-external:http://highscalability.com/blog/2009/8/7/the-canonical-cloud-architecture.html][link]], [[url-external:https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444][link]], [[url-external:https://www.evernote.com/shard/s576/sh/7e58b450-1abe-43a8-bf82-fbf07f1db13c/049802174415b418a2e65f75b744ab72][link]]

@@ -7,9 +7,13 @@
 #+PRIORITIES: A D C
 #+ARCHIVE: %s_done::** Finished Tasks
 #+OPTIONS: H:nil num:nil
-#+AUTHOR: dennyzhang.com (contact@dennyzhang.com)
+#+AUTHOR: dennyzhang.com (https://www.dennyzhang.com/contact)
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.dennyzhang.com/wp-content/uploads/org.css">
+* [#A] Website: http://blog.gainlo.co/
+* [#A] https://www.jiuzhang.com/qa/?channel=2
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO https://www.gitbook.com/book/soulmachine/system-design/details
 * jiuzhang.com: https://www.jiuzhang.com/qa/?channel=2
 * TODO https://github.com/checkcheckzz/system-design-interview
 * Similar GitHub Repo
@@ -20,7 +24,6 @@
 ** https://github.com/schoettl/regex-quiz
 ** https://github.com/MightyJoeW/JavaScript-Quiz
 ** https://github.com/rafalratajczyk/QuizJavaScript
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * web page: Top 10 System Design Interview Questions for Software Engineers
 https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444?gi=f12e44933dae
 ** webcontent                     :noexport:
