@@ -1,16 +1,15 @@
-# Design: Google Suggestion Service     :BLOG:Medium:
+# Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster     :BLOG:Medium:
 
 
 ---
 
-Design: Google Suggestion Service  
+Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster  
 
 ---
 
 Similar Posts:  
--   [Design Search Autocomplete System](https://brain.dennyzhang.com/design-search-autocomplete-system)
--   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designservice](https://brain.dennyzhang.com/tag/designservice), [#datastructure](https://brain.dennyzhang.com/tag/datastructure)
+-   Tag: [#systemdesign](https://brain.dennyzhang.com/tag/systemdesign), [#designfeature](https://brain.dennyzhang.com/tag/designfeature)
 
 ---
 
-Related reading: [here](https://www.interviewbit.com/problems/design-search-typeahead/)
+TODO
