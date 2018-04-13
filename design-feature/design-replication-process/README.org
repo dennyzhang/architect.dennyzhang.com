@@ -8,8 +8,8 @@
 Design a replication process. Sync changes to other nodes
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 ** misc                                                            :noexport:
 https://named-data.net/wp-content/uploads/TRFileSync.pdf

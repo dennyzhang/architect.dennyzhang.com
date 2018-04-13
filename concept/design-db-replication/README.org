@@ -10,9 +10,9 @@ One of the most important elements of distributed database architecture is repli
 [[color:#c7254e][It determines whether or not the data is consistent / available.]]
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-key-facts][Key Facts In Cloud Systems]]
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-key-facts][Key Facts In Cloud Systems]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 Q: What are typical replication mechanisms for RDBMS?
 

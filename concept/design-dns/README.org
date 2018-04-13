@@ -8,8 +8,8 @@
 Design: How Does DNS Work?
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 Useful Websites to check DNS: [[url-external:http://dnscheck.pingdom.com/][http://dnscheck.pingdom.com/]]
 ---------------------------------------------------------------------
@@ -22,7 +22,7 @@ CNAME and A records are the most frequent ones we will manage.
 People can use names instead of ip addresses to find our websites in an easier way.
 e.g:
 #+BEGIN_EXAMPLE
-brain.dennyzhang.com.  CNAME   dennyzhang.com
+code.dennyzhang.com.  CNAME   dennyzhang.com
 www.dennyzhang.com.    CNAME   dennyzhang.com
 dennyzhang.com.        A       54.156.174.148
 #+END_EXAMPLE

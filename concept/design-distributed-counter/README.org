@@ -8,8 +8,8 @@
 Design: A Distributed Counter
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]], [[https://brain.dennyzhang.com/tag/datastructure][#datastructure]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]], [[https://code.dennyzhang.com/tag/datastructure][#datastructure]]
 ---------------------------------------------------------------------
 Q: Why we need distributed counters?
 
@@ -44,7 +44,7 @@ TODO
 ---------------------------------------------------------------------
 Q: What about using vector clocks to accept distributed writes, then merge them?
 
-[[https://brain.dennyzhang.com/vector-clocks][Explain: Vector Clocks/Version Vectors]]
+[[https://code.dennyzhang.com/vector-clocks][Explain: Vector Clocks/Version Vectors]]
 
 TODO
 ---------------------------------------------------------------------
@@ -55,7 +55,7 @@ A: Use Redis INCR command. The counter pattern is the most obvious thing you can
 [[url-external:https://redis.io/commands/incr][Redis INCR key]]
 ---------------------------------------------------------------------
 Related Readings:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
 - [[url-external:http://www.datastax.com/wp-content/uploads/2011/07/cassandra_sf_counters.pdf][Distributed Counters in Cassandra]]
 - [[https://github.com/belaban/JGroups/blob/master/doc/design/CounterService.txt][JGroups CounterService]]
 - [[url-external:http://rockthecode.io/blog/highly-available-counters-using-cassandra/][Highly Available Counters Using Cassandra]]

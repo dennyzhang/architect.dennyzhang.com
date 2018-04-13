@@ -8,6 +8,6 @@
 Design: Explain Google FileSystem Service
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designproject][#designproject]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designproject][#designproject]]
 ---------------------------------------------------------------------
 TODO

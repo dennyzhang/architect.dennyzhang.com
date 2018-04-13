@@ -8,7 +8,7 @@
 Design  A Parking Lot Service
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
 Related reading: 
 - [[url-external:https://www.geeksforgeeks.org/design-parking-lot-using-object-oriented-principles/][How to design a parking lot using object-oriented principles?]]

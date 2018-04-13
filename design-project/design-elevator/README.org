@@ -8,6 +8,6 @@
 Design an Elevator Service
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
 TODO

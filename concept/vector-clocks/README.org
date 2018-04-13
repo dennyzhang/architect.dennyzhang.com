@@ -8,8 +8,8 @@
 Explain: What vector clocks/version vectors are
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 Vector clocks is an algorithm for generating a partial ordering of events in a distributed system and *detecting causality violations*. [[url-external:https://en.wikipedia.org/wiki/Vector_clock][See in wikipedia]]
 

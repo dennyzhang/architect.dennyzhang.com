@@ -8,7 +8,7 @@
 Design uber backend - define use cases, scope on your own, come up with various components, give high and low level design....
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designservice][#designservice]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
 [[color:#c7254e][Question1: List the first questions you want to discuss or clarify?]]
 

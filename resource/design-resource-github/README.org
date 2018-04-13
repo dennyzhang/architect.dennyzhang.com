@@ -10,8 +10,8 @@ GitHub For System Design
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 - GitHub Repo: [[url-external:https://github.com/donnemartin/system-design-primer][system-design-primer]]
 - GitHub Repo: [[url-external:https://github.com/FreemanZhang/system-design][system-design]]

@@ -12,8 +12,8 @@ The sequence matters, in order to guarantee the results' *correctness*. And mean
 So what are the common approaches for this? And what are the pros and cons?
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 Lots of concepts to learn and understand! Yes, I know. Too many.
 #+BEGIN_EXAMPLE
