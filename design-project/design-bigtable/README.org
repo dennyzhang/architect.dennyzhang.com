@@ -1,0 +1,15 @@
+* [#A] Design: Explain Google Big Table Service                  :BLOG:Basic:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designproject
+:END:
+---------------------------------------------------------------------
+Design: Explain Google Big Table Service
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designproject][#designproject]]
+---------------------------------------------------------------------
+TODO
+
+durablestorage, compression, byte sizes

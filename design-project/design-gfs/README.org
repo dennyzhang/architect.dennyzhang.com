@@ -1,0 +1,13 @@
+* [#A] Design: Explain Google FileSystem Service                 :BLOG:Basic:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designproject
+:END:
+---------------------------------------------------------------------
+Design: Explain Google FileSystem Service
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://brain.dennyzhang.com/tag/designproject][#designproject]]
+---------------------------------------------------------------------
+TODO

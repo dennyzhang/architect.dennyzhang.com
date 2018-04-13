@@ -1,0 +1,21 @@
+* Explain: How Redis HA Model Works?                            :BLOG:Medium:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+How Redis HA Model Works?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://brain.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+TODO
+
+Redis Sentinel will allow you to run multiple instances of redis and handles failover for you.
+
+More Readings:
+- [[url-external:https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/AutoFailover.html][Replication: Multi-AZ with Automatic Failover (Redis)]]
+- [[url-external:https://redis.io/topics/sentinel][Redis Sentinel Documentation]]
+** misc                                                            :noexport:
