@@ -10,9 +10,9 @@ It determines whether or not the data is consistent / available.
 ---
 
 Similar Posts:  
--   [Key Facts In Cloud Systems](https://code.dennyzhang.com/design-key-facts)
--   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
+-   [Key Facts In Cloud Systems](https://architect.dennyzhang.com/design-key-facts)
+-   [Concepts For System Design](https://architect.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://architect.dennyzhang.com/tag/systemdesign)
 
 ---
 

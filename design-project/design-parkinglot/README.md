@@ -8,7 +8,7 @@ Design  A Parking Lot Service
 ---
 
 Similar Posts:  
--   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign), [#designservice](https://code.dennyzhang.com/tag/designservice)
+-   Tag: [#systemdesign](https://architect.dennyzhang.com/tag/systemdesign), [#designservice](https://architect.dennyzhang.com/tag/designservice)
 
 ---
 

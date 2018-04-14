@@ -10,9 +10,9 @@ Please leave me comments, if you have better recommendations!
 ---
 
 Similar Posts:  
--   [Books For System Design](https://code.dennyzhang.com/design-books)
--   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
--   Tag: [#designresource](https://code.dennyzhang.com/tag/designresource), [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
+-   [Books For System Design](https://architect.dennyzhang.com/design-books)
+-   [Concepts For System Design](https://architect.dennyzhang.com/design-concept)
+-   Tag: [#designresource](https://architect.dennyzhang.com/tag/designresource), [#systemdesign](https://architect.dennyzhang.com/tag/systemdesign)
 
 ---
 

@@ -8,9 +8,9 @@ In Deployment Pipeline, How To Support Customizing DB Password?
 ---
 
 Similar Posts:  
--   [How To Save Users' Login Credentials In Your DB?](https://code.dennyzhang.com/design-store-credential)
--   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
+-   [How To Save Users' Login Credentials In Your DB?](https://architect.dennyzhang.com/design-store-credential)
+-   [Concepts For System Design](https://architect.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://architect.dennyzhang.com/tag/systemdesign)
 
 ---
 

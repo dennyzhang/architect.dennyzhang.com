@@ -8,8 +8,8 @@ How to migrate cluster across regions with minimum impact?
 ---
 
 Similar Posts:  
--   [Concepts For System Design](https://code.dennyzhang.com/design-concept)
--   Tag: [#systemdesign](https://code.dennyzhang.com/tag/systemdesign)
+-   [Concepts For System Design](https://architect.dennyzhang.com/design-concept)
+-   Tag: [#systemdesign](https://architect.dennyzhang.com/tag/systemdesign)
 
 ---
 
