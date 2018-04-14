@@ -11,7 +11,7 @@ File me [tickets](https://github.com/DennyZhang/challenges-system-design/issues)
 
 **Challenge For System Design**
 
-https://brain.dennyzhang.com/system-design-interview
+https://architect.dennyzhang.com/system-design-interview
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
