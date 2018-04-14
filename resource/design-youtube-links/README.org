@@ -10,9 +10,9 @@ YouTube Video For System Design Learning
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-books][Books For System Design]]
-- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://architect.dennyzhang.com/design-books][Books For System Design]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/designresource][#designresource]], [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]
 

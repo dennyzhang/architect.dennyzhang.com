@@ -8,8 +8,8 @@
 Let's design a sharding scheme for key-value storage.
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 [[image-blog:Design: How To Partition Data At Scale][https://raw.githubusercontent.com/DennyZhang/challenges-leetcode-interesting/master/images/design/partition_data.png]]
 

@@ -10,16 +10,16 @@ Books to learn system design
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-books][Books For System Design]]
-- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://architect.dennyzhang.com/design-books][Books For System Design]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/designresource][#designresource]], [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 - Blog: [[url-external:http://the-paper-trail.org/blog/][http://the-paper-trail.org/blog]]
 - Website: [[url-external:https://discuss.leetcode.com/tags/5/system%20design][leecode system design]]
 - Blog: [[url-external:http://blog.gainlo.co/index.php/category/system-design-interview-questions/][http://blog.gainlo.co]]
 - Blog: [[url-external:https://www.educative.io/collection/5668639101419520/5649050225344512][Grokking the System Design Interview]]
 - Blog: [[url-external:http://highscalability.com][http://highscalability.com]]
-- [[https://code.dennyzhang.com/tag/oodesign][#oodesign]]: OO design questions in this blog
+- [[https://architect.dennyzhang.com/tag/oodesign][#oodesign]]: OO design questions in this blog
 
 ** misc                                                            :noexport:
 http://www.cnblogs.com/bangerlee/

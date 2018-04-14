@@ -8,7 +8,7 @@
 Design: Google Suggestion Service
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-search-autocomplete-system][Design Search Autocomplete System]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]], [[https://code.dennyzhang.com/tag/datastructure][#datastructure]]
+- [[https://architect.dennyzhang.com/design-search-autocomplete-system][Design Search Autocomplete System]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]], [[https://architect.dennyzhang.com/tag/datastructure][#datastructure]]
 ---------------------------------------------------------------------
 Related reading: [[url-external:https://www.interviewbit.com/problems/design-search-typeahead/][here]]

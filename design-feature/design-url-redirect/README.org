@@ -8,7 +8,7 @@
 Design: A URL Redirecting Feature
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-tiny-url][Design: A URL Shorterner Service]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]]
+- [[https://architect.dennyzhang.com/design-tiny-url][Design: A URL Shorterner Service]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
 TODO

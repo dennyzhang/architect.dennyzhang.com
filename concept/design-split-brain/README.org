@@ -8,7 +8,7 @@
 What You Will Do, If Your DB Runs Into Split Brain?
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 TODO

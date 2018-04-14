@@ -8,8 +8,8 @@
 CAP Theorem
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 Q: What is CAP Theorem? See definition in [[url-external:https://en.wikipedia.org/wiki/CAP_theorem][wikipedia]].
 

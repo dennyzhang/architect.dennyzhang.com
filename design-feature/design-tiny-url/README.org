@@ -8,13 +8,13 @@
 Design A URL Shorterner Service
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/encode-and-decode-tinyurl][Encode and Decode TinyURL]]
-- [[https://code.dennyzhang.com/design-url-redirect][A URL Redirecting Feature]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designservice][#designservice]]
+- [[https://architect.dennyzhang.com/encode-and-decode-tinyurl][Encode and Decode TinyURL]]
+- [[https://architect.dennyzhang.com/design-url-redirect][A URL Redirecting Feature]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
 TinyURL service provides short aliases for redirection of long URLs. Thus people can type or share easily.
 
-e.g, from https://code.dennyzhang.com/design-tiny-url to [[url-external:https://goo.gl/ojcPMV][https://goo.gl/ojcPMV]].
+e.g, from https://architect.dennyzhang.com/design-tiny-url to [[url-external:https://goo.gl/ojcPMV][https://goo.gl/ojcPMV]].
 
 There are many similar services like [[url-external:https://goo.gl/][Google URL Shortener]], [[url-external:https://bitly.com/][Bitly]] etc.
 
@@ -40,7 +40,7 @@ Q: Define REST API(s) for this service.
 - How to support API breaking changes
 #+END_EXAMPLE
 
-Related Reading: [[https://code.dennyzhang.com/design-rest-api][Common Mistakes In REST API Design]]
+Related Reading: [[https://architect.dennyzhang.com/design-rest-api][Common Mistakes In REST API Design]]
 
 - *Create a new TinyURL*
 Request:
@@ -100,11 +100,11 @@ With the length of 6, it can support ~56.8 million URLs. (pow(62, 6) = 56,800,23
 
 new_url = f(old_url). f can be md5 or base64
 #+BEGIN_EXAMPLE
-denny@dennyzhang.com:/opt# echo "https://code.dennyzhang.com/design-tiny-url" | md5
+denny@dennyzhang.com:/opt# echo "https://architect.dennyzhang.com/design-tiny-url" | md5
 dcf31c911b752c668f466e40b337e5f2
 YWJjCg==
 
-denny@dennyzhang.com:/opt# echo "https://code.dennyzhang.com/design-tiny-url" | base64
+denny@dennyzhang.com:/opt# echo "https://architect.dennyzhang.com/design-tiny-url" | base64
 echo "abc" | md5
 aHR0cHM6Ly9icmFpbi5kZW5ueXpoYW5nLmNvbS9kZXNpZ24tdGlueS11cmwK
 #+END_EXAMPLE
@@ -112,7 +112,7 @@ aHR0cHM6Ly9icmFpbi5kZW5ueXpoYW5nLmNvbS9kZXNpZ24tdGlueS11cmwK
 Q: What db schema you will use?
 | id | new_url                          | old_url                         |
 |----+----------------------------------+---------------------------------|
-|  1 | https://code.dennyzhang.com/... | https://mytinyurl.com/ojcPMV... |
+|  1 | https://architect.dennyzhang.com/... | https://mytinyurl.com/ojcPMV... |
 |  2 | https://www.dennyzhang.com/...   | https://mytinyurl.com/...       |
 |  3 | https://dennyzhang.com/...       | https://mytinyurl.com/...       |
 

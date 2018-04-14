@@ -8,8 +8,8 @@
 What Problems We Might Run Into With MySQL Master HA?
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://code.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 sync conflicts for primary key
 ** misc                                                            :noexport:

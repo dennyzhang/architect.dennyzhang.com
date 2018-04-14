@@ -8,6 +8,6 @@
 Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://code.dennyzhang.com/tag/designfeature][#designfeature]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
 ---------------------------------------------------------------------
 TODO
