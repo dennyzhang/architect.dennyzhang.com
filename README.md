@@ -13,7 +13,7 @@ https://architect.dennyzhang.com
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-See more challenges from Denny: [here](https://www.dennyzhang.com/battle)
+See More in: [denny-challenges](https://github.com/topics/denny-challenges)
 
 <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
 
