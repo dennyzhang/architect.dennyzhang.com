@@ -3,6 +3,8 @@
 
 [![LinkedIn](https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/linkedin.png)](https://www.linkedin.com/in/dennyzhang001) <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="http://slack.dennyzhang.com/badge.svg" alt="slack"/></a> [![Github](https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/github.png)](https://github.com/DennyZhang)
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
 File me [tickets](https://github.com/DennyZhang/challenges-system-design/issues) or star [the repo](https://github.com/DennyZhang/challenges-system-design).
 
 # What For?
@@ -10,8 +12,6 @@ File me [tickets](https://github.com/DennyZhang/challenges-system-design/issues)
 **Challenge For System Design**
 
 https://architect.dennyzhang.com
-
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 See More in: [denny-challenges](https://github.com/topics/denny-challenges)
 
