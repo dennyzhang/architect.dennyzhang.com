@@ -11,15 +11,9 @@ File me [tickets](https://github.com/DennyZhang/challenges-system-design/issues)
 
 https://architect.dennyzhang.com/system-design-interview
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-
-See More in: [denny-challenges](https://github.com/topics/denny-challenges)
-
 **Similar Challenges**: https://www.dennyzhang.com/battle
 
-**Challenge For System Design**
-
-https://architect.dennyzhang.com
+See More in: [denny-challenges](https://github.com/topics/denny-challenges)
 
 <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
 
