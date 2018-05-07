@@ -1,0 +1,25 @@
+* Design: How To Migrate Cluster Across Regions                 :Feature:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+How to migrate cluster across regions with minimum impact?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+How to migrate cluster across regions with minimum impact?
+- Migrate clustered system to another region with minimized impact? (Related reading: [[url-external:https://docs.atlas.mongodb.com/move-cluster/][here]])
+#+BEGIN_EXAMPLE
+Declare the possible issues first: 
+   dataset is big
+   WAN latency
+   unexpected defects in app or procedure
+   etc
+#+END_EXAMPLE
+** misc                                                            :noexport:
+https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651959992&idx=1&sn=eb2fbd7d7922db42a593c304e50a65b7&chksm=bd2d07648a5a8e72d489022ec6006274d7e43ab48449b255d5661658c2af8e9221977a9609ed&scene=21#wechat_redirect
+100亿数据平滑数据迁移,不影响服务

@@ -1,0 +1,13 @@
+* Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster    :Feature:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+---------------------------------------------------------------------
+TODO

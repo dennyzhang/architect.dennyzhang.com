@@ -1,0 +1,55 @@
+* [#A] Typical Question: How Does Consistent Hashing Work?      :Concept:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Design: How Does Consistent Hashing Work?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+Q: What consistent hashing for?
+Setting up the initial shards for a new service is relatively straightforward: you set up the appropriate shards and the roots to perform the sharding, and you are off to the races. However, what happens when you need to change the number of shards in your sharded service? Such "re-sharding" is often a complicated process.
+
+*Consistent hashing* allows distribution of data across a cluster to minimize reorganization *when nodes are added or removed*.
+
+[[image-blog:How Does Consistent Hashing Work][https://raw.githubusercontent.com/DennyZhang/images/master/design/consistent_hashing.png]]
+
+[[color:#c7254e][Two Principles For Paritioning Data:]]
+1. *Determinism*. The output should always be the same for a unique input.
+- *Uniformity*. The distribution of outputs across the output space should be equal.
+---------------------------------------------------------------------
+Q: What are the old ways before consistent hashing?
+- Use mod function to partition data.
+When we add a new node to the cluster, we need to shuffle the whole data set. Very very time consuming. When we want to remove one node to scale in, we need to change everything again.
+
+- Use hash tables as metadata routing.
+The data can't be easily balanced across nodes.
+---------------------------------------------------------------------
+Q: Examples of consistent hashing usage.
+- Distributed caches
+- Load balancing with consistent hashing algorithm.
+- Couchbase automated data partitioning
+- OpenStack swift
+- Amazon Dynamo
+- Apache Cassandra
+- Etc
+---------------------------------------------------------------------
+Q: Please explain the workflow when a node is down.
+#+BEGIN_EXAMPLE
+If a bucket becomes unavailable (for example because the computer it resides on is not reachable), then the points it maps to will be removed. Requests for resources that would have mapped to each of those points now map to the next highest points. Since each bucket is associated with many pseudo-randomly distributed points, the resources that were held by that bucket will now map to many different buckets. The items that mapped to the lost bucket must be redistributed among the remaining ones, but values mapping to other buckets will still do so and do not need to be moved.
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: Please explain the workflow, when the failed node has come.
+---------------------------------------------------------------------
+Q: Consistent hashing itself doesn't provide HA. How you can provide HA?
+---------------------------------------------------------------------
+Related Reading:
+- [[url-external:https://en.wikipedia.org/wiki/Consistent_hashing][wikipedia]]
+- [[url-external:https://docs.datastax.com/en/cassandra/2.1/cassandra/architecture/architectureDataDistributeHashing_c.html][Consistent hashing by Cassandra]]
+** misc                                                            :noexport:
+https://www.toptal.com/big-data/consistent-hashing
+

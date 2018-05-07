@@ -1,0 +1,18 @@
+* [#A] Design: A Distributed Lock                               :Concept:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Design: A Distributed lock
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]], [[https://architect.dennyzhang.com/tag/datastructure][#datastructure]]
+---------------------------------------------------------------------
+TODO
+
+zookeeper ephemeral node
+** misc                                                            :noexport:
+https://architect.dennyzhang.com/distributed-lock

@@ -1,0 +1,43 @@
+* Design: Uber Backend                                          :Project:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designservice
+:END:
+---------------------------------------------------------------------
+Design uber backend - define use cases, scope on your own, come up with various components, give high and low level design....
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]]
+---------------------------------------------------------------------
+[[color:#c7254e][Question1: List the first questions you want to discuss or clarify?]]
+
+What business values we need to deliver?
+
+Key Roles: drivers, riders, platform
+
+Key Features:
+#+BEGIN_EXAMPLE
+- Matches: Find good matches in between drivers and riders
+- Mapping: trip management
+#+END_EXAMPLE
+---------------------------------------------------------------------
+[[color:#c7254e][Question2: Key data and data store involved.]]
+#+BEGIN_EXAMPLE
+Trips DB
+Credit DB
+#+END_EXAMPLE
+---------------------------------------------------------------------
+[[color:#c7254e][Question3: High level design: Propose your architecture diagram.]]
+
+[[image-blog:Design: Uber Backend][https://raw.githubusercontent.com/DennyZhang/images/master/design/design-uber.png]]
+---------------------------------------------------------------------
+[[color:#c7254e][Question4: List major challenges you think.]]
+
+- [Revenue] No enough drivers/riders. For a certain area, or period.
+- [Risk] Safety protection for drivers/riders.
+- [Performance] Autoscaling challenges to balance cost and performance.
+---------------------------------------------------------------------
+Useful link:
+- [[url-external:https://www.youtube.com/watch?v=J3DY3Te3A_A][YouTube: System Design: Uber Lyft ride sharing services]]
+- [[url-external:https://www.educative.io/collection/page/5668639101419520/5649050225344512/5717271485874176/preview][Designing Uber backend]]

@@ -1,0 +1,25 @@
+* YouTube For System Design                                   :BLOG:Resource:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designresource
+:END:
+---------------------------------------------------------------------
+YouTube Video For System Design Learning
+
+Please leave me comments, if you have better recommendations!
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/design-books][Books For System Design]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/designresource][#designresource]], [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]
+
+My takeaway:
+- Why hiring managers tend to ask vague questions in system design
+- It's not about memorizing best practice. But highlight your strength.
+---------------------------------------------------------------------
+YouTube: [[url-external:https://www.youtube.com/watch?v=PE4gwstWhmc][How We've Scaled Dropbox]]
+---------------------------------------------------------------------
+YouTube: [[url-external:https://www.youtube.com/watch?v=-W9F__D3oY4][Scalability Harvard Web Development By David Malan]]

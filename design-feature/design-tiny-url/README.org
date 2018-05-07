@@ -1,0 +1,208 @@
+* Design: A URL Shorterner Service                              :Feature:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+Design A URL Shorterner Service
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/encode-and-decode-tinyurl][Encode and Decode TinyURL]]
+- [[https://architect.dennyzhang.com/design-url-redirect][A URL Redirecting Feature]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]]
+---------------------------------------------------------------------
+TinyURL service provides short aliases for redirection of long URLs. Thus people can type or share easily.
+
+e.g, from https://architect.dennyzhang.com/design-tiny-url to [[url-external:https://goo.gl/ojcPMV][https://goo.gl/ojcPMV]].
+
+There are many similar services like [[url-external:https://goo.gl/][Google URL Shortener]], [[url-external:https://bitly.com/][Bitly]] etc.
+
+Step-By-Step Requirements:
+#+BEGIN_EXAMPLE
+- Q: Define REST API(s) for this service.
+- Q: How you can convert old URL into new URL?
+- Q: What db schema you will use?
+- Q: How you evaluate the read and write performance?
+- Q: Architectural changes to support 100M URLs?
+- Q: How would you generate unique IDs at scale?
+- Q: Will hash collisions happen? If yes, how to solve it?
+- Q: How you can support the feature of tracking click stats?
+- Q: How to support data retention?
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: Define REST API(s) for this service.
+
+[[color:#c7254e][Hints:]]
+#+BEGIN_EXAMPLE
+- List major functionalities
+- Make sure the API(s) you have designed are restful
+- How to support API breaking changes
+#+END_EXAMPLE
+
+Related Reading: [[https://architect.dennyzhang.com/design-rest-api][Common Mistakes In REST API Design]]
+
+- *Create a new TinyURL*
+Request:
+#+BEGIN_EXAMPLE
+POST /v1/tinyurls
+{
+ "old_url": string
+}
+#+END_EXAMPLE
+
+Response:
+#+BEGIN_EXAMPLE
+HTTP/1.1 201 OK
+{
+  "tiny_url": string
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+HTTP/1.1 4XX/5XX ERROR
+{
+  "message": string
+}
+#+END_EXAMPLE
+
+- *Get old URL*
+Request:
+#+BEGIN_EXAMPLE
+GET /v1/tinyurls/${tiny_url}
+#+END_EXAMPLE
+
+Response:
+#+BEGIN_EXAMPLE
+HTTP/1.1 201 OK
+{
+  "old_url": string
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+HTTP/1.1 4XX/5XX ERROR
+{
+  "message": string
+}
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: How you can convert old URL into new URL?
+[[color:#c7254e][One idea: convert in between a decimal number and a base 62 number.]]
+#+BEGIN_EXAMPLE
+A URL character can be one of the following
+1 A lower case alphabet ['a' to 'z'], total 26 characters
+2 An upper case alphabet ['A' to 'Z'], total 26 characters
+3 A digit ['0' to '9'], total 10 characters
+#+END_EXAMPLE
+
+With the length of 6, it can support ~56.8 million URLs. (pow(62, 6) = 56,800,235,584)
+
+new_url = f(old_url). f can be md5 or base64
+#+BEGIN_EXAMPLE
+denny@dennyzhang.com:/opt# echo "https://architect.dennyzhang.com/design-tiny-url" | md5
+dcf31c911b752c668f466e40b337e5f2
+YWJjCg==
+
+denny@dennyzhang.com:/opt# echo "https://architect.dennyzhang.com/design-tiny-url" | base64
+echo "abc" | md5
+aHR0cHM6Ly9icmFpbi5kZW5ueXpoYW5nLmNvbS9kZXNpZ24tdGlueS11cmwK
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: What db schema you will use?
+| id | new_url                          | old_url                         |
+|----+----------------------------------+---------------------------------|
+|  1 | https://architect.dennyzhang.com/... | https://mytinyurl.com/ojcPMV... |
+|  2 | https://www.dennyzhang.com/...   | https://mytinyurl.com/...       |
+|  3 | https://dennyzhang.com/...       | https://mytinyurl.com/...       |
+
+Hints: id is an incremental field. What's the trade-off if we have or don't have the id field?
+
+- Create index for the field of new_url.
+- Use DB lookup to get old URL from new URL.
+---------------------------------------------------------------------
+Q: How you evaluate the read and write performance?
+
+TODO
+
+Here we use RDBMS. 
+
+- Full index of new_url will use lots of data. And slow down the adding new mappings.
+- Find old url from new url will be a quick database lookup
+---------------------------------------------------------------------
+Q: Architectural changes to support 100M URLs?
+
+If you need to support 100M URLs, will RDBMS be able to support it? If yes, how you can do that?
+
+Need capacity planning to evaluable whether RDBMS could be an option.
+TODO
+
+Use NoSQL
+- The data retrieve is simply get value by key. So NoSQL will solve the problem very well. Especially when data volume is big.
+---------------------------------------------------------------------
+Q: How would you generate unique IDs at scale?
+
+What if thousands of URL shortening requests coming every second.
+
+TODO
+---------------------------------------------------------------------
+Q: Will hash collisions happen? If yes, how to solve it?
+TODO
+---------------------------------------------------------------------
+Q: How you can support the feature of tracking click stats?
+TODO
+---------------------------------------------------------------------
+Q: How to support data retention?
+
+TODO
+
+For cost effective, we want to enforce data retention. For any mappings older than 1 year, we can remove them.
+
+Add create time to DB schema
+
+When user regenerate a same old url, should we update the record's timestamp?
+
+How we can delete the old data quickly? Range select requirement.
+
+HTTP 302 vs HTTP 301
+---------------------------------------------------------------------
+
+Related Reading: 
+- [[url-external:https://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/][geeksforgeeks.org]]
+- [[url-external:http://blog.gainlo.co/index.php/2016/03/08/system-design-interview-question-create-tinyurl-system/][Create a TinyURL System]]
+- [[url-external:https://www.youtube.com/watch?v=fMZMm_0ZhK4][System Design : Design a service like TinyUrl]]
+** misc                                                            :noexport:
+#+BEGIN_EXAMPLE
+# Question:
+```
+Design a URL shortening service, like bit.ly
+
+From:
+
+https://www.dennyzhang.com/tag/devops
+
+To:
+http://bit.ly/2h90xzb
+```
+
+- Difficulty: Medium
+- Tags:
+- Original Link:
+```
+   http://blog.gainlo.co/index.php/2016/03/08/system-design-interview-question-create-tinyurl-system/
+   http://blog.wenhaolee.com/system-design-tinyurl/
+   https://www.interviewbit.com/courses/system-design/topics/interview-questions/
+```
+- Highlights:
+
+# Answers
+
+```
+One Simple Solution could be Hashing. Use a hash function to convert long string to short string. In hashing, that may be collisions (2 long urls map to same short url) and we need a unique short url for every long url so that we can access long url back.
+
+A Better Solution is to use the integer id stored in database and convert the integer to character string that is at most 6 characters long. This problem can basically seen as a base conversion problem where we have a 10 digit input number and we want to convert it into a 6 character long string.
+```
+
+- http://www.geeksforgeeks.org/how-to-design-a-tiny-url-or-url-shortener/
+
+#+END_EXAMPLE

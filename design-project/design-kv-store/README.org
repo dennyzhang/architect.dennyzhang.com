@@ -1,0 +1,13 @@
+* Design: A Key-Value Data Store                                :Project:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+:PROPERTIES:
+:type: systemdesign, designproject
+:END:
+---------------------------------------------------------------------
+Design: A Key-Value Data Store
+---------------------------------------------------------------------
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designproject][#designproject]]
+---------------------------------------------------------------------
+TODO
