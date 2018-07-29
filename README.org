@@ -10,6 +10,15 @@
 #+AUTHOR: dennyzhang.com (contact@dennyzhang.com)
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.dennyzhang.com/wp-content/uploads/org.css">
+* Not-to-do list
+- As architects, we need to worry much less about what happens inside the zone than what happens between the zones.
+* What trade-off we haves
+** Use duplication to segregate different systems
+vSAN: k8s etcds vs local cache
+* Principles
+- [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]]: do one thing, and do it well
+- Microservice: autonomy, rewrite in 2 weeks
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * jiuzhang.com: https://www.jiuzhang.com/qa/?channel=2
 * TODO https://github.com/checkcheckzz/system-design-interview
 * Similar GitHub Repo
