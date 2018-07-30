@@ -1,6 +1,6 @@
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone hidestars
-#+TITLE:  Challenges Your AWS Cloudformation Skills
+#+TITLE:  Learn System Design In A Solid Way
 #+DESCRIPTION: 
 #+KEYWORDS: 
 #+AUTHOR: Denny Zhang
