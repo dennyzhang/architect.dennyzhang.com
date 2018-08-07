@@ -1,4 +1,5 @@
-all:refresh_md
+my_test:
+	bash automate.sh my_test
 
-refresh_md:
-	bash ./misc/automate.sh refresh_md
+refresh_wordpress:
+	bash automate.sh refresh_wordpress
