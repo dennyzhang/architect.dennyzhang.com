@@ -1,8 +1,8 @@
 * org-mode configuration                                           :noexport:
-#+STARTUP: overview customtime noalign logdone hidestars
+#+STARTUP: overview customtime noalign logdone showall
 #+TITLE:  Learn System Design In A Solid Way
-#+DESCRIPTION: 
-#+KEYWORDS: 
+#+DESCRIPTION:
+#+KEYWORDS:
 #+AUTHOR: Denny Zhang
 #+EMAIL:  denny@dennyzhang.com
 #+TAGS: noexport(n)
@@ -11,13 +11,13 @@
 #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+EXPORT_EXCLUDE_TAGS: exclude noexport
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+LINK_UP:   
-#+LINK_HOME: 
+#+LINK_UP:
+#+LINK_HOME:
 * Summary
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
 <a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
-<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="http://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
+<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 <a href="https://github.com/DennyZhang"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
 <br/><br/>
@@ -28,11 +28,13 @@
 File me [[https://github.com/DennyZhang/challenges-system-design/issues][Issues]] or star [[https://github.com/DennyZhang/challenges-system-design][this repo]].
 
 See more challenges from Denny: [[https://github.com/topics/denny-challenges][#denny-challenges]]
-
 * Principles
 - [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]]: do one thing, and do it well
 - Microservice: autonomy, rewrite in 2 weeks
-
+* Typical Differentitate
+** Scale: How big your scale would be?
+** Variants: What parts will be constantly changed?
+** Severity: How critical the data durability or service availability is?
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * YouTube For System Design                                   :BLOG:Resource:
 :PROPERTIES:
@@ -89,7 +91,7 @@ Similar Posts:
 <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=dennyzhang-20&marketplace=amazon&region=US&placement=0134494164&asins=0134494164&linkId=0b0e6b71debaa42b790ec56139a3a75d&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff"></iframe>
 #+END_HTML
 ---------------------------------------------------------------------
-- System Design Interview – An insider’s guide Kindle Edition
+- System Design Interview - An insider's guide Kindle Edition
 #+BEGIN_HTML
 <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=dennyzhang-20&marketplace=amazon&region=US&placement=B072HDQ338&asins=B072HDQ338&linkId=37e9c4519dd6ad26c91ea87350db0d36&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff"></iframe>
 #+END_HTML
@@ -168,258 +170,6 @@ https://github.com/rafalratajczyk/QuizJavaScript
 
 <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
-* web page: Top 10 System Design Interview Questions for Software Engineers :noexport:
-https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444?gi=f12e44933dae
-** webcontent                     :noexport:
-#+begin_example
-Location: https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444?gi=f12e44933dae
-Homepage
-Hacker Noon
-Follow
-Sign inGet started
-Homepage
-
-  * Home
-  * Top Stories
-  * Developer Marketplace
-  *
-
-Go to the profile of Fahim ul Haq
-Fahim ul HaqBlockedUnblockFollowFollowing
-Co-founder at Educative.io. Educative helps you learn programming using interactive courses and
-lets authors quickly create, publish and sell their courses.
-Aug 24
----------------------------------------------------------------------------------------------------
-[1]
-
-Top 10 System Design Interview Questions for Software Engineers
-
-Designing Large Scale Distributed Systems has become the standard part of the software engineering
-interviews. Engineers struggle with System Design Interviews (SDIs), primarily because of the
-following two reasons:
-
- 1. Their lack of experience in developing large scale systems.
- 2. Unstructured nature of SDIs. Even engineers who’ve some experience building large systems
-    aren’t comfortable with these interviews, mainly due to the open-ended nature of design
-    problems that don’t have a standard answer.
-
-A great performance in SDIs is highly rewarding since it reflects upon your ability to work with
-complex systems and translates into the position and compensation (salary & stocks) that the
-interviewing company will offer you.
-
-    Check out the following resources to prepare for software engineering interviews:
-
-    1) System Design Interviews : Grokking the System Design Interview
-    2) Interactive coding interview preparation: Coderust 2.0
-
-At Educative.io, we’ve talked to hundreds of candidates who went through design interviews. As part
-of the process, we’ve compiled a list of most frequently asked System Design Interview Questions.
-
-Following are the most frequently asked questions along with a few pointers to the things that
-interviewers want you to consider while designing the system.
-
-1. Design TinyURL or bitly (a URL shortening service)
-
-[1]
-
-Given a (typically) long URL, how would how would you design service that would generate a shorter
-and unique alias for it.
-
-Discuss things like:
-
-  * How to generate a unique ID for each URL?
-  * How would you generate unique IDs at scale (thousands of URL shortening requests coming every
-    second)?
-  * How would your service handle redirects?
-  * How would you support custom short URLs?
-  * How to delete expired URLs etc?
-  * How to track click stats?
-
-2. Design YouTube, Netflix or Twitch (a global video streaming service)
-
-[1]
-
-Videos mean that your service will be storing and transmitting petabytes and petabytes of data.You
-should discuss how to efficiently store and distribute data in away that a huge number of users can
-watch and share them simultaneously (e.g. imagine streaming the latest episode of a hit TV show
-like Games of Thrones).
-
-In addition, discuss:
-
-  * How would you record stats about videos e.g the total number of views, up-votes/down-votes,
-    etc.
-  * How would a user add comments on videos (in realtime).
-
-3. Design Facebook Messenger or WhatsApp (a global chat service)
-
-[1]
-
-Interviewers are interested in knowing:
-
-  * How would you design one-on-one conversations between users?
-  * How would you extend your design to support group chats?
-  * What to do when the user is not connected to the internet?
-  * When to send push notifications?
-  * Can you provide end-to-end encryption. How?
-
-4. Designing Quora or Reddit or HackerNews (a social network + message board service)
-
-[1]
-
-Users of the services can post questions or share links. Other users can answer questions or
-comment on the shared links. The service should be able to:
-
-  * Records stats for each answer e.g. the total number of views, upvotes/downvotes, etc.
-  * Users should be able to follow other users or topics
-  * Their timeline will consist of top questions from all the users and topics they follow (similar
-    to newsfeed generation).
-
-5. Design Dropbox or Google Drive or Google Photos (a global file storage & sharing service)
-
-[1]
-
-Discuss things like:
-
-  * How would users be able to upload/view/search/share files or photos?
-  * How would you track persmissions for file sharing
-  * How would you allow multiple users to edit the same document
-
-6. Design Facebook, Twitter or Instagram (a social media service with hundreds of millions
-of users)
-
-[1]
-
-When designing a social medial service with hundreds of million (or billions of users),
-interviewers are interested in knowing how would you design the following components
-
-  * Efficient storage and search for posts or tweets.
-  * Newsfeed generation
-  * Social Graph (who befriends whom or who follows whom — specially when millions of users are
-    following a celebrity)
-
-A lot of times, interviewers spend the whole interview discussing the design of the newsfeed.
-
-7. Design Uber or Lyft (a ride sharing service)
-
-[1]
-
-While designing a ride-sharing service, discuss things like:
-
-  * The most critical use case — when a customer requests a ride and how to efficiently match them
-    with the nearby drivers?
-  * How to store millions of geographical locations for drivers and riders who are always moving.
-  * How to handle updates to driver/rider locations (millions of updates every second)?
-
-8. Design a Web Crawler or Type-Ahead (search engine related services)
-
-[1]
-
-For Type-Ahead, as the user types in their query, you need to design a service which would suggest
-top 10 searched terms starting with whatever the user has typed. Discuss things like:
-
-  * How to store previous search queries?
-  * How to keep the data fresh?
-  * How to find the best matches to the already typed string?
-  * How to handle updates and the user is typing too fast?
-
-For Web Crawler, we have to design a scalable service that can crawl the entire Web, and can fetch
-hundreds of millions of Web documents. Discuss things like:
-
-  * How to find new web pages?
-  * How to prioritize web pages that change dynamically?
-  * How to ensure that your crawler is not infinitely stuck on the same domain?
-
-9. Design an API Rate Limiter (e.g. for Firebase or Github)
-
-[1]
-
-You are expected to develop a Rate Limiter services that can:
-
-  * Limit the number of requests an entity can send to an API within a time window e.g., 15
-    requests per second.
-  * The rate limiting should work for a distributed setup, as the APIs are accessible through a
-    cluster of servers.
-  * How would you handle throttling (soft and hard throttling etc.).
-
-10. Design Yelp or Nearby Places/Friends (a proximity server)
-
-[1]
-
-This service would need to store locations for millions of people/places. Discuss things like:
-
-  * How would the users of the service be able to search nearby friends or places
-  * How to rank places (based on the distance, user reviews).
-  * How to efficiently store location data according to the population density (e.g. a block in New
-    York City might have more places/people than a small city).
-
----------------------------------------------------------------------------------------------------
-
-Software engineer Interview Preparation Resources
-
-[1]
-
-Following are some resources that can help you prepare for software engineering interviews.
-
- 1. System Design Interviews: Grokking the System Design Interview.
- 2. Coding Interviews: Coderust 2.0: Faster Coding Interview Preparation using Interactive
-    Visualizations.
- 3. Front-end JavaScript Interviews: Step Up Your JS: A Comprehensive Guide to Intermediate
-    JavaScript.
-
-Happy interviewing!
-
----------------------------------------------------------------------------------------------------
-
-If you found this post helpful, please click the 👏 sign and follow me for more posts. If you have
-any feedback, reach out to me on Twitter.
-
-Fahim is the co-founder of Educative. We are building the next generation interactive learning
-platform for software engineers and instructors. Learners learn by going through interactive
-courses. Instructors can quickly create and publish interactive courses using our course builder.
-If you are interested in publishing courses or knowing more, feel free to reach out.
-*All product names, logos, and brands are property of their respective owners.
-
-  * Web Development
-  * Coding Interviews
-  * Data Structures
-  * Interview
-  * Programming
-
-Show your support
-
-Clapping shows how much you appreciated Fahim ul Haq’s story.
-
-791
-4
-BlockedUnblockFollowFollowing
-Go to the profile of Fahim ul Haq
-
-Fahim ul Haq
-
-Co-founder at Educative.io. Educative helps you learn programming using interactive courses and
-lets authors quickly create, publish and sell their courses.
-
-Follow
-Hacker Noon
-
-Hacker Noon
-
-how hackers start their afternoons.
-
-  *
-    791
-  *
-  *
-  *
-
-Hacker Noon
-Never miss a story from Hacker Noon, when you sign up for Medium. Learn more
-Never miss a story from Hacker Noon
-Get updatesGet updates
-
-#+end_example
 * TODO Not-to-do list                                              :noexport:
 - As architects, we need to worry much less about what happens inside the zone than what happens between the zones.
 * TODO What trade-off we haves                                     :noexport:
-** Use duplication to segregate different systems
-vSAN: k8s etcds vs local cache
