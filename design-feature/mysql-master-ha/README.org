@@ -11,6 +11,16 @@ Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
+#+BEGIN_HTML
+<div id="the whole thing" style="overflow: hidden;">
+<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+</div>
+
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
 sync conflicts for primary key
 ** misc                                                            :noexport:
 https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651960253&idx=1&sn=cce01d9d305024b5cc7e1e7149507ae9&chksm=bd2d06618a5a8f77db3731e8687f9a116c0c3113a4b9a8574149530610dc95fbcf7e4ab92ae5&scene=21#wechat_redirect

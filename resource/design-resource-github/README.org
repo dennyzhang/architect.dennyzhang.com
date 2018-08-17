@@ -13,11 +13,21 @@ Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/designresource][#designresource]], [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
+#+BEGIN_HTML
+<div id="the whole thing" style="overflow: hidden;">
+<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+</div>
+
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
 - GitHub Repo: [[url-external:https://github.com/donnemartin/system-design-primer][system-design-primer]]
 - GitHub Repo: [[url-external:https://github.com/FreemanZhang/system-design][system-design]]
 - GitHub Repo: [[url-external:https://github.com/yangshun/tech-interview-handbook/tree/master/design][yangshun/tech-interview-handbook]]
 - Github Repo: [[https://gist.github.com/vasanthk/485d1c25737e8e72759f][System Design Cheatsheet by vasanthk]]
-- GitHub Repo: [[url-external:https://github.com/DennyZhang/challenges-system-design][challenges-system-design by DennyZhang]]
+- GitHub Repo: [[url-external:https://github.com/dennyzhang/architect.dennyzhang.com][architect.dennyzhang.com by DennyZhang]]
 ---------------------------------------------------------------------
 - Examples from highscalability.com: [[url-external:http://highscalability.com/blog/category/example][here]]
 - Web pages: [[url-external:https://www.hanselman.com/blog/NewInterviewQuestionsForSeniorSoftwareEngineers.aspx][link]], [[url-external:https://www.interviewbit.com/courses/system-design/topics/interview-questions/][link]], [[url-external:http://highscalability.com/blog/2009/8/7/the-canonical-cloud-architecture.html][link]], [[url-external:https://hackernoon.com/top-10-system-design-interview-questions-for-software-engineers-8561290f0444][link]], [[url-external:https://www.evernote.com/shard/s576/sh/7e58b450-1abe-43a8-bf82-fbf07f1db13c/049802174415b418a2e65f75b744ab72][link]]
