@@ -1,6 +1,7 @@
 * [#A] Design: Explain Google Big Table Service                  :Project:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
 :type: systemdesign, designproject
 :END:

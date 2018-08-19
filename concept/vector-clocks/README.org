@@ -1,6 +1,7 @@
 * Explain: Vector Clocks/Version Vectors                         :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
 :type: systemdesign, designservice
 :END:

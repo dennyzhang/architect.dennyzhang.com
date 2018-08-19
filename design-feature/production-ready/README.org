@@ -1,6 +1,7 @@
 * Typical Question: How You Make Your Design Production Ready? :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
 :type: systemdesign, designfeature
 :END:

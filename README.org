@@ -81,28 +81,7 @@ See all blogs I'm actively maintaining:
 | Code tests for interviews     | https://code.dennyzhang.com       |
 | Learn system design           | https://architect.dennyzhang.com  |
 | Cheatsheet for best practices | https://cheatsheet.dennyzhang.com |
-* Contact - Architect                                         :BLOG:Resource:
-:PROPERTIES:
-:type: life
-:END:
----------------------------------------------------------------------
-YouTube Video For System Design Learning
-
-Please leave me comments, if you have better recommendations!
----------------------------------------------------------------------
-Similar Posts:
-- [[https://brain.dennyzhang.com/design-books][Books For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
----------------------------------------------------------------------
-YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]
-
-My takeaway:
-- Why hiring managers tend to ask vague questions in system design
-- It's not about memorizing best practice. But highlight your strength.
----------------------------------------------------------------------
-YouTube: [[url-external:https://www.youtube.com/watch?v=PE4gwstWhmc][How We've Scaled Dropbox]]
----------------------------------------------------------------------
-YouTube: [[url-external:https://www.youtube.com/watch?v=-W9F__D3oY4][Scalability Harvard Web Development By David Malan]]
+| Examine skills in a hard way | https://quiz.dennyzhang.com       |
 * YouTube For System Design                                   :BLOG:Resource:
 :PROPERTIES:
 :type: systemdesign, designresource
@@ -243,3 +222,26 @@ https://github.com/rafalratajczyk/QuizJavaScript
 * TODO Not-to-do list                                              :noexport:
 - As architects, we need to worry much less about what happens inside the zone than what happens between the zones.
 * TODO What trade-off we haves                                     :noexport:
+* TODO todelete                                                    :noexport:
+** Contact - Architect                                        :BLOG:Resource:
+   :PROPERTIES:
+   :type:     life
+   :END:
+ ---------------------------------------------------------------------
+ YouTube Video For System Design Learning
+
+ Please leave me comments, if you have better recommendations!
+ ---------------------------------------------------------------------
+ Similar Posts:
+ - [[https://brain.dennyzhang.com/design-books][Books For System Design]]
+ - Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+ ---------------------------------------------------------------------
+ YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]
+
+ My takeaway:
+ - Why hiring managers tend to ask vague questions in system design
+ - It's not about memorizing best practice. But highlight your strength.
+ ---------------------------------------------------------------------
+ YouTube: [[url-external:https://www.youtube.com/watch?v=PE4gwstWhmc][How We've Scaled Dropbox]]
+ ---------------------------------------------------------------------
+ YouTube: [[url-external:https://www.youtube.com/watch?v=-W9F__D3oY4][Scalability Harvard Web Development By David Malan]]

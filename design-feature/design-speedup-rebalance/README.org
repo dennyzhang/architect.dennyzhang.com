@@ -1,6 +1,7 @@
 * Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster    :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
 :type: systemdesign, designfeature
 :END:

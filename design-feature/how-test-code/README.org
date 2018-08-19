@@ -1,6 +1,7 @@
 * Typical Question: How You Will Test Your Code?                :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
 :type: systemdesign, designfeature
 :END:
