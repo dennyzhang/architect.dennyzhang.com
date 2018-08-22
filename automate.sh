@@ -24,17 +24,31 @@ function refresh_wordpress() {
     done
 }
 
-cd .
+function git_push() {
+    for d in $(ls -1); do
+        if [ -d "$d" ] && [ -d "$d/.git" ] ; then
+            cd "$d"
+            echo "In ${d}, git commit and push"
+            git commit -am "update doc"
+            git push origin
+            cd ..
+        fi
+    done
+    git commit -am "update doc"
+    git push origin
+}
+
+function git_pull() {
+    for d in $(ls -1); do
+        if [ -d "$d" ] && [ -d "$d/.git" ] ; then
+            cd "$d"
+            echo "In ${d}, git commit and push"
+            git pull origin
+            cd ..
+        fi
+    done
+    git pull origin
+}
 
 action=${1?}
-case "$action" in 
-    refresh_wordpress)
-        refresh_wordpress
-        ;;
-    my_test)
-        my_test
-        ;;
-        *) 
-        echo "no matched action. Supported: refresh_link|my_test"
-        ;;
-esac
+eval "$action"

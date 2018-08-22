@@ -22,7 +22,7 @@ See more challenges from Denny: [[https://github.com/topics/denny-challenges][#d
 ** Severity: How critical the data durability or service availability is?
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * org-mode configuration                                           :noexport:
-#+STARTUP: overview customtime noalign logdone showall
+#+STARTUP: overview customtime noalign logdone hidestars
 #+TITLE:  Learn System Design In A Solid Way
 #+DESCRIPTION:
 #+KEYWORDS:
@@ -92,8 +92,8 @@ YouTube Video For System Design Learning
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-books][Books For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-books][Books For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]
 
@@ -114,7 +114,7 @@ Books to learn system design
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 - Design data-intensive application:
 #+BEGIN_HTML
@@ -151,7 +151,7 @@ GitHub For System Design
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 - GitHub Repo: [[url-external:https://github.com/donnemartin/system-design-primer][system-design-primer]]
 - GitHub Repo: [[url-external:https://github.com/FreemanZhang/system-design][system-design]]
@@ -170,13 +170,13 @@ Books to learn system design
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://brain.dennyzhang.com/design-books][Books For System Design]]
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- [[https://code.dennyzhang.com/design-books][Books For System Design]]
+- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 - Website: [[url-external:https://discuss.leetcode.com/tags/5/system%20design][leecode system design]]
 - Blog: [[url-external:http://blog.gainlo.co/index.php/category/system-design-interview-questions/][http://blog.gainlo.co]]
 - Blog: [[url-external:https://www.educative.io/collection/5668639101419520/5649050225344512][Grokking the System Design Interview]]
-- [[https://brain.dennyzhang.com/tag/oodesign][#oodesign]]: OO design questions in this blog
+- [[https://code.dennyzhang.com/tag/oodesign][#oodesign]]: OO design questions in this blog
 - Blog: [[url-external:http://highscalability.com][http://highscalability.com]]
 
 https://www.careercup.com/page?pid=system-design-interview-questions
@@ -191,7 +191,7 @@ Papers For System Design
 Please leave me comments, if you have better recommendations!
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 TODO
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
@@ -233,8 +233,8 @@ https://github.com/rafalratajczyk/QuizJavaScript
  Please leave me comments, if you have better recommendations!
  ---------------------------------------------------------------------
  Similar Posts:
- - [[https://brain.dennyzhang.com/design-books][Books For System Design]]
- - Tag: [[https://brain.dennyzhang.com/tag/designresource][#designresource]], [[https://brain.dennyzhang.com/tag/systemdesign][#systemdesign]]
+ - [[https://code.dennyzhang.com/design-books][Books For System Design]]
+ - Tag: [[https://code.dennyzhang.com/tag/designresource][#designresource]], [[https://code.dennyzhang.com/tag/systemdesign][#systemdesign]]
  ---------------------------------------------------------------------
  YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]
 
@@ -245,3 +245,8 @@ https://github.com/rafalratajczyk/QuizJavaScript
  YouTube: [[url-external:https://www.youtube.com/watch?v=PE4gwstWhmc][How We've Scaled Dropbox]]
  ---------------------------------------------------------------------
  YouTube: [[url-external:https://www.youtube.com/watch?v=-W9F__D3oY4][Scalability Harvard Web Development By David Malan]]
+* TODO architect.dennyzhang.com                                    :noexport:
+** DONE
+*** DONE add github fork me
+    CLOSED: [2018-08-19 Sun 07:58]
+* TODO 2nd adsense doesn't show up: https://architect.dennyzhang.com/ :noexport:
