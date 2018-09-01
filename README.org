@@ -23,7 +23,6 @@ See more challenges from Denny: [[https://github.com/topics/denny-challenges][#d
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone hidestars
-#+TITLE:  Learn System Design In A Solid Way
 #+DESCRIPTION:
 #+KEYWORDS:
 #+AUTHOR: Denny Zhang
