@@ -10,7 +10,7 @@ function my_test() {
 }
 
 function refresh_wordpress() {
-    echo "Use emacs to update README.ord"
+    echo "Use emacs to update wordpress posts"
     for d in "concept" "design-feature" "design-project" "resource"; do
         cd "$d"
         for f in $(ls -1t */README.org); do
