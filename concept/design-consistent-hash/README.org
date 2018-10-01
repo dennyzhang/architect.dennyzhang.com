@@ -27,7 +27,7 @@ Setting up the initial shards for a new service is relatively straightforward: y
 
 *Consistent hashing* allows distribution of data across a cluster to minimize reorganization *when nodes are added or removed*.
 
-[[image-blog:How Does Consistent Hashing Work][https://raw.githubusercontent.com/DennyZhang/images/master/design/consistent_hashing.png]]
+[[image-blog:How Does Consistent Hashing Work][https://raw.githubusercontent.com/dennyzhang/images/master/design/consistent_hashing.png]]
 
 [[color:#c7254e][Two Principles For Paritioning Data:]]
 1. *Determinism*. The output should always be the same for a unique input.

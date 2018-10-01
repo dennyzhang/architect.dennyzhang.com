@@ -24,7 +24,7 @@ Similar Posts:
 
 Vector clocks is an algorithm for generating a partial ordering of events in a distributed system and *detecting causality violations*. [[url-external:https://en.wikipedia.org/wiki/Vector_clock][See in wikipedia]]
 
-[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/DennyZhang/images/master/design/vector-clock.png]]
+[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/dennyzhang/images/master/design/vector-clock.png]]
 
 - Vector clocks/version vectors are about detecting conflicting/updates ...
 - ... but says nothing about how to resolve those conflicts.
@@ -43,7 +43,7 @@ A: Lamport Clock can be considered as a logical timestamp. A Lamport Clock is a 
 
 Each node keeps a record of what it thinks the latest (i.e. highest) Lamport Clock value is, and if it hears a larger value from some other node, it updates its own value.
 
-[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/DennyZhang/images/master/design/lamport-sample.jpg]]
+[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/dennyzhang/images/master/design/lamport-sample.jpg]]
 ---------------------------------------------------------------------
 Q: What are the difference in between of Lamport Clock and Vector Clock?
 

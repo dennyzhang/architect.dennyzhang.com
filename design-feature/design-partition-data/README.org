@@ -22,7 +22,7 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-[[image-blog:Design: How To Partition Data At Scale][https://raw.githubusercontent.com/DennyZhang/code.dennyzhang.com/master/images/design/partition_data.png]]
+[[image-blog:Design: How To Partition Data At Scale][https://raw.githubusercontent.com/dennyzhang/code.dennyzhang.com/master/images/design/partition_data.png]]
 
 [[color:#c7254e][Question1: Clarity the requirements from your experience/viewpoints.]]
 

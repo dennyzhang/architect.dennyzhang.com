@@ -84,7 +84,7 @@ If only the coordinator had failed, and no cohort members had received a commit 
 
 3PC(three phase commit): compared to 2PC, it add one extra step. [[color:#c7254e][prepare to commit]].
 
-[[image-blog:Explain Paxos Algorithm][https://raw.githubusercontent.com/DennyZhang/images/master/design/paxos-3pc.png]]
+[[image-blog:Explain Paxos Algorithm][https://raw.githubusercontent.com/dennyzhang/images/master/design/paxos-3pc.png]]
 
 See more in [[url-external:https://en.wikipedia.org/wiki/Three-phase_commit_protocol][wikipedia]]
 ---------------------------------------------------------------------

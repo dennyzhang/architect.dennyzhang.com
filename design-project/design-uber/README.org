@@ -41,7 +41,7 @@ Credit DB
 ---------------------------------------------------------------------
 [[color:#c7254e][Question3: High level design: Propose your architecture diagram.]]
 
-[[image-blog:Design: Uber Backend][https://raw.githubusercontent.com/DennyZhang/images/master/design/design-uber.png]]
+[[image-blog:Design: Uber Backend][https://raw.githubusercontent.com/dennyzhang/images/master/design/design-uber.png]]
 ---------------------------------------------------------------------
 [[color:#c7254e][Question4: List major challenges you think.]]
 

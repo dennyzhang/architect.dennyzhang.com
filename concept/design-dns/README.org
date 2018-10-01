@@ -76,7 +76,7 @@ SOA and NS?
 Q: What is TXT record?
 
 e.g:
-[[image-blog:Design: How Does DNS Work][https://raw.githubusercontent.com/DennyZhang/images/master/design/dns_sample.png]]
+[[image-blog:Design: How Does DNS Work][https://raw.githubusercontent.com/dennyzhang/images/master/design/dns_sample.png]]
 
 #+BEGIN_EXAMPLE
 dig dennyzhang.com NS
@@ -90,7 +90,7 @@ wikipedia: [[url-external:https://en.wikipedia.org/wiki/List_of_DNS_record_types
 ---------------------------------------------------------------------
 Q: AWS Route53 Routing policy
 
-[[image-blog:Design: How Does DNS Work][https://raw.githubusercontent.com/DennyZhang/images/master/design/aws_route53_routing_policy.png]]
+[[image-blog:Design: How Does DNS Work][https://raw.githubusercontent.com/dennyzhang/images/master/design/aws_route53_routing_policy.png]]
 ---------------------------------------------------------------------
 Q: [[color:#c7254e][Diversity of different DNS services]].
 
