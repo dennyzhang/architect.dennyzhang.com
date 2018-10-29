@@ -217,6 +217,978 @@ https://github.com/rafalratajczyk/QuizJavaScript
 <a href="https://github.com/dennyzhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* Design Exercise: Marketplace System                              :BLOG:Project:
+:PROPERTIES:
+:type: project
+:END:
+---------------------------------------------------------------------
+Design Exercise
+---------------------------------------------------------------------
+[[color:#c7254e][Requirement:]]
+
+Business Case:
+
+You are building a Marketplace for Self-Employed. The marketplace allows employers to post jobs, while perspective self-employed can bid for projects. In this system, you have two actors:
+
+1. *Seller*: Posts a project with detailed project requirements, such as description, maximum budget and last day/time for accepting bids.
+2. *Buyer* (Self-Employed): Bids for work on a fixed price.
+
+[[color:#c7254e][High Level Requirements]]:
+
+- 1. Design and Implement REST API to support the following requirements:
+#+BEGIN_EXAMPLE
+a. Create a Project.
+b. Get a Project by ID.
+   Returned fields should include the lowest bid amount.
+c. API to Bid for a Project
+d. API to Query for all Open Projects.
+#+END_EXAMPLE
+- 2. The Buyer with the lowest bid automatically wins the bid when the deadline is reached.
+- 3. You are welcome to assume unspecified requirements to make it better for the customers.
+- 4. In-memory database is sufficient. Optionally, you are welcome to use a persistent data store of your choice.
+- 5. You are encouraged but not required to take advantage of a service code-generation framework of your choice when performing this exercise.
+- 6. [[color:#c7254e][Describe a cloud hosting plan for this service, incorporating scalability, stability, monitoring and disaster recovery.]]
+- 7. [[color:#c7254e][Describe an automated, continuous integration and deployment (CICD) process for production rollout.]]
+
+Expectations:
+1. This is an open-ended exercise. The goal is to demonstrate how well you design a system with limited requirements
+- Come prepared with high level Architecture and Design.
+- You are expected to explain the rationale for your choice of technologies and architectural and design patterns. 
+
+Possible onsite extensions
+- Pagination.
+- Architectural changes to support 5M users.
+- Resilient notification mech
+- Decompose Project and Bid into two microservices: data management, communication, etc
+---------------------------------------------------------------------
+Q: Clarity requirements and define scopes.
+
+[[color:#c7254e][Assumptions]]:
+- Normally seller may be reluctant to set the budget to be that clear. Either a range or want the providers to negotiate with them. For simplicity, we assume all projects will have a budget as a float number.
+- Here we assume an easy security model. All registered buyers can check all projects and bid all projects. In the reality, sellers may want to create projects with RBAC(role based access control) enforced. Or for some projects only some levels of buyers can bid.
+- Assume one can only be a seller or a buyer. If he/she want to be both, register a different count. This would simplify the whole design and implementation.
+- Assume one buyer can't bid a closed project. And the compensate he/she proposes can only be no bigger than the budget.
+- We assume all data can be stored in DB. Thus no data retention will be required in current stage. If they grow too big, we can move outdated data into the secondary DB. Or move the non-critical fields into NoSQL DB.
+- For better consistency, we put the core data into RDMBS.
+---------------------------------------------------------------------
+Q: Diagram of OO Design
+
+[[image-blog:Design Exercise: Marketplace System][https://raw.githubusercontent.com/DennyZhang/images/master/design/system-oom-er.png]]
+
+---------------------------------------------------------------------
+Q: Design and Implement REST API?
+
+[[image-blog:Design Exercise: Marketplace System][https://raw.githubusercontent.com/DennyZhang/images/master/design/market_system_api.png]]
+
+Highlights:
+- All data is sent and received as JSON.
+- For authorization, use OAuth2 token in header.
+#+BEGIN_EXAMPLE
+curl -H "Authorization: token OAUTH-TOKEN" https://XXX.XXX.XXX
+#+END_EXAMPLE
+- protocol version is: *1.0* for all APIs.
+---------------------------------------------------------------------
+- *Create a Project*
+Request:
+#+BEGIN_EXAMPLE
+POST /api/v1/projects
+{
+ "name": string,
+ "summary": string,
+ "description": string,
+ "budget": float,
+ "deadline": timestamp
+}
+
+# $protocol_version: v1, v2, etc.
+  Reject very old client requests, in case of breaking API changes.
+#+END_EXAMPLE
+- For security concern, we'd better avoid asking *seller_id* in the POST body.
+
+Response:
+#+BEGIN_EXAMPLE
+HTTP/1.1 201 OK
+{
+  "id": int
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+HTTP/1.1 4XX/5XX ERROR
+{
+  "message": string
+}
+#+END_EXAMPLE
+
+- *Get a Project by ID*. Returned fields should include the lowest bid amount.
+Request:
+#+BEGIN_EXAMPLE
+GET /api/v1/projects/${id}
+#+END_EXAMPLE
+
+Response:
+#+BEGIN_EXAMPLE
+HTTP/1.1 200 OK
+{
+  "id": int,
+  "summary": string,
+  "description": string,
+  "budget": float,
+  "deadline": timestamp,
+  "lowest_bid_amount": int # return -1, if no bid at all
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+HTTP/1.1 4XX/5XX ERROR
+{
+  "message": string
+}
+#+END_EXAMPLE
+
+- *API to Bid for a Project*
+Request:
+#+BEGIN_EXAMPLE
+POST /api/v1/projects/${id}/bid
+{
+  "amount": float
+}
+#+END_EXAMPLE
+
+- For security concern, we'd better avoid asking *buyer_id* in the POST body.
+
+Response:
+#+BEGIN_EXAMPLE
+HTTP/1.1 201 OK
+{
+  "id": int
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+HTTP/1.1 4XX/5XX ERROR
+{
+  "message": string
+}
+#+END_EXAMPLE
+
+If the project deadline is ealier than now, return 405 error.
+
+- *API to Query for all Open Projects.*
+Request:
+
+#+BEGIN_EXAMPLE
+GET /api/v1/projects?page=${page}&per_page=${per_page}
+
+# page: page numbering is 1-based
+
+# per_page: How many bid counts we want to see for each page
+  Sorted in ascending order.
+  The default is 30. The valid range is [1, 400] (inclusive)
+#+END_EXAMPLE
+
+Response:
+#+BEGIN_EXAMPLE
+HTTP/1.1 200 OK
+{
+  "per_page": 10,
+  "pages": 1,
+  "page": 1,
+  "total": 4
+  "projects":[
+    {
+      "id": int,
+      "summary": string,
+      "description": string,
+      "budget": float,
+      "deadline": timestamp,
+      "lowest_bid_amount": int
+    },
+    {
+      "id": int,
+      "summary": string,
+      "description": string,
+      "budget": float,
+      "deadline": timestamp,
+      "lowest_bid_amount": int
+    }
+  ]
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+HTTP/1.1 4XX/5XX ERROR
+{
+  "message": string
+}
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: Describe a cloud hosting plan for this service, incorporating scalability, stability, monitoring and disaster recovery.
+
+[[image-blog:Design Exercise: Marketplace System][https://raw.githubusercontent.com/DennyZhang/images/master/design/aws-cloud-basic1.png]]
+
+Estimated cost: *$244/month*. (See in [[url-external:https://cloudcraft.co/app][https://cloudcraft.co/app]])
+
+The design depends on expectations, budgets, and options we may have.
+
+Let's assume we treat the env as [[color:#c7254e][a critical production system]]. And we want to avoid SPOF(single point of failure) and minimize the downtime.
+
+- Choose which cloud provider?
+
+#+BEGIN_EXAMPLE
+Need to choose among mature and advanced public cloud providers.
+
+Currently AWS, Azure, GCE are the leading providers.
+Definitely AWS is the most versatile one.
+
+AWS would be more expensive, compared to its competitors and on-premise ones.
+When our env is not that big, the difference of cost is not that big.
+
+Hence *we choose AWS for further discussion.*
+#+END_EXAMPLE
+
+- What about DB?
+#+BEGIN_EXAMPLE
+DB is the most critical part. It will not only impact the system
+availability but also data integrity.
+
+We use AWS RDS, a hosted RMDBS service.
+
+To avoid SPOF, add one RDS instance with another replica in a different AZ.
+#+END_EXAMPLE
+
+- About DR: Incremental + full backup with S3+Glacier backend data store
+#+BEGIN_EXAMPLE
+1. Enable data incremental backup and weekly full backup.
+   This should be fast and only generate GBs of data for medium-size system.
+2. Backup is stored in S3. We can keep latest 3 copies as hot backup
+3. The code backup dataset will be moved to Glacier automatically.
+4. Enforce data retention in Glacier to save cost.
+#+END_EXAMPLE
+
+- About service deployment: ECS/EKS preference, EC2 is fine as well.
+#+BEGIN_EXAMPLE
+For our application: the logic is relatively simple.
+Most of the stateful context are saved in RDS.
+*Here we choose container deployment over VM deployment.*
+
+ECS/Fargate can be an optional, and EKS is winning.
+(Note: currently AWS EKS is only in preview mode)
+
+But before jumping into the conclusion, check with local talents.
+Make sure people are comfortable with container technology.
+#+END_EXAMPLE
+
+About monitoring:
+#+BEGIN_EXAMPLE
+1. Enable AWS cloudwatch for infra level monitoring: disk, RAM, CPU, fd, etc.
+2. Enable RDS cloudwatch metrics: slow query, insane data growth
+3. Monitoring application log file for unexpected errors/exceptions
+4. Application monitoring: integrate healthcheck API
+5. Enable APM monitoring:
+   It shall depends on programming languages, or work with developers.
+6. *Redirect all alerts to slack*.
+   Critical ones to a more public channel.
+   And non-critical to internal channels.
+#+END_EXAMPLE
+
+---------------------------------------------------------------------
+Q: Describe an automated, continuous integration and deployment (CICD) process for production rollout.
+
+Nowadays we typically have two standard CI workflows.
+#+BEGIN_EXAMPLE
+One is Jenkins/Bamboo/TeamCity, another set is
+GitLab/TravisCI/Bitbucket Pipeline.
+
+The main difference is in the first set, we setup and maintain
+powerful server(s). It run lots of tests in a visualized way.
+
+The second set is sort of serverless, or invisible to end
+users. Developers only need to put some yaml file. After git push, CI
+will work automatically.
+
+Normally the first set is easier to setup and more intuitive. But if
+we're with paid plan of GitHub or Bitbucket, the second one takes less
+effort.
+#+END_EXAMPLE
+*Here we choose Jenkins for further discussion*. This gives us more freedoms with less vendor lock-in issues.
+
+- 1. Setup Jenkins service by docker.
+#+BEGIN_EXAMPLE
+If we don't have too many concurrent tests, one solo jenkins will work.
+
+Otherwise we need to setup Jenkins master/slave agents.
+#+END_EXAMPLE
+
+- 2. Create Jenkins jobs to run tests.
+#+BEGIN_EXAMPLE
+Typically tests would covers below fields:
+1. Lint check(static check)
+2. Unit tests
+3. Deployment tests
+4. Functional tests
+5. Behavior and/or UI acceptance tests.
+#+END_EXAMPLE
+
+- 3. Setup the job trigger points. Either by poll or by push mechanism
+#+BEGIN_EXAMPLE
+When people git push to certain branch, we trigger tests.
+
+With pull mechanism, we create scheduled Jenkins job to pull git commits.
+In this way, we don't need admin access of the git repo.
+No extra setup in Git server(GitHub/Bitbucket/GitLab)
+
+With push mechanism, we need to configure the git hook in git server.
+Also add git server's IP to the Jenkins firewall. This is not usually that easy.
+The server ip may change from time to time. Thus the hook actions may fail.
+Or we need to allowing all public access to Jenkins.
+
+Certainly we can enforce token authentication.
+But this still compromise security.
+
+Both comes with pros and cons. Here we choose pull mechanism.
+#+END_EXAMPLE
+
+- 4. Define Jenkins pipeline to rollout production
+#+BEGIN_EXAMPLE
+When all jenkins tests have passed, jenkins job can trigger the deployment.
+
+It can be fully automated. Or add some approval process.
+
+To add approval process, we can use Jenkins pipeline input step feature.
+
+Or define some git commit convention. Say we only monitor push to *master* branch.
+And what's more, the git message should contain patterns like "DEPLOY TO PROD".
+#+END_EXAMPLE
+
+- 5. One button deployment.
+#+BEGIN_EXAMPLE
+Typically we may have container deployment or VM deployment.
+
+With container deployment, we can use less of CM(configuration management).
+Ask Jenkins to build and push latest docker images.
+Then notify prod env to pull given images and trigger deployment
+
+With VM deployment, we might use ssh+CM tool to run deployment.
+#+END_EXAMPLE
+
+- 6. Online rolling upgrade
+#+BEGIN_EXAMPLE
+Nobody wants risky deployment.
+
+With kurbernet, we have built-in rolling upgrade support.
+
+With VM deployments, enforce healthcheck in between of node deployment.
+#+END_EXAMPLE
+
+- 7. Send out notifications. (Slack preferred)
+#+BEGIN_EXAMPLE
+Everybody in sync for prod env update
+- Who triggers the deployment. (It could be bots or human)
+- When it's updated
+- How long it takes
+- Whether the deployment has passed or failed
+
+Redirect all major monitoring alerts to the same slack channel.
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: Architectural changes to support 5M users
+
+TODO: feel like I'm talking about lots of common sense.
+
+[[image-blog:Design Exercise: Marketplace System][https://raw.githubusercontent.com/DennyZhang/images/master/design/aws-cloud-advanced.png]]
+
+Estimated cost: *$5,750/month*. (See in [[url-external:https://cloudcraft.co/app][https://cloudcraft.co/app]])
+
+- What 5 million users mean for our capacity planning?
+#+BEGIN_EXAMPLE
+With 5M users, the visitors may be geographically located in different areas.
+Different regions or even different countries.
+
+We might not have strict peak hours and non-business hours.
+
+Let's say 10% are active users. So we have 500K active users.
+
+Users are globally located. Let's say 50% would be at days and 50% at nights.
+So we assume 250K online users at average.
+
+Apparently most activities would be readonly.
+Let's say every 30 seconds people perform one action.
+And here we assume read/write ratio is 20/1.
+
+Then the estimation of write OPS is 396.83 per second. ((25K * (1/21))/30)
+And the read OPS is 7936.51 per second.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Let's assume active users will create 0.5 projects every month.
+And inactive users will 0.01 projects every month.
+
+So we will have 295K new projects created every month.
+Let's say each project will generate 50KB data.
+
+So the monthly new data would be 14.75 GB. ((295*50)/1000)
+#+END_EXAMPLE
+
+- About Data Store: separate cold data from hot data.
+#+BEGIN_EXAMPLE
+- Move old data into a secondary data store.
+  e.g, projects/bids which are older than 2 years.
+  So we can assume the live data would be 354 GB.
+  Full DB backup and restore would take several hours.
+
+- Move non-critical data from RDS into a secondary K/V store.
+  e.g, project descriptions and pictures.
+
+- Partition data by regions or countries.
+  With this tenant design, DB can better scale out.
+  Easy to manage, and also to support the QPS of 7.9K/second.
+#+END_EXAMPLE
+
+- Performance Improvements:
+#+BEGIN_EXAMPLE
+- Scale out
+  Add more instances for applications.
+
+- Scale up
+  Upgrade the machine flavor, if it's not too crazy.
+
+- Add more DB read replica(s)
+  Since ratio of read/write is high, more db read replica(s) help.
+  Probably we shall need no more than
+#+END_EXAMPLE
+
+- Capacity planning for DB service
+
+From [[url-external:https://blog.takipi.com/benchmarking-aurora-vs-mysql-is-amazons-new-db-really-5x-faster/][this link]], we know 1 RDS with [[url-external:https://aws.amazon.com/rds/mysql/details/][db.r3.8xlarge]] can provide around 7000 QPS.
+
+#+BEGIN_EXAMPLE
+We're expecting 396.83 write QPS, and 7936.51 read QPS.
+
+So we can have 3 RDS(db.r3.4xlarge) to support this. 1 master, 2 slaves.
+
+(db.r3.4xlarge:	16 vcpu, 122 GB RAM)
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+- CloudFront(CDN)
+  Webserver can delegate the effort of serving static files to cloudfront.
+  Deploy Cloudfront to edges close to end users.
+  And use latency-based DNS in AWS Route53.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+- AWS Redis(Caching)
+  Load the frequent queries into redis cluster. Thus DB can be less busy.
+  Perfect candidates of caching could be popular projects, active users, etc.
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+- DBA improvement for frequent DB actions
+  Build secondary DB indices or db views.
+#+END_EXAMPLE
+
+- Avoid Region SPOF
+#+BEGIN_EXAMPLE
+- For serious envs like 5M users, region outage may happen sooner or later.
+  Setup a mini and mirror system in another region.
+  Configure cross-site async replication. It will serve as a standby system.
+
+- Visitors may come from US, Asian, Europe, or anywhere
+  Geolocation deployment speed up the performance.
+#+END_EXAMPLE
+
+- About Cost Saving
+#+BEGIN_EXAMPLE
+1. Add budget monitoring and get alerts if AWS cloud bill is big
+2. Evaluate the vendor-lock issue(s).
+   For large env, cost will be big if we can have only few options.
+3. Enable auto-scaling
+4. Watch service characteristic and machine flavors closely.
+   With suitable machine flavors, we can use less infra. And it saves cost.
+#+END_EXAMPLE
+
+- About DR
+#+BEGIN_EXAMPLE
+Speed up DB bakcup/restore
+1. Instead of sequential table-by-table backup and restore, do it on parallel.
+2. Perform backup when traffic is low. More traffic indicates more lockings.
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: Resilient notification mech
+
+TODO: not sure what does this mean
+
+- In what scenarios, we might need notification feature?
+#+BEGIN_EXAMPLE
+Notify sellers, when buyers have new bids with their projects.
+Conversation notification in between of individuals.
+Notify buyers for projects they are interested.
+etc.
+#+END_EXAMPLE
+
+Typical requirement:
+1. Deliver *at-most-once* vs *at-least-once*
+- Messages in order
+
+---------------------------------------------------------------------
+Q: Decompose Project and Bid into two microservices: data management, communication, etc.
+
+** misc                                                            :noexport:
+*** DONE After create project, see inconsistent state
+    CLOSED: [2018-03-22 Thu 11:08]
+*** DONE [#A] get project id
+  CLOSED: [2018-03-22 Thu 11:08]
+[2018-03-22 07:23:23 +0000] [45] [INFO] Booting worker with pid: 45
+2018-03-22 07:24:47,361 - market_api.endpoints.restplus - WARNING - Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.4/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.4/site-packages/flask_restplus/api.py", line 313, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python3.4/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python3.4/site-packages/flask_restplus/resource.py", line 44, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/local/lib/python3.4/site-packages/flask_restplus/marshalling.py", line 101, in wrapper
+    resp = f(*args, **kwargs)
+  File "/opt/market/market_api/endpoints/restplus.py", line 120, in post
+    project = Project.query.filter(Project.id == id).one()
+  File "/usr/local/lib/python3.4/site-packages/sqlalchemy/orm/query.py", line 2404, in one
+    raise orm_exc.NoResultFound("No row was found for one()")
+sqlalchemy.orm.exc.NoResultFound: No row was found for one()
+*** TODO return error message with different type
+* Design Exercise: Budget Advising                                 :BLOG:Project:
+:PROPERTIES:
+:type: project
+:END:
+---------------------------------------------------------------------
+Coding Exercise
+---------------------------------------------------------------------
+[[color:#c7254e][Requirement:]]
+
+I am creating my budget for the next month. Besides regular spending, I also added a list of extra items I want to buy. I added my budget amount and realized that it has exceeded my planned spending amount, so I want to eliminate some items in order to cut down my budget.
+
+You are a developer at Mint. In order to help me manage my personal finance better, you are giving me suggestions of what items I should remove from my budget. What you are given is:
+
+1. A list of extra items I want to buy. Each item has a name and an amount. (Ex. Name: "Backpack", amount: 50.00). There are no duplicate items. 
+2. My current total budget amount for next month: n dollars.
+3. My target total budget amount for next month: m dollars. (m < n)
+#+BEGIN_EXAMPLE
+Ex. - Name: "Backpack", amount: $55.00
+    - Name: "Monitor", amount: $100.00
+    - Name: "Water bottle", amount: $10.00
+    - Name: "Tent", amount: $150.00
+    - Name: "Headphone", amount: $123.00
+
+ current total budget: $1200.00
+ target total budget: $1000.00
+
+ returning pair: "Backpack", "Tent"
+#+END_EXAMPLE
+
+If I only want to remove 2 items to lower my budget to target budget, is it possible? If so, which 2 items should I remove?
+---------------------------------------------------------------------
+Q: How to get the biggest number which is smaller than the target, after removing no more than 2 items?
+
+[[color:#c7254e][Clarification/Assumptions]]:
+1. If the sum is smaller than target, remove nothing.
+- If multiple choices, any one would be acceptable.
+- If remove one item can make the sum smaller than target, and make the sum biggest, just remove one.
+- If remove the 2 biggest items still don't work, return an empty list.
+
+#+BEGIN_SRC python
+#!/usr/bin/env python3
+## Complexity: Time O(n*log(n)), Space O(n)
+class Solution(object):
+    def budgetAdvising2Items(self, items, prices, target):
+        """
+        :type items: List[string]
+        :type prices: List[float]
+        :type target: float
+        :rtype: List[str]
+        """
+        total = sum(prices)
+        # no need to remove items
+        if total <= target: return []
+        diff = total-target
+
+        # sort the list
+        l = sorted(zip(prices, items))
+
+        res = []
+        min_remove = total
+        # only need to remove one item
+        for (price, item) in l:
+            if price == total-target: return [item]
+            if price > total-target:
+                if price < min_remove:
+                    min_remove = price
+                    res = [item]
+                break
+
+        # if removing any two items won't work, we return []
+        if l[-1][0] + l[-2][0] < total-target: return []
+
+        # need to remove two items
+        left, right = 0, len(l)-1
+        while left<right:
+            v = l[left][0] + l[right][0]
+            if v == total-target:
+                return [l[left][1], l[right][1]]
+            if v < total-target:
+                left += 1
+            else:
+                # evaluate the candidate
+                if v < min_remove:
+                    min_remove = v
+                    res = [l[left][1], l[right][1]]
+                right -= 1
+        return sorted(res)
+#+END_SRC
+---------------------------------------------------------------------
+Q: How do you want to test your code?
+
+- 1. Design testcases for normal cases
+#+BEGIN_EXAMPLE
+Normal case with 5 items
+
+Normal cases with huge records, say 100+ items. This may happen for SMB.
+But it's unlikely that we have tens of thousands of records in this scenario.
+
+Target is bigger than the total
+
+Removing one item instead of two would be the best choice
+#+END_EXAMPLE
+
+- 2. Design testcases for invalid input
+#+BEGIN_EXAMPLE
+The list is empty
+
+The counts of of items and prices are not the same.
+
+Some prices are not valid positive float
+
+Duplicate names in the items
+#+END_EXAMPLE
+
+- 3. Enable code check for git push hook.
+#+BEGIN_EXAMPLE
+Static lint tests
+Unit tests
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: What changes you want to make, in order to get your code ready for production?
+
+- Define exceptions, and throw exceptions for unexpected input or errors.
+#+BEGIN_EXAMPLE
+Thus the caller won't get false positive
+#+END_EXAMPLE
+
+- Provide lint checks and unit tests for integration.
+#+BEGIN_EXAMPLE
+As the code keeps changing, we might bring in regression issues.
+Unit tests can help.
+#+END_EXAMPLE
+
+- Add logging for critical errors.
+
+#+BEGIN_EXAMPLE
+If any unexpected errors or exceptions have happened, write critical
+log. Based on that, we can get proper notification via ELK, or even
+*Slack* messages.
+#+END_EXAMPLE
+
+- Provide REST API for people to integrate the function.
+
+#+BEGIN_EXAMPLE
+People can design end-to-end tests based on the REST API. Monitoring
+can also be built on top of this. This helps maintenance.
+#+END_EXAMPLE
+
+- If you use the functionality as a service, wrap up the solution as a microservice or a [[color:#c7254e][container]].
+#+BEGIN_EXAMPLE
+Much easier to deploy and maintain.
+Easy to scale, and more reliable.
+#+END_EXAMPLE
+
+- Add event notification for business requirements.
+#+BEGIN_EXAMPLE
+We might want to do data mining to know more about our customers.
+Say how often the individuals may run out of budget, by what ratios.
+
+Thus we can send out notifications to another data store or a queue
+for off-line data analysis.
+#+END_EXAMPLE
+
+- Do we need to support family shared accounts? If so, we might encounter concurrent writes.
+#+BEGIN_EXAMPLE
+Let's say we need to support that.
+The husband has added many items, which leads to out of budget.
+When our application try to give suggestions, the wife has deleted some items.
+
+This means our suggestions might be out-of-date.
+It could be misleading or confusing.
+
+So how we can solve this? (Note: this is very unlikely to happen).
+#+END_EXAMPLE
+
+Though we might have coflicts, but they are unlikely to happen.
+#+BEGIN_EXAMPLE
+- So we simply add a validation check, when we propose the
+  suggestions. If the items have changed, we discard our
+  suggestions. Sort of CAS(Compare-And-Set) logic.
+
+- Or use optimistic locking.
+
+- Or use lock-free model. The program is a worker thread with its own
+  queue.
+#+END_EXAMPLE
+---------------------------------------------------------------------
+Q: What if I want to remove 3 items, if there are no 2 items that satisfy the requirement?
+
+[[color:#c7254e][Clarification/Assumptions]]:
+1. If we have better solutions to remove less then 3 items, remove that one.
+- If we have multiple solutions, return any one would be acceptable.
+- If we remove 3 largest items and it still doesn't work, return an empty list.
+#+BEGIN_SRC python
+#!/usr/bin/env python3
+## Description :
+##    Basic Ideas: Sort the list. Then use two pointers
+##
+##    Complexity: Time O(n*n), Space O(n)
+class Solution(object):
+    def budgetAdvising3Items(self, items, prices, target):
+        """
+        :type items: List[string]
+        :type prices: List[float]
+        :type target: float
+        :rtype: List[str]
+        """
+        total = sum(prices)
+        # no need to remove items
+        if total <= target: return []
+
+        # sort the list
+        l = sorted(zip(prices, items))
+
+        # remove one or two items
+        res = self.budgetAdvising2Items(items, prices, target)
+        if res != []:
+            min_remove = 0
+            for item in res:
+                for x in l:
+                    if x[1] == item:
+                        min_remove += x[0]
+                        break
+        else:
+            min_remove = total
+        for i in range(len(l)-2):
+            left, right = i+1, len(l) - 1
+            while left < right:
+                v = l[i][0] + l[left][0] + l[right][0]
+                if v == total-target:
+                    return sorted([l[i][1], l[left][1], l[right][1]])
+                if v < total-target:
+                    # need bigger items
+                    left += 1
+                else:
+                    if v < min_remove:
+                        min_remove = v
+                        res = [l[i][1], l[left][1], l[right][1]]
+                    # need smaller items
+                    right -= 1
+        return sorted(res)
+
+    def budgetAdvising2Items(self, items, prices, target):
+        """
+        :type items: List[string]
+        :type prices: List[float]
+        :type target: float
+        :rtype: List[str]
+        """
+        total = sum(prices)
+        # no need to remove items
+        if total <= target: return []
+        diff = total-target
+
+        # sort the list
+        l = sorted(zip(prices, items))
+
+        res = []
+        min_remove = total
+        # only need to remove one item
+        for (price, item) in l:
+            if price == total-target: return [item]
+            if price > total-target:
+                if price < min_remove:
+                    min_remove = price
+                    res = [item]
+                break
+
+        # if removing any two items won't work, we return []
+        if l[-1][0] + l[-2][0] < total-target: return []
+
+        # need to remove two items
+        left, right = 0, len(l)-1
+        while left<right:
+            v = l[left][0] + l[right][0]
+            if v == total-target:
+                return [l[left][1], l[right][1]]
+            if v < total-target:
+                left += 1
+            else:
+                # evaluate the candidate
+                if v < min_remove:
+                    min_remove = v
+                    res = [l[left][1], l[right][1]]
+                right -= 1
+        return sorted(res)
+#+END_SRC
+---------------------------------------------------------------------
+Q: What if I want to remove K items?
+
+[[color:#c7254e][Clarification/Assumptions]]:
+1. If we have multiple solutions, return any one would be acceptable.
+- If we have better solutions to remove less then K items, we still choose K items
+#+BEGIN_SRC python
+#!/usr/bin/env python3
+##  Basic Ideas:
+##    Sort the list. Then use the idea of two pointers
+##
+##  Complexity: Time O(pow(n, K-1)), if K>=3.
+##           Time O(n*log(n)), if K == 2
+##           Time O(n), if K == 1
+##           Time O(1), if K == 0
+##           Space O(n)
+class Solution(object):
+    def budgetAdvisingKItems(self, items, prices, target, K):
+        """
+        :type items: List[string]
+        :type prices: List[float]
+        :type target: float
+        :type K: int
+        :rtype: List[str]
+        """
+        total = sum(prices)
+        # no need to remove items
+        if total <= target: return []
+
+        if K <= 0: return []
+        if K >= len(items): return sorted(items)
+        if K == 1:
+            # linear check
+            res = []
+            min_remove = total
+            for i in range(len(items)):
+                # need bigger item
+                if prices[i] < target - total: continue
+                if prices[i] == target - total: return [items[i]]
+                # find a better candidate
+                if prices[i] < min_remove:
+                    min_remove = prices[i]
+                    res = [items[i]]
+            return res
+
+        # sort the list
+        l = sorted(zip(prices, items))
+        index_list = self.myBudgetAdvisingKItems(l, total-target, K, 0)
+        return sorted([l[i][1] for i in index_list])
+
+    def myBudgetAdvisingKItems(self, l, offset, K, start_index):
+        """
+        :type l: List[(string, float)]
+        :type offset: float
+        :type K: int
+        :type start_index: int
+        :rtype: List[int]
+        """
+        assert(K>=2)
+        if start_index == len(l): return []
+        total = sum([l[i][0] for i in range(start_index, len(l))])
+
+        res, min_remove = [], total
+        if K == 2:
+            left, right = start_index, len(l)-1
+            while left<right:
+                v = l[left][0] + l[right][0]
+                if v == offset:
+                    return [left, right]
+                if v < offset:
+                    # too small
+                    left += 1
+                else:
+                    # evaluate the candidate
+                    if v < min_remove:
+                        min_remove, res = v, [left, right]
+                    right -= 1
+            return res
+
+        # K>=3
+        for i in range(start_index, len(l)-1):
+            if l[i][0] >= offset: continue
+            index_list = self.myBudgetAdvisingKItems(l, offset-l[i][0], K-1, i+1)
+            if index_list != []:
+                index_list = [i] + [k for k in index_list]
+                sum_removed = sum([l[k][0] for k in index_list])
+                if sum_removed < min_remove:
+                    min_remove, res = sum_removed, index_list
+        return res
+#+END_SRC
+---------------------------------------------------------------------
+Q: I don't have number of item limit, show me all the possible combinations of items I can remove to lower my budget. 
+
+[[color:#c7254e][Clarification/Assumptions]]:
+1. Show all combinations with the optimal values.
+- Not showing all combinations whose sum is no bigger than the budget. If we remove everyting, it could work. But it's not what we want.
+
+#+BEGIN_SRC python
+#!/usr/bin/env python3
+## Description :
+##    Basic Ideas: Sort the list. Then BFS
+##
+##    The worst case: the budget is so low that we have to remove almost all items
+##
+##    Complexity: Time O(pow(2, n))
+##                Space O(pow(2, n))
+import sys
+class Solution(object):
+    def budgetAdvisingItems(self, items, prices, target):
+        """
+        :type items: List[string]
+        :type prices: List[float]
+        :type target: float
+        :rtype: List[str]
+        """
+        import collections
+        if len(items) == 0: return []
+        total = sum(prices)
+        # no need to remove items
+        if total <= target: return []
+
+        min_diff, res = total, []
+        l = sorted(zip(prices, items))
+        queue = collections.deque([([], total-target)])
+
+        for i in range(len(l)):
+            (price, item) = l[i]
+            for j in range(len(queue)):
+                (item_list, diff) = queue.popleft()
+                # get the neighbors
+                # don't select current item
+                queue.append((item_list, diff))
+                # select current item
+                if price < diff:
+                    queue.append((item_list+[item], diff-price))
+                else:
+                    # we get candidates
+                    if (price-diff) == min_diff: res.append(item_list+[item])
+                    if (price-diff) < min_diff:
+                        res, min_diff = [item_list+[item]], (price-diff)
+        return res
+#+END_SRC
 * TODO todelete                                                    :noexport:
 ** Contact - Architect                                        :BLOG:Resource:
    :PROPERTIES:
@@ -248,3 +1220,11 @@ https://github.com/rafalratajczyk/QuizJavaScript
 - As architects, we need to worry much less about what happens inside the zone than what happens between the zones.
 * TODO What trade-off we haves                                     :noexport:
 * TODO 2nd adsense doesn't show up: https://architect.dennyzhang.com/ :noexport:
+* TODO Blog: Consensus Algorithm For A Replicated Log              :noexport:
+- raft(replicated and fault tolerant)
+
+https://raft.github.io/
+https://raft.github.io/slides/uiuc2016.pdf
+
+* TODO Differente in between typical k/v db: redis, etcd, dynamo, mongodb, couchbase, elasticsearch, cassandra :noexport:
+http://techgenix.com/dynamodb-vs-mongodb/
