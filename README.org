@@ -22,8 +22,10 @@ See more challenges from Denny: [[https://github.com/topics/denny-challenges][#d
 | Leadership   | Make bigger contribution in project technial discussion |
 | Coordination | Know how to learn from across-teams                     |
 |--------------+---------------------------------------------------------|
+| Defensive    | Know the pitfalls in advance                            |
+| Defensive    | Work with confusing or misleading symptons              |
+|--------------+---------------------------------------------------------|
 | Experience   | Evaluate tools to a deeper level                        |
-| Experience   | Know the pitfalls in advance                            |
 | Experience   | Learn new things in a faster way                        |
 * Common Questions
 | Question                                                               | Comment |
