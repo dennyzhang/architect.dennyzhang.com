@@ -84,7 +84,7 @@ Cheers!
 <br/><br/>
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
 <a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
-<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
+<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/slack.png" alt="slack"/></a>
 #+END_HTML
 
 ---------------------------------------------------------------------
@@ -93,10 +93,9 @@ See all blogs I'm actively maintaining:
 | Blog                          | Link                              |
 |-------------------------------+-----------------------------------|
 | DevOps blog                   | https://www.dennyzhang.com        |
+| Cheatsheet for best practices | https://cheatsheet.dennyzhang.com |
 | Code tests for interviews     | https://code.dennyzhang.com       |
 | Learn system design           | https://architect.dennyzhang.com  |
-| Cheatsheet for best practices | https://cheatsheet.dennyzhang.com |
-| Examine skills in a hard way | https://quiz.dennyzhang.com       |
 * YouTube For System Design                                   :BLOG:Resource:
 :PROPERTIES:
 :type: systemdesign, designresource
