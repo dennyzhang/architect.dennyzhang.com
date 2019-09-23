@@ -22,6 +22,20 @@ Similar Posts:
 #+END_HTML
 
 If you are deploying an API, it is generally a best practice to have a relatively small rate limit for anonymous access and then force users to log in to obtain a higher rate limit.
+
+*Clarifications*
+| Name                                | Summary |
+|-------------------------------------+---------|
+| A free tier or a premium tier       |         |
+| Limit per count or per user         |         |
+| Limit in client side or server side |         |
+
+*Key Parts*
+| Name                                           | Example                                                 |
+|------------------------------------------------+---------------------------------------------------------|
+| 3 Directions Of Implementing API rate-limiting | Request Queues; Throttling; Rate-limiting Algorithms    |
+| Rate-limiting Algorithms                       | Leaky Bucket; Fixed Window; Sliding Log; Sliding Window |
+
 ** misc                                                            :noexport:
 # Question:
 ```

@@ -1243,3 +1243,6 @@ https://raft.github.io/slides/uiuc2016.pdf
 
 * TODO Differente in between typical k/v db: redis, etcd, dynamo, mongodb, couchbase, elasticsearch, cassandra :noexport:
 http://techgenix.com/dynamodb-vs-mongodb/
+* TODO At a high level: spec information flows "down" and status information flows "up". :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO https://github.com/0voice/interview_internal_reference      :noexport:

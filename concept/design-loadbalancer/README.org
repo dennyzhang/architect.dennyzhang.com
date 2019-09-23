@@ -22,6 +22,11 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+| Name                                  | Summary                                                |
+|---------------------------------------+--------------------------------------------------------|
+| L3/L4 LoadBalancer vs L7 LoadBalancer |                                                        |
+| [[https://serverfault.com/questions/112292/what-kind-of-load-balancing-algorithms-are-there][LoadBalancer Algorithms]]               | Round robin, Random, Least traffic, Least latency, etc |
+
 Q: How LoadBalancer route requests
 
 Generally speaking, load balancers fall into three categories:
@@ -58,4 +63,3 @@ Some applications require that a user continues to connect to the same backend s
 ---------------------------------------------------------------------
 how the Readiness Probe is done for backend services?
 Often, session tracking is accomplished via a consistent hashing function. 
-

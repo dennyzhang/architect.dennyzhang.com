@@ -1,4 +1,4 @@
-* [#A] Design: How Does Caching Work                            :Concept:
+* Message Queue For Async Programming                               :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
@@ -6,7 +6,7 @@
 :type: systemdesign, designconcept
 :END:
 ---------------------------------------------------------------------
-Caching design
+Message Queue For Async Programming
 ---------------------------------------------------------------------
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
@@ -22,11 +22,7 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-| Name                     | Summary                                                       |
-|--------------------------+---------------------------------------------------------------|
-| When to update the cache | *Cache-aside*, *Write-through*, *write-back*, *Refresh-ahead* |
-| [[https://en.wikipedia.org/wiki/Cache_replacement_policies][Cache validation]]         |                                                               |
-
----------------------------------------------------------------------
-** misc                                                            :noexport:
-- [[url-external:https://www.educative.io/collection/page/5668639101419520/5649050225344512/5643440998055936][Caching]]
+| Name         | Summary                                                           |
+|--------------+-------------------------------------------------------------------|
+| RabbitMQ     | AMQP                                                              |
+| Apache Kafka | publish-subscribe messaging rethought as a distributed commit log |
