@@ -22,7 +22,7 @@ Similar Posts:
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/resource/design-youtube-links"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
 YouTube: [[url-external:https://www.youtube.com/watch?v=ZgdS0EUmn70&t=11s][Intro to Architecture and Systems Design Interviews]]

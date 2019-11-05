@@ -50,5 +50,18 @@ function git_pull() {
     git pull origin
 }
 
+function refresh_link() {
+    echo "refresh link"
+    for f in $(ls -1t */*/README.org); do
+        category=$(dirname $(dirname $f))
+        dirname=$(basename $(dirname $f))
+        if ! grep "github.com\/dennyzhang\/architect.dennyzhang.com.*$dirname" $f 1>/dev/null 2>&1; then
+            echo "Update github fork link for $f"
+            sed -ie "s/github.com\/dennyzhang\/architect.dennyzhang.com.*\">/github.com\/dennyzhang\/architect.dennyzhang.com\/tree\/master\/$category\/$dirname\">/g" $f
+            rm -rf $dirname/README.orge
+        fi
+    done
+}
+
 action=${1?}
 eval "$action"

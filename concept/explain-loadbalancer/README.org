@@ -1,0 +1,65 @@
+* Design: How Does LoadBalancer Work?                           :Concept:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+Design: How Does LoadBalancer Work?
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+#+BEGIN_HTML
+<div id="the whole thing" style="overflow: hidden;">
+<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+</div>
+
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-loadbalancer"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
+| Name                                  | Summary                                                |
+|---------------------------------------+--------------------------------------------------------|
+| L3/L4 LoadBalancer vs L7 LoadBalancer |                                                        |
+| [[https://serverfault.com/questions/112292/what-kind-of-load-balancing-algorithms-are-there][LoadBalancer Algorithms]]               | Round robin, Random, Least traffic, Least latency, etc |
+
+Q: How LoadBalancer route requests
+
+Generally speaking, load balancers fall into three categories:
+
+- DNS Round Robin (rarely used): clients get a randomly-ordered list of IP addresses.
+#+BEGIN_EXAMPLE
+pros: easy to implement and free; 
+cons: hard to control and not responsive, since DNS cache needs time to expire
+#+END_EXAMPLE
+- L3/L4 Load Balancer: traffic is routed by IP address and port. L3 is network layer (IP). L4 is session layer (TCP).
+- L7 Load Balancer: traffic is routed by what is inside the HTTP protocol. L7 is application layer (HTTP).
+
+Credits to: [[url-external:http://www.puncsky.com/blog/2016/02/14/crack-the-system-design-interview/][link]]
+
+Typical algorithms:
+#+BEGIN_EXAMPLE
+- round robin, weighted round robin
+- least loaded, least loaded with slow start
+- utilization limit
+- latency, cascade, etc
+#+END_EXAMPLE
+
+Commonly used algorithms for HAProxy:
+
+- *roundrobin*: Round Robin selects servers in turns. This is the default algorithm.
+- *leastconn*: Selects the server with the least number of connections--it is recommended for longer sessions. Servers in the same backend are also rotated in a round-robin fashion.
+- *source*: This selects which server to use based on a hash of the source IP i.e. your user's IP address. This is one method to ensure that a user will connect to the same server.
+
+See more: [[url-external:https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts#load-balancing-algorithms][link]]
+---------------------------------------------------------------------
+Q: What are sticky sessions?
+
+Some applications require that a user continues to connect to the same backend server. This persistence is achieved through sticky sessions, using the appsession parameter in the backend that requires it.
+---------------------------------------------------------------------
+how the Readiness Probe is done for backend services?
+Often, session tracking is accomplished via a consistent hashing function. 

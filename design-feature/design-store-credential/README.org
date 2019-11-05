@@ -1,0 +1,31 @@
+* Design: How To Save Users' Login Credentials In Your DB?      :Concept:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
+:PROPERTIES:
+:type: systemdesign, designconcept
+:END:
+---------------------------------------------------------------------
+How To Save Users' Login Credentials In Your DB
+---------------------------------------------------------------------
+Similar Posts:
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
+---------------------------------------------------------------------
+#+BEGIN_HTML
+<div id="the whole thing" style="overflow: hidden;">
+<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+</div>
+
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-store-credential"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
+Use hash?
+
+What's the problem with md5(password)?
+
+Use my private key to encrypt your data
+** misc                                                            :noexport:
+https://mp.weixin.qq.com/s?__biz=MzA5MzE4MjgyMw==&mid=208051860&idx=2&sn=63317cf2716379f84e5a2adafea7265d&chksm=19f3f09c2e84798a69bdaa63cd1aca6545d321334b807afbb598133c14f283dfef8471303a65&mpshare=1&scene=1&srcid=031794kXneZadvm3DxUzcesV&key=5657e61c2ec7753d144b6a6a19175ae21df2ca8918aab419636d74ed1f1aaf1bf94db76682114f21bfabf512780a722e3d21a51b406af8521eb5733c9afceb23c030cbffc223daa398b6e58d052d3a93&ascene=0&uin=MTUyMzg3NjAwMA%3D%3D&devicetype=iMac+MacBookAir7%2C1+OSX+OSX+10.12.3+build(16D32)&version=12020010&nettype=WIFI&fontScale=100&pass_ticket=0AiIToHJN8yqpuqRAsA5PaaQMJr8KtvlnZ2EqkX0zx%2BEZweRvHKyF%2ByjmycpUbVn
