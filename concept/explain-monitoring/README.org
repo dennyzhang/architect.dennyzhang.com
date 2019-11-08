@@ -24,4 +24,4 @@ Similar Posts:
 
 - RRD Tool: a program which logs and visualizes numberical data in an effcient manner
 
-[[image-blog:Explain: Monitoring System][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-monitoring/rrd.png]]
+[[image-blog:Explain: Monitoring System][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-monitoring/rrd-process.png]]
