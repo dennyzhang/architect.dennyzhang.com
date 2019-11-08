@@ -58,7 +58,7 @@ function refresh_link() {
         if ! grep "github.com\/dennyzhang\/architect.dennyzhang.com.*$dirname" $f 1>/dev/null 2>&1; then
             echo "Update github fork link for $f"
             sed -ie "s/github.com\/dennyzhang\/architect.dennyzhang.com.*\">/github.com\/dennyzhang\/architect.dennyzhang.com\/tree\/master\/$category\/$dirname\">/g" $f
-            rm -rf $dirname/README.orge
+            rm -rf $category/$dirname/README.orge
         fi
     done
 }

@@ -19,7 +19,7 @@ Similar Posts:
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-gossip"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-monitoring"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
 #+END_HTML
 
@@ -27,3 +27,9 @@ Similar Posts:
 - RRD Tool: a program which logs and visualizes numberical data in an effcient manner
 
 [[image-blog:Explain: Monitoring System][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-monitoring/rrd-process.png]]
+
+---------------------------------------------------------------------
+Q: How to aggregate quickly by different level of granularity? See last 5 min, 2 hours, 1 day, 7 days, etc.
+
+TODO
+---------------------------------------------------------------------

@@ -22,28 +22,95 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-cache"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-- When to update the cache
-| Name            | Summary            |
-|-----------------+--------------------|
-| *Cache-aside*   | a.k.a lazy loading |
-| *Write-through* |                    |
-| *write-back*    |                    |
-| *Refresh-ahead* |                    |
-
-- [[https://en.wikipedia.org/wiki/Cache_replacement_policies][Cache replacement policies]]
-| Name | Summary |
-|------+---------|
-| FIFO |         |
-| LIFO |         |
-| LRU  |         |
-| LFU  |         |
-| ...  |         |
-
-- [[https://en.wikipedia.org/wiki/Cache_replacement_policies][Cache validation]] 
-| Name             | Summary |
-|------------------+---------|
-
-** Support distributed caching
 ---------------------------------------------------------------------
-** misc                                                            :noexport:
-- [[url-external:https://www.educative.io/collection/page/5668639101419520/5649050225344512/5643440998055936][Caching]]
+Q: What are common types of database caches?
+[[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-featuredesign-A4/paper/database-caching-strategies-using-redis.pdf][Link: DB caching with redis]]
+1. Database-integrated caches. e.g Amazon Aurora offers an integrated cache that is managed within database engine and has built-in write-through capabilities. [[https://d0.awsstatic.com/whitepapers/Database/database-caching-strategies-using-redis.pdf][link]]
+- Local caches: cache within your application
+- Remote caches: separate instance(s) dedicated for storing the cached data in-memory. e.g, redis, memcached.
+- Client side cache
+- CDN
+---------------------------------------------------------------------
+Q: When to update the cache
+[[https://github.com/donnemartin/system-design-primer#cache][Link: cache]]
+| Name            | Summary                                                                    |
+|-----------------+----------------------------------------------------------------------------|
+| *Cache-aside*   | Lazy loading. If cache hit miss, load from db                              |
+| *Write-through* | Two sync writes: db and cache                                              |
+| *Write-back*    | Sync write to cache, and async write to db                                 |
+| *Refresh-ahead* | When cache TTL hits, load from DB actively, instead of triggered by visits |
+
+---------------------------------------------------------------------
+Q: [[https://en.wikipedia.org/wiki/Cache_replacement_policies][Cache validation]] 
+| Name                                                    | Summary                                                         |
+|---------------------------------------------------------+-----------------------------------------------------------------|
+| Control freshness of cached data by [[https://redis.io/commands/ttl][TTL]]                 | Once the set time has passed, the key is deleted from the cache |
+| Add some time jitter to your TTLs                       | Avoid lots of hot data expire at the same time.                 |
+| Set lower TTLs for dynamic data; longer for static ones |                                                                 |
+
+---------------------------------------------------------------------
+Q: How cache evictions are supported in cache service?
+
+- Coding questions: [[https://code.dennyzhang.com/lru-cache][Leetcode: LRU Cache]], [[https://code.dennyzhang.com/lfu-cache][Leetcode: LFU Cache]]
+
+[[https://redis.io/topics/lru-cache][Link: Using Redis as an LRU cache]]
+
+| Eviction Policy | Description                                                                           |
+|-----------------+---------------------------------------------------------------------------------------|
+| allkeys-lru     | The cache evicts the least recently used (LRU) keys regardless of TTL set.            |
+| allkeys-lfu     | The cache evicts the least frequently used (LFU) keys regardless of TTL set.          |
+| volatile-lru    | The cache evicts the least recently used (LRU) keys from those that have a TTL set.   |
+| volatile-lfu    | The cache evicts the least frequently used (LFU) keys from those that have a TTL set. |
+| volatile-ttl    | The cache evicts the keys with the shortest TTL set.                                  |
+| volatile-random | The cache randomly evicts keys with a TTL set.                                        |
+| allkeys-random  | The cache randomly evicts keys regardless of TTL set.                                 |
+| no-eviction     | The cache doesn't evict keys at all. This blocks future writes until memory frees up  |
+
+
+In general as a rule of thumb:
+
+- Use the allkeys-lru policy when you expect a power-law distribution in the popularity of your requests, that is, you expect that a subset of elements will be accessed far more often than the rest. This is a good pick if you are unsure.
+- Use the allkeys-random if you have a cyclic access where all the keys are scanned continuously, or when you expect the distribution to be uniform (all elements likely accessed with the same probability).
+- Use the volatile-ttl if you want to be able to provide hints to Redis about what are good candidate for expiration by using different TTL values when you create your cache objects.
+
+Generally, least recently used (LRU)-based policies are more common for basic caching use cases. Also, if you are experiencing evictions with your cluster, it is usually a sign that you should scale up or scale out to accommodate the additional data. 
+
+- More cache replacement policies: [[https://en.wikipedia.org/wiki/Cache_replacement_policies][wikipedia link]]
+
+---------------------------------------------------------------------
+Q: How to support distributed caching service?
+
+A:
+- Redis Sentinel provides high availability for Redis. ([[https://redis.io/topics/sentinel][link]])
+---------------------------------------------------------------------
+* org-mode configuration                                           :noexport:
+#+STARTUP: overview customtime noalign logdone showall
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
+#+LaTeX_CLASS_OPTIONS: [8pt]
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage{lastpage}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \rhead{Updated: \today}
+#+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
+#+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}{GitHub: https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-leetcode-A4}}
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
+#+PRIORITIES: A D C
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:
+#+LINK_HOME:
+* how volatile-lfu is supported?                                   :noexport:
+
+* Deep dive into memcached                                         :noexport:
+* TODO client side cache                                           :noexport:
+* TODO cache validation                                            :noexport:
+* TODO what if cache write failure: write through/write back       :noexport:
