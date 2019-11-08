@@ -26,6 +26,7 @@ Vector clocks is an algorithm for generating a partial ordering of events in a d
 
 [[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/dennyzhang/images/master/design/vector-clock.png]]
 
+
 - Vector clocks/version vectors are about detecting conflicting/updates ...
 - ... but says nothing about how to resolve those conflicts.
 

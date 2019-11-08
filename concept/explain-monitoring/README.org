@@ -20,8 +20,10 @@ Similar Posts:
 </div>
 
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-gossip"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+
 #+END_HTML
 
+- RRD: lossy storage with fixed file size. Current data is the most interesting. [[https://www.mrtg.org/rrdtool/pub/oscon2005-slides.pdf][Link: slide]]
 - RRD Tool: a program which logs and visualizes numberical data in an effcient manner
 
 [[image-blog:Explain: Monitoring System][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-monitoring/rrd-process.png]]

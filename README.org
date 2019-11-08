@@ -10,13 +10,16 @@
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
 * Learn Architect
+- [[https://cheatsheet.dennyzhang.com/cheatsheet-featuredesign-A4][CheatSheet: Feature Design For Job Interview]]
+- [[https://cheatsheet.dennyzhang.com/cheatsheet-systemdesign-A4][CheatSheet: System Design For Job Interview]]
+
 File me [[https://github.com/dennyzhang/architect.dennyzhang.com/issues][Issues]] or star [[https://github.com/dennyzhang/architect.dennyzhang.com][this repo]].
 
 See more challenges from Denny: [[https://github.com/topics/denny-challenges][#denny-challenges]]
-* Principles
+* Principles                                                       :noexport:
 - [[https://en.wikipedia.org/wiki/Unix_philosophy][Unix philosophy]]: do one thing, and do it well
 - Microservice: autonomy, rewrite in 2 weeks
-* [#A] Key Value
+* [#A] Key Value                                                   :noexport:
 | Value        | Category                                                |
 |--------------+---------------------------------------------------------|
 | Leadership   | Make bigger contribution in project technial discussion |
@@ -27,7 +30,7 @@ See more challenges from Denny: [[https://github.com/topics/denny-challenges][#d
 |--------------+---------------------------------------------------------|
 | Experience   | Evaluate tools to a deeper level                        |
 | Experience   | Learn new things in a faster way                        |
-* [#A] Common Questions
+* [#A] Common Questions                                            :noexport:
 | Question                                                               | Comment |
 |------------------------------------------------------------------------+---------|
 | Is current puzzle a solved problem in other tools?                     |         |

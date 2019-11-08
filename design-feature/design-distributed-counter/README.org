@@ -22,6 +22,15 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-distributed-counter"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+| Name                                                             | Summary |
+|------------------------------------------------------------------+---------|
+| Use case: Can we allow inaccurate updates?                       |         |
+| Use case: Would it be big issues, if we lost of counter updates? |         |
+| Use case: how to support distributed counters?                   | [[https://firebase.google.com/docs/firestore/solutions/counters][link]]    |
+| Use case: How to support get average of the counter?             | [[http://blog.gainlo.co/index.php/2016/09/12/dropbox-interview-design-hit-counter/][link]]    |
+| Constraints: TPS of writes and reads?                            |         |
+| Concurrency: How about concurrent requests?                      |         |
+
 Q: Why we need distributed counters?
 
 Counter represents a single integer value waving up so fast you can tolerate incorrect values.
@@ -47,19 +56,32 @@ Yes, with one update SQL statement, it's done.
 
 But this design will have severe performance issues, if the data volume is big. You physically can't issue new updates if the last one hasn't finished.
 
+In [[https://firebase.google.com/docs/firestore/solutions/counters][Cloud Firestore]], document update is about once per second
+
 Besides the design can't scale easily.
 ---------------------------------------------------------------------
-Q: What about using queue to support counters via async updates?
+Q: How to support large scale of writes operations to the counter?
+
+A: counter will only be increasing. And the value are usually intergers.
+
+1. Use a lock
+- Partition: Split one counter into multiple sub-counters. Each writer choose one to update. Then sum them up. Thus less frequent locking might happen. ([[https://firebase.google.com/docs/firestore/solutions/counters][link]])
+- Serialize writes with async updates: Put all updates requests into a queue. Then use a single write strategy to update it.
+- Use CRDTs (Consistent Replicated Data Types) and [[https://architect.dennyzhang.com/explain-vector-clocks/][vector lock]] to merge the updates. [[https://www.paperplanes.de/2012/6/27/playing-with-riak-and-crdts.html][link]] (TODO)
+---------------------------------------------------------------------
+Q: How to support large scale of reads operators to the counter?
 
 TODO
 ---------------------------------------------------------------------
-Q: What about using vector clocks to accept distributed writes, then merge them?
-
-[[https://architect.dennyzhang.com/vector-clocks][Explain: Vector Clocks/Version Vectors]]
+Q: What if counter out of boundary?
 
 TODO
 ---------------------------------------------------------------------
-Q: How to implement counters via Redis
+Q: How to support get average of the counter?
+
+TODO
+---------------------------------------------------------------------
+Q: Are there any existings tools we can use to support distributed counter?
 
 A: Use Redis INCR command. The counter pattern is the most obvious thing you can do with Redis atomic increment operations.
 

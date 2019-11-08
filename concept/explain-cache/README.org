@@ -23,12 +23,12 @@ Similar Posts:
 #+END_HTML
 
 - When to update the cache
-| Name             | Summary |
-|------------------+---------|
-| *Cache-aside*    |         |
-| *Write-through*  |         |
-| *write-back*     |         |
-| *Refresh-ahead*  |         |
+| Name            | Summary            |
+|-----------------+--------------------|
+| *Cache-aside*   | a.k.a lazy loading |
+| *Write-through* |                    |
+| *write-back*    |                    |
+| *Refresh-ahead* |                    |
 
 - [[https://en.wikipedia.org/wiki/Cache_replacement_policies][Cache replacement policies]]
 | Name | Summary |
@@ -43,6 +43,7 @@ Similar Posts:
 | Name             | Summary |
 |------------------+---------|
 
+** Support distributed caching
 ---------------------------------------------------------------------
 ** misc                                                            :noexport:
 - [[url-external:https://www.educative.io/collection/page/5668639101419520/5649050225344512/5643440998055936][Caching]]
