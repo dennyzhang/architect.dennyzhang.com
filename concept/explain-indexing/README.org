@@ -1,28 +1,16 @@
-* [#A] Deep Dive Into Apache Kafaka                                 :Project:
+* Explain DB Indexing                                               :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designproject
+:type: systemdesign, designconcept
 :END:
 ---------------------------------------------------------------------
-Deep Dive Into Apache Kafaka
+Explain DB Indexing
 ---------------------------------------------------------------------
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
----------------------------------------------------------------------
-Q: Typical use cases of Kafaka
-
-A: It's a distributed messaging system which can collect and deliver high volumes of log data with low latency.
----------------------------------------------------------------------
-Q: What are key trade-offs Kafaka has made, compared to its alternatives?
-
-- Compromise on message delivery guarantees.
-
-e.g, *transactional supports*: IBM Websphere MQ allow applications to insert messages into multiple queue atomically; acknowledge individual messages.
----------------------------------------------------------------------
-
 ---------------------------------------------------------------------
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
@@ -31,8 +19,30 @@ e.g, *transactional supports*: IBM Websphere MQ allow applications to insert mes
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-project/design-kafka"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-lsm"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
+---------------------------------------------------------------------
+| Name                          | Summary                                                          |
+|-------------------------------+------------------------------------------------------------------|
+| [[https://en.wikipedia.org/wiki/Database_index#Support_for_fast_lookup][Index support for fast lookup]] | Instead of O(n), many index designs O(log(n)) lookup performance |
+
+Q: Record lookup process?
+
+A:
+- Some databases separate the data and index blocks into separate files, others put two completely different data blocks within the same physical file(s).
+
+TODO
+---------------------------------------------------------------------
+Q: How do Indexes decrease write performance?
+
+A:
+---------------------------------------------------------------------
+Q: How B+ tree used in DB?
+
+A:
+
+- A B-tree is a *self-balancing tree* data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. 
+---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
@@ -46,8 +56,8 @@ e.g, *transactional supports*: IBM Websphere MQ allow applications to insert mes
 #+LATEX_HEADER: \fancyhf{}
 #+LATEX_HEADER: \rhead{Updated: \today}
 #+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
-#+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-featuredesign-A4}{GitHub: https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-featuredesign-A4}}
-#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-featuredesign-A4}}
+#+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}{GitHub: https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-leetcode-A4}}
 #+AUTHOR: Denny Zhang
 #+EMAIL:  denny@dennyzhang.com
 #+TAGS: noexport(n)
@@ -58,5 +68,3 @@ e.g, *transactional supports*: IBM Websphere MQ allow applications to insert mes
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
-* TODO kafakfa doesn't support message acknowledge?                :noexport:
-* TODO https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=506201&extra=page%3D1%26filter%3Ddigest%26digest%3D1%26digest%3D1 :noexport:

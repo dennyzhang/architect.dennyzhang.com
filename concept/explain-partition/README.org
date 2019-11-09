@@ -1,12 +1,12 @@
-* Explain: Vector Clocks/Version Vectors                         :Concept:
+* Explain Data Partition & Sharding                                 :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designservice
+:type: systemdesign, designconcept
 :END:
 ---------------------------------------------------------------------
-Explain: What vector clocks/version vectors are
+Explain Data Partition & Sharding
 ---------------------------------------------------------------------
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
@@ -19,55 +19,45 @@ Similar Posts:
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-vector-clocks"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-lsm"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-Vector clocks is an algorithm for generating a partial ordering of events in a distributed system and *detecting causality violations*. [[url-external:https://en.wikipedia.org/wiki/Vector_clock][See in wikipedia]]
+| Name                                  | Example |
+|---------------------------------------+---------|
+| Parition horizontally vs vertically   |         |
+| Partition algorithms in data sharding |         |
+| Join tables in data sharding          |         |
+| Rebalancing in data sharding          |         |
 
-[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/dennyzhang/images/master/design/vector-clock.png]]
-
-
-- Vector clocks/version vectors are about detecting conflicting/updates ...
-- ... but says nothing about how to resolve those conflicts.
-
-Many NoSQL DB choose vector clock to control the ordering of multi-version records.
 ---------------------------------------------------------------------
-Q: Why we can't use machines' timestamp to version changes in distributed system?
+Q: When to scale up, when to scale out?
 
-A: Using the physical timestamp of a record is no good because you can't guarantee that time will move forward in a uniform manner across all nodes in the cluster.
-
-It means a 'later' record might have an earlier timestamp than some record produced before it.
+A: Scale out bring complexities. Scale up may make more sense when data volume is relatively small. After a certain scale point, it is cheaper and more feasible to scale horizontally by adding more machines than to grow it vertically by adding beefier servers.
 ---------------------------------------------------------------------
-Q: What is Lamport Clock?
+Q: What common partition methods are?
 
-A: Lamport Clock can be considered as a logical timestamp. A Lamport Clock is a single integer value that is passed around the cluster with every message sent between nodes. 
+| Name                         | Summary                                                           |
+|------------------------------+-------------------------------------------------------------------|
+| Horizontal partitioning      | a.k.a Data Sharding                                               |
+| Vertical Partitioning        | Store different data with different approaches per features       |
+| Directory Based Partitioning | create a lookup service to knows your current partitioning scheme |
 
-Each node keeps a record of what it thinks the latest (i.e. highest) Lamport Clock value is, and if it hears a larger value from some other node, it updates its own value.
-
-[[image-blog:Explain: Vector Clocks/Version Vectors][https://raw.githubusercontent.com/dennyzhang/images/master/design/lamport-sample.jpg]]
 ---------------------------------------------------------------------
-Q: What are the difference in between of Lamport Clock and Vector Clock?
-
-last-write-win issue.
-
-TODO:
+Q: Partition algorithms of data sharding?
+| Name                     | Summary |
+|--------------------------+---------|
+| Hash-based partitioning  |         |
+| List partitioning        |         |
+| Round-robin partitioning |         |
 ---------------------------------------------------------------------
-Q: Problems with vector clocks?
+Q: What are the typical problem of data partition?
 
-[[url-external:https://www.datastax.com/dev/blog/why-cassandra-doesnt-need-vector-clocks][Why Cassandra doesn't need vector clocks]]
-
-Cassandra breaks a row up into columns that can be updated independently.
+| Name                   | Summary                                                                   |
+|------------------------+---------------------------------------------------------------------------|
+| Table joins            |                                                                           |
+| Enforce data integrity |                                                                           |
+| Data Rebalancing       | Data distribution not uniform; Data visit not balanced with hot/cold data |
 ---------------------------------------------------------------------
-
-Related Readings:
-- [[url-external:https://goo.gl/Nx77nZ][Why do distributed databases choose the Vector Clock...]]
-** misc                                                            :noexport:
-https://www.cnblogs.com/bangerlee/p/5448766.html
-
-通过Lamport timestamps可以建立事件的全序关系,通过Vector clock可以比较任意两个事件的顺序关系并且能表示无因果关系的事件,将Vector clock的方法用于发现数据版本冲突,于是有了Version vector.
-
-https://www.cnblogs.com/foxmailed/archive/2012/01/11/2319854.html
-https://www.zhihu.com/question/19994133
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

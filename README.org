@@ -12,6 +12,8 @@
 
 - [[https://cheatsheet.dennyzhang.com/cheatsheet-featuredesign-A4][CheatSheet: Feature Design For Job Interview]]
 - [[https://cheatsheet.dennyzhang.com/cheatsheet-systemdesign-A4][CheatSheet: System Design For Job Interview]]
+- [[https://cheatsheet.dennyzhang.com/cheatsheet-leetcode-A4][CheatSheet: Leetcode Common Templates & Common Code Problems]]
+- [[https://cheatsheet.dennyzhang.com/cheatsheet-behavior-A4][CheatSheet: Behavior Questions For Coder Interview]]
 
 File me [[https://github.com/dennyzhang/architect.dennyzhang.com/issues][Issues]] or star [[https://github.com/dennyzhang/architect.dennyzhang.com][this repo]].
 

@@ -23,16 +23,15 @@ Similar Posts:
 #+END_HTML
 
 - Typical Features/Considerations
-| Name                                | Summary                                                                               |
-|-------------------------------------+---------------------------------------------------------------------------------------|
-| Deliver at least once or exact once |                                                                                       |
-| Message ordering                    |                                                                                       |
-| Message priority                    |                                                                                       |
-| Deliver ordering                    |                                                                                       |
-| Ack message                         |                                                                                       |
-| Batch commit                        | Allow producers to explictly batch multiple messages into a single requests           |
-| Delayed queue                       |                                                                                       |
-| Transaction supports                | IBM Websphere MQ allow applications to insert messages into multiple queue atomically |
+| Name                                    | Summary                                                                               |
+|-----------------------------------------+---------------------------------------------------------------------------------------|
+| *Deliver at least once* vs *exact once* |                                                                                       |
+| Batch commit                            | Allow producers to explictly batch multiple messages into a single requests           |
+| Message ordering                        |                                                                                       |
+| Message priority                        |                                                                                       |
+| Ack message                             |                                                                                       |
+| Delayed queue                           |                                                                                       |
+| Transaction supports                    | IBM Websphere MQ allow applications to insert messages into multiple queue atomically |
 
 - Popular Message Queues
 | Name         | Summary                                           |
@@ -69,3 +68,5 @@ Similar Posts:
 #+LINK_HOME:
 * TODO how batch update can help?                                  :noexport:
 * TODO priority queue in kafaka                                    :noexport:
+* TODO https://en.wikipedia.org/wiki/Message_queue                 :noexport:
+
