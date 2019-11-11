@@ -25,7 +25,7 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-db-replication"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-[[image-blog:DB replication][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-db-replication/db-replication.jpg]]
+[[image-blog:DB replication][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-db-replication/DBReplication.jpg]]
 
 Q: What are typical replication mechanisms for RDBMS?
 
