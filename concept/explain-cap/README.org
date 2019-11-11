@@ -22,11 +22,18 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-cap"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-Q: What is CAP Theorem? See definition in [[url-external:https://en.wikipedia.org/wiki/CAP_theorem][wikipedia]].
+Q: What is CAP Theorem?
 
-1. Consistency: Every read receives the most recent write or an error
-- Availability: Every request receives a (non-error) response - without guarantee that it contains the most recent write
-- Partition tolerance: The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes
+[[url-external:https://en.wikipedia.org/wiki/CAP_theorem][wikipedia link]]:
+| Name                | Summary                                                                                                                         |
+|---------------------+---------------------------------------------------------------------------------------------------------------------------------|
+| Consistency         | Every read receives the most recent write or an error                                                                           |
+| Availability        | Every request receives a (non-error) response - without guarantee that it contains the most recent write                        |
+| Partition tolerance | The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes |
+
+What does CAP Theorem tell us?
+
+It is impossible for a web service to provide the three following guarantees : Consistency, Availability and Partition-tolerance.
 ---------------------------------------------------------------------
 Q: Does it mean I can only get two of CAP?
 
@@ -51,13 +58,16 @@ Basically Available, Soft State, Eventual Consistency
 ---------------------------------------------------------------------
 Q: Different types of consistency models?
 
-strong consistency, sequential consistency, eventual consistency, etc.
----------------------------------------------------------------------
-Q: What does CAP Theorem tell us?
+| Name                   | Summary |
+|------------------------+---------|
+| Strong consistency     |         |
+| Sequential consistency |         |
+| Eventual consistency   |         |
+| Weak consistency       |         |
 
-It is impossible for a web service to provide the three following guarantees : Consistency, Availability and Partition-tolerance.
+---------------------------------------------------------------------
 ** misc                                                            :noexport:
-http://www.cnblogs.com/bangerlee/p/5328888.html
+
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
@@ -83,3 +93,4 @@ http://www.cnblogs.com/bangerlee/p/5328888.html
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* TODO http://www.cnblogs.com/bangerlee/p/5328888.html           :noexport:
