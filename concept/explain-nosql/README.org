@@ -9,6 +9,7 @@
 DB: SQL and NoSQL
 ---------------------------------------------------------------------
 Similar Posts:
+- [[https://architect.dennyzhang.com/explain-cap][Explain CAP Theorem]]
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
@@ -39,19 +40,24 @@ ACID: Atomicity, Consistency, isolation, durability
 | Commercial RDBMS  | Oracle, Microsoft SQL Server, AWS RDS/Aurora |
 ---------------------------------------------------------------------
 - Q: NoSQL Database
-| Name                 | Summary                                                        |
-|----------------------+----------------------------------------------------------------|
-| General K/V DB       | AWS DynamoDB, [[https://cheatsheet.dennyzhang.com/cheatsheet-mongodb-A4][Mongodb]],  [[https://techcrunch.com/2019/01/09/aws-gives-open-source-the-middle-finger/][AWS DocumentDB]], Cassandra DB, level DB |
-| Document based       | [[https://cheatsheet.dennyzhang.com/cheatsheet-mongodb-A4][Mongodb]], Couchbase                                             |
-| Caching              | redis/memcached                                                |
-| Wide-column          | Cassandra, HBase                                               |
-| Search engine DB     | Elasticsearch, Lucence, Sphinx                                 |
-| Graph DB             | Neo4j, OrientDB                                                |
-| Time series database | InfluxDB                                                       |
-|                      | Active directory, LDAP                                         |
-|                      | Amazon Quantum Ledger Database (QLDB)                          |
+| Name                 | Summary                                |
+|----------------------+----------------------------------------|
+| General K/V DB       | AWS DynamoDB, [[https://cheatsheet.dennyzhang.com/cheatsheet-mongodb-A4][Mongodb]],  [[https://techcrunch.com/2019/01/09/aws-gives-open-source-the-middle-finger/][AWS DocumentDB]] |
+| Wide-column          | [[https://vocon-it.com/2016/12/08/cassandra-hello-world-example/][Cassandra]], HBase                       |
+| Document based       | [[https://cheatsheet.dennyzhang.com/cheatsheet-mongodb-A4][Mongodb]], Couchbase                     |
+| Caching              | redis/memcached                        |
+| Search engine DB     | Elasticsearch, Lucence, Sphinx         |
+| Graph DB             | Neo4j, OrientDB                        |
+| Time series database | InfluxDB                               |
+| Ledger database      | Amazon Quantum Ledger Database (QLDB)  |
 
-Wide-Column Databases: Instead of 'tables,' in columnar databases we have column families, which are containers for rows. Unlike relational databases, we don't need to know all the columns up front and each row doesn't have to have the same number of columns. Columnar databases are best suited for analyzing large datasets - big names include Cassandra and HBase.
+- Wide-Column Databases: Instead of 'tables,' in columnar databases we have column families, which are containers for rows. Unlike relational databases, we don't need to know all the columns up front and each row doesn't have to have the same number of columns. Columnar databases are best suited for analyzing large datasets - big names include Cassandra and HBase.
+- HDFS: can be used to store huge amount of  static data, such as pictures and videos.
+- HBase: TODO
+- Cassandra: TODO
+- MongoDB: TODO
+- Couchbase: TODO
+
 ---------------------------------------------------------------------
 - Q: Data store for big data
 | Name   | Summary |
@@ -59,7 +65,6 @@ Wide-Column Databases: Instead of 'tables,' in columnar databases we have column
 | Hadoop |         |
 | Spark  |         |
 | Impala |         |
-
 ** More Resources
 https://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
 
@@ -72,7 +77,6 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 
 <a href="https://cheatsheet.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
 #+END_HTML
-
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
@@ -163,11 +167,11 @@ http://www.linuxidc.com/Linux/2011-10/45184.htm
 http://www.cnblogs.com/xsi640/p/3756130.html
 http://www.2cto.com/os/201406/307712.html
 ** [question] 熟悉Redis的索引机制和异步写机制
-** web page: 应用监控-Redis状态监控 - 运维社区          
+** web page: 应用监控-Redis状态监控 - 运维社区
 https://www.unixhot.com/article/20
 *** webcontent                                                     :noexport:
 #+begin_example
-Location: https://www.unixhot.com/article/20                                                                                  
+Location: https://www.unixhot.com/article/20
 [no-js]
 
 你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!
@@ -304,15 +308,15 @@ SEO服务热线:13302966002,联系人:彭技术
 版权所有,转载请保留出处,谢谢
 2015-11-12 12:45
 
-                                     要回复文章请先登录或注册                                      
+                                     要回复文章请先登录或注册
 
 发起人
 
 赵班长
     赵班长
-   
+
     不忘初心,方得始终！
-   
+
 擅长话题 :   DevOps jenkins Redis ELKStack
 
  1. SaltStack中国用户组
@@ -335,7 +339,6 @@ Copyright © 2016 - 京ICP备12049721号, All Rights Reserved Powered By WeCente
 [piwik]
 
 #+end_example
-
 ** HALF redis clustering solution
  https://redis.io/topics/cluster-tutorial
 
@@ -612,7 +615,6 @@ cd /usr/local/squid/etc
 sudo touch squid_passwd
 sudo chmod o+r squid_passwd
 sudo htpasswd squid_passwd denny
-
 * Active directory                                                 :noexport:
 - domain, schema, and configuration
 ** Active directory VS Ldap
@@ -633,7 +635,6 @@ http://stackoverflow.com/questions/663402/what-are-the-differences-between-ldap-
 ftp://ftp.uni-duisburg.de/LDAP/Adam-Eval1-0.pdf
 
 http://www.differencebetween.net/technology/difference-between-ldap-and-acitve-directory/
-
 * ldap                                                             :noexport:
 ** TODO [#A] ldap server: 389 directory
 http://directory.fedoraproject.org
@@ -1895,7 +1896,6 @@ schema         : cn=schema
 tasks          : cn=tasks
 root@506931afcbee:/usr/local/opendj/bin#
 #+END_EXAMPLE
-
 * hornetq                                                          :noexport:
 ** DONE Ubuntu install hornetq
   CLOSED: [2014-08-07 Thu 11:07]
@@ -2606,7 +2606,6 @@ root@449c96b42635:/var/log/supervisor# /opt/kibana/bin/kibana
 root@449c96b42635:/var/log/supervisor# /opt/kibana/bin/kibana
 {"@timestamp":"2016-09-29T07:47:49.508Z","level":"error","message":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"},"node_env":"production","error":{"message":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"},"name":"Error","stack":"Error: [object Object]\n  at respond (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/src/lib/transport.js:235:15)\n  at checkRespForFailure (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/src/lib/transport.js:203:7)\n  at HttpConnector.<anonymous> (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/src/lib/connectors/http.js:156:7)\n  at IncomingMessage.bound (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/node_modules/lodash-node/modern/internals/baseBind.js:56:17)\n  at IncomingMessage.emit (events.js:117:20)\n  at _stream_readable.js:944:16\n  at process._tickCallback (node.js:442:13)\n"}}
 {"@timestamp":"2016-09-29T07:47:49.511Z","level":"fatal","message":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"},"node_env":"production","error":{"message":{"root_cause":[{"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"}],"type":"index_not_found_exception","reason":"no such index","resource.type":"index_or_alias","resource.id":".kibana","index":".kibana"},"name":"Error","stack":"Error: [object Object]\n  at respond (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/src/lib/transport.js:235:15)\n  at checkRespForFailure (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/src/lib/transport.js:203:7)\n  at HttpConnector.<anonymous> (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/src/lib/connectors/http.js:156:7)\n  at IncomingMessage.bound (/opt/kibana-4.0.1-linux-x64/src/node_modules/elasticsearch/node_modules/lodash-node/modern/internals/baseBind.js:56:17)\n  at IncomingMessage.emit (events.js:117:20)\n  at _stream_readable.js:944:16\n  at process._tickCallback (node.js:442:13)\n"}}
-
 ** #  --8<-------------------------- separator ------------------------>8--
 ** DONE [#A] logstash verify configuration file
   CLOSED: [2016-09-29 Thu 17:12]
@@ -2633,7 +2632,7 @@ try this to debug: /opt/logstash/bin/logstash --config /etc/logstash/conf.d/data
 - /opt/logstash/bin/logstash agent -f /etc/logstash/ --> /opt/logstash/bin/logstash agent -f /etc/logstash/conf.d
 
 cd /etc/logstash/conf.d/
-/opt/logstash/bin/logstash -f *.conf --configtest   
+/opt/logstash/bin/logstash -f *.conf --configtest
 
 Probably you have some unsupported non-printed character in the original file. Incorrect EOL or whatever.
 
@@ -2693,7 +2692,6 @@ output {
 }
 
 EOF
-
 *** after
 cat > /etc/logstash/conf.d/data_report.conf <<EOF
 input {
@@ -2726,13 +2724,13 @@ EOF
   CLOSED: [2016-09-30 Fri 11:39]
 http://blog.terminal.com/elk-for-log-analysis/
 
-input {  
+input {
   file {
     path => "/var/log/apache2/*.log" # absolute path of your apache logs
     start_position => beginning # Live data: use 'end'. Existing data: use 'beginning'
   }
 }
-filter {  
+filter {
   if [path] =~ "access" {
     mutate { replace => { "type" => "apache_access" } }
     grok {
@@ -2748,11 +2746,10 @@ filter {
     locale => "en"
   }
 }
-output {  
+output {
   # elasticsearch { host => localhost }
   file { path => "/tmp/logstash.out"}
 }
-
 ** TODO logstash how to generate _id for elasticsearch
 https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html#plugins-outputs-elasticsearch-document_id
 https://www.elastic.co/guide/en/logstash/current/event-dependent-configuration.html#sprintf
@@ -2768,12 +2765,12 @@ you are shipping. This will end up being the _id in elasticsearch. You
 can use all sort of parameters / field references / ... that are
 available in logstash config. Like so:
 
-elasticsearch { 
+elasticsearch {
     host => yourEsHost
     cluster => "yourCluster"
     index => "logstash-%{+YYYY.MM.dd}"
     document_id => "%{someFieldOfMyEvent}"
-} 
+}
 In this example someFieldOfMyEvent ends up being the _id of this event in ES.
 ** DONE [#A] Programmatically set Kibana's default index pattern
   CLOSED: [2016-10-04 Tue 07:40]
@@ -2784,7 +2781,6 @@ https://www.elastic.co/guide/en/kibana/current/settings.html
 https://www.elastic.co/guide/en/kibana/current/setup.html
 https://www.elastic.co/guide/en/kibana/current/tutorial-define-index.html
 https://github.com/elastic/kibana/issues/5447
-
 ** #  --8<-------------------------- separator ------------------------>8--
 ** DONE inject data directly to elasticsearch
    CLOSED: [2016-10-04 Tue 10:25]
@@ -2834,13 +2830,13 @@ service nginx status
 # If you use this, you'll want to point config.js at http://FQDN:80/ instead of
 # http://FQDN:9200
 #
- 
+
 server {
   listen                *:80 ;
- 
+
   # server_name           mykibana.example.com;
   access_log            /var/log/nginx/kibana.access.log;
- 
+
   location / {
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
@@ -2850,7 +2846,6 @@ server {
     auth_basic_user_file /etc/nginx/conf.d/kibana.htpasswd;
    }
 }
-
 *** useful link
 http://www.ragingcomputer.com/2014/02/securing-elasticsearch-kibana-with-nginx
 
@@ -2860,18 +2855,14 @@ https://www.elastic.co/guide/en/kibana/current/production.html
 http://blog.trifork.com/2015/03/05/shield-your-kibana-dashboards/
 http://www.itzgeek.com/how-tos/linux/centos-how-tos/configure-kibana-4-with-nginx-securing-kibana-4-centos-7.html
 https://github.com/elastic/kibana/issues/1559
-
 ** BYPASS kibana: create metric based on calculation of other metric: kibana/es don't support this
   CLOSED: [2016-10-13 Thu 07:53]
 https://github.com/elastic/kibana/issues/3505
 http://stackoverflow.com/questions/29174113/how-can-i-do-scripted-aggregation-in-kibana-elasticsearch
 http://stackoverflow.com/questions/29652992/performing-calculations-on-multiple-metrics-counts-in-kibana-4
-
 ** BYPASS kibana limitation: can't show number of 0.0000001 so far
    CLOSED: [2016-10-13 Thu 08:42]
-
 ** TODO kibana dashboard takes quite a while to pull data
-
 ** DONE [#A] create your own document_id in logstash              :IMPORTANT:
   CLOSED: [2016-10-13 Thu 12:49]
 https://discuss.elastic.co/t/how-to-create-my-own-document-id-in-logstash/1416/2
@@ -2914,7 +2905,6 @@ output {
   }
   stdout { codec => rubydebug }
 }
-
 * Sphinx                                                 :noexport:IMPORTANT:
 http://sphinxsearch.com/docs/
 
@@ -3192,7 +3182,6 @@ SHUTDOWN_MSG: Shutting down NameNode at ccccce86c70d/172.17.0.5
 ************************************************************/
 root@ccccce86c70d:/var/log/hadoop/hdfs#
 #+END_EXAMPLE
-
 ** [#A] hdfs help
 #+BEGIN_EXAMPLE
 ]0;root@myhadoopaio: /usr/local/hadoop/binroot@myhadoopaio:/usr/local/hadoop/bin# ./hdfs --help
@@ -4203,7 +4192,6 @@ HRegionServer也会把自己以Ephemeral方式注册到Zookeeper中,使得HMaste
 每个HStore对应了Table中的一个Column Family的存储,可以看出每个Column Family其实就是一个集中的存储单元
 ** TODO how to upgrade hadoop
 http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_upgrading_hdp_manually/content/ch_upgrade_2_2.html
-
 * Hadoop HBase                                           :noexport:IMPORTANT:
 
 - commands
@@ -4762,3 +4750,4 @@ Graph Databases: These databases are used to store data whose relations are best
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO how to you feel about mongodb, comparing to cassandra?      :noexport:
 * TODO Try Neo4J and Couchbase for real                            :noexport:
+* TODO Active directory, LDAP                                      :noexport:

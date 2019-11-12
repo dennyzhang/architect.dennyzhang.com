@@ -1,4 +1,4 @@
-* [#A] Design Replication Process For Huge File Changes         :Feature:
+* Explain Delayed Queue                                             :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
@@ -6,7 +6,7 @@
 :type: systemdesign, designconcept
 :END:
 ---------------------------------------------------------------------
-Design a replication process. Sync changes to other nodes
+Explain Delayed Queue
 ---------------------------------------------------------------------
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
@@ -19,11 +19,39 @@ Similar Posts:
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-replication-process"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-lsm"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-** misc                                                            :noexport:
-https://named-data.net/wp-content/uploads/TRFileSync.pdf
+| Name                               | Example                                              |
+|------------------------------------+------------------------------------------------------|
+| Delayed queue                      | blocking + priority queue                            |
+| Providers of delayed queue feature | [[https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html#:~:targetText=Amazon%20SQS%20Delay%20Queues,duration%20of%20the%20delay%20period.][Link: Amazon SQS Delay Queues]], [[https://howtodoinjava.com/java/multi-threading/java-delayqueue/][Link: Java DelayQueue]] |
+
+---------------------------------------------------------------------
+Q: What are the use cases of delayed queue?
+
+- Programming with eventual consistency model in distributed applications/systems.
+
+- Add a delay between two activities
+#+BEGIN_EXAMPLE
+My application needs to have an internal queue with each item
+waiting at least one minute between each check for completion.
+
+So instead of having to manage a "last-checked-time" on every
+object, I just shove the object's ID into an SQS queue
+messagewith a delay time of 60 seconds, and my main loop then
+becomes a simple long-poll against the queue.
+#+END_EXAMPLE
+
+- In Uber, if riders don't pay within 7 days, send over the money to drivers directly.
+---------------------------------------------------------------------
+Q: How delayed queue is implemented?
+
+DelayQueue is a specialized PriorityQueue that orders elements based on their delay time. [[https://howtodoinjava.com/java/multi-threading/java-delayqueue/][link]]
+- When delay hasn't expired, the message in queue is can't be taken.
+- The head of the queue is the element whose delay expired furthest in the past.
+---------------------------------------------------------------------
+
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

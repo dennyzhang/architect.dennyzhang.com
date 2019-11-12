@@ -22,6 +22,7 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-messagequeue"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+---------------------------------------------------------------------
 - Typical Features/Considerations
 | Name                                    | Summary                                                                               |
 |-----------------------------------------+---------------------------------------------------------------------------------------|
@@ -30,9 +31,10 @@ Similar Posts:
 | Message ordering                        |                                                                                       |
 | Message priority                        |                                                                                       |
 | Ack message                             |                                                                                       |
-| Delayed queue                           |                                                                                       |
+| [[https://stackoverflow.com/questions/25255154/when-to-use-delay-queue-feature-of-amazon-sqs][Delayed queue]]                           | [[https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html#:~:targetText=Amazon%20SQS%20Delay%20Queues,duration%20of%20the%20delay%20period.][link: Amazon SQS Delay Queues]]                                                         |
 | Transaction supports                    | IBM Websphere MQ allow applications to insert messages into multiple queue atomically |
 
+---------------------------------------------------------------------
 - Popular Message Queues
 | Name         | Summary                                           |
 |--------------+---------------------------------------------------|
@@ -40,7 +42,11 @@ Similar Posts:
 | Apache Kafka | Support high volumes of log data with low latency |
 | Amazon SQS   |                                                   |
 | Qpid         |                                                   |
+| HornetQ      |                                                   |
+---------------------------------------------------------------------
+- Q: Delay queue?
 
+---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

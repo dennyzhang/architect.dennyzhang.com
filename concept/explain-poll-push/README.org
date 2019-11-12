@@ -21,8 +21,27 @@ Similar Posts:
 
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-poll-push"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
+---------------------------------------------------------------------
+Q: Say service A want to get the status of a job that is run by service B. What are the pros and cons of using push or pull mode?
+
+A: In general, pull mode means that you could have a lot of useless requests, which could overload the server.
 
 TODO:
+---------------------------------------------------------------------
+Q: What are popular communication protocals between client with web browsers
+| Name                      | Summary                                                         |
+|---------------------------+-----------------------------------------------------------------|
+| Ajax Polling              | Repeatedly polls (or requests) a server for data.               |
+| Long-polling              |                                                                 |
+| Web sockets               | Full duplex communication channels over a single TCP connection |
+| Server-Sent Events (SSEs) |                                                                 |
+
+With Long-Polling, we expects to see the server may not respond immediately when no data. That's why this technique is sometimes a.k.a "Hanging GET".
+---------------------------------------------------------------------
+Q: For monitoring systems, compared to typical push mode,  what are the advantages of Prometheus pull model?
+
+A: TODO
+---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

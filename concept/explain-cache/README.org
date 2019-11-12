@@ -22,9 +22,10 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-cache"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-| Name                              | Summary                                                 |
-|-----------------------------------+---------------------------------------------------------|
-| *Locality Of Reference Principle* | Recently requested data is likely to be requested again |
+| Name                              | Summary                                                                     |
+|-----------------------------------+-----------------------------------------------------------------------------|
+| *Locality Of Reference Principle* | Recently requested data is likely to be requested again                     |
+| [[https://en.wikipedia.org/wiki/Cache_invalidation][Cache invalidation]]                | Declare cached content as invalid, then take actions(purge/refresh/ban/etc) |
 
 ---------------------------------------------------------------------
 Q: What are common types of database caches?
@@ -129,11 +130,13 @@ A:
 #+LINK_UP:
 #+LINK_HOME:
 * how volatile-lfu is supported?                                   :noexport:
-
 * Deep dive into memcached                                         :noexport:
 * TODO client side cache                                           :noexport:
 * TODO cache validation                                            :noexport:
 * TODO what if cache write failure: write through/write back       :noexport:
 * useful link
 https://en.wikipedia.org/wiki/Cache_(computing)
-
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO MemCache are cache that sits in the application service?    :noexport:
+https://www.1point3acres.com/bbs/thread-552194-1-1.html
+* TODO [#A] redis vs memcached?                                    :noexport:

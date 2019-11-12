@@ -1,17 +1,17 @@
-* Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster    :Feature:
+* Deep Dive Into Memory Management                                  :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designconcept
 :END:
 ---------------------------------------------------------------------
-Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster
+Deep Dive Into Memory Management
 ---------------------------------------------------------------------
 Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
-TODO
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
 <div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
@@ -19,9 +19,8 @@ TODO
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-speedup-rebalance"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-lsm"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
-
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
@@ -47,3 +46,4 @@ TODO
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* TODO What is virtual memory and what advantage                   :noexport:

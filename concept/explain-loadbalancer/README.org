@@ -81,6 +81,16 @@ Q: For the failure of loadbalancer, would people add more than one redundant loa
 
 A: TODO
 ---------------------------------------------------------------------
+Q: Consistent hashing in load balancing?
+
+A:
+
+Configuration example in HAProxy using consistent hashing: [[https://www.haproxy.com/blog/client-ip-persistence-or-source-ip-hash-load-balancing/][link]]
+#+BEGIN_EXAMPLE
+balance source
+hash-type consistent
+#+END_EXAMPLE
+---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

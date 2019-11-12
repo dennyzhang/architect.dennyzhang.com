@@ -92,3 +92,4 @@ https://www.consul.io/docs/internals/gossip.html
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* TODO http://highscalability.com/blog/2011/11/14/using-gossip-protocols-for-failure-detection-monitoring-mess.html :noexport:
