@@ -22,6 +22,11 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-consistent-hash"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+| Name               | Summary |
+|--------------------+---------|
+| Physical node (PN) |         |
+| Virtual node (VN)  |         |
+
 Q: What consistent hashing for?
 Setting up the initial shards for a new service is relatively straightforward: you set up the appropriate shards and the roots to perform the sharding, and you are off to the races. However, what happens when you need to change the number of shards in your sharded service? Such "re-sharding" is often a complicated process.
 
@@ -52,21 +57,26 @@ Q: Examples of consistent hashing usage.
 Q: Please explain the workflow when a node is down.
 
 #+BEGIN_EXAMPLE
-If a bucket becomes unavailable (for example because the computer it
-resides on is not reachable), then the points it maps to will be
-removed. Requests for resources that would have mapped to each of
-those points now map to the next highest points. Since each bucket is
-associated with many pseudo-randomly distributed points, the resources
-that were held by that bucket will now map to many different
-buckets. The items that mapped to the lost bucket must be
-redistributed among the remaining ones, but values mapping to other
-buckets will still do so and do not need to be moved.
+If a bucket becomes unavailable (for example because the
+computer it resides on is not reachable), then the points it
+maps to will be removed. Requests for resources that would have
+mapped to each of those points now map to the next highest
+points. Since each bucket is associated with many
+pseudo-randomly distributed points, the resources that were
+held by that bucket will now map to many different buckets. The
+items that mapped to the lost bucket must be redistributed
+among the remaining ones, but values mapping to other buckets
+will still do so and do not need to be moved.
 #+END_EXAMPLE
 
 ---------------------------------------------------------------------
 Q: Please explain the workflow, when the failed node has come.
+
+A: TODO
 ---------------------------------------------------------------------
 Q: Consistent hashing itself doesn't provide HA. How you can provide HA?
+
+A: TODO
 ---------------------------------------------------------------------
 Related Reading:
 - [[url-external:https://en.wikipedia.org/wiki/Consistent_hashing][wikipedia]]

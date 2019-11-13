@@ -1,4 +1,4 @@
-* Explain CRDTs (Consistent Replicated Data Types)                  :Concept:
+* Explain CRDT (Conflict-Free Replicated Data Types)                :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG

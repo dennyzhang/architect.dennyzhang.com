@@ -47,7 +47,6 @@ If the data is modified in the database, it should be invalidated in the cache; 
 | *Write-through*              | Two sync writes: db and cache                                              |
 | *Write-back*                 | Sync write to cache, and async write to db                                 |
 | *Refresh-ahead*              | When cache TTL hits, load from DB actively, instead of triggered by visits |
-
 ---------------------------------------------------------------------
 Q: [[https://en.wikipedia.org/wiki/Cache_replacement_policies][Cache validation]] 
 | Name                                                    | Summary                                                         |

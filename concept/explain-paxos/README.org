@@ -22,8 +22,14 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-paxos"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+---------------------------------------------------------------------
 Q: What problem(s) Paxos algorithm solves?
-TODO
+
+Fully distributed consensus protocol.
+
+Resolve conflicts of majority writes, and can survives minority failure.
+
+Paxos is similar to 2PC/3CPC. It's lighter, but still high latency.
 ---------------------------------------------------------------------
 Q: What is Byzantine problem?
 TODO
@@ -103,12 +109,6 @@ Raft is a consensus algorithm designed as an alternative to Paxos. It was meant 
 TODO
 
 (See Raft in [[url-external:https://en.wikipedia.org/wiki/Raft_(computer_science)][wikipedia]])
-** misc                                                       :noexport:
-http://www.cnblogs.com/bangerlee/p/6189646.html
-分布式系统理论进阶 - Paxos变种和优化
-http://www.cnblogs.com/bangerlee/p/5268485.html
-分布式系统理论基础 - 一致性`2PC和3PC
-http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
@@ -134,3 +134,9 @@ http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-s
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* misc                                                             :noexport:
+http://www.cnblogs.com/bangerlee/p/6189646.html
+分布式系统理论进阶 - Paxos变种和优化
+http://www.cnblogs.com/bangerlee/p/5268485.html
+分布式系统理论基础 - 一致性`2PC和3PC
+http://the-paper-trail.org/blog/distributed-systems-theory-for-the-distributed-systems-engineer/

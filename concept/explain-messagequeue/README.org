@@ -24,15 +24,15 @@ Similar Posts:
 
 ---------------------------------------------------------------------
 - Typical Features/Considerations
-| Name                                    | Summary                                                                               |
-|-----------------------------------------+---------------------------------------------------------------------------------------|
-| *Deliver at least once* vs *exact once* |                                                                                       |
-| Batch commit                            | Allow producers to explictly batch multiple messages into a single requests           |
-| Message ordering                        |                                                                                       |
-| Message priority                        |                                                                                       |
-| Ack message                             |                                                                                       |
-| [[https://stackoverflow.com/questions/25255154/when-to-use-delay-queue-feature-of-amazon-sqs][Delayed queue]]                           | [[https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html#:~:targetText=Amazon%20SQS%20Delay%20Queues,duration%20of%20the%20delay%20period.][link: Amazon SQS Delay Queues]]                                                         |
-| Transaction supports                    | IBM Websphere MQ allow applications to insert messages into multiple queue atomically |
+| Name                 | Summary                                                                               |
+|----------------------+---------------------------------------------------------------------------------------|
+| Delivery guarantees  | At Most Once Delivery, At Least Once Delivery, Exactly Once Delivery                  |
+| Batch commit         | Allow producers to explictly batch multiple messages into a single requests           |
+| Message ordering     |                                                                                       |
+| Message priority     |                                                                                       |
+| Ack message          |                                                                                       |
+| [[https://stackoverflow.com/questions/25255154/when-to-use-delay-queue-feature-of-amazon-sqs][Delayed queue]]        | [[https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html#:~:targetText=Amazon%20SQS%20Delay%20Queues,duration%20of%20the%20delay%20period.][link: Amazon SQS Delay Queues]]                                                         |
+| Transaction supports | IBM Websphere MQ allow applications to insert messages into multiple queue atomically |
 
 ---------------------------------------------------------------------
 - Popular Message Queues
@@ -40,12 +40,32 @@ Similar Posts:
 |--------------+---------------------------------------------------|
 | RabbitMQ     | AMQP                                              |
 | Apache Kafka | Support high volumes of log data with low latency |
+| [[https://en.wikipedia.org/wiki/ZeroMQ][ZeroMQ]]       | A high-performance asynchronous messaging library |
 | Amazon SQS   |                                                   |
 | Qpid         |                                                   |
 | HornetQ      |                                                   |
 ---------------------------------------------------------------------
+- Q: How to support HA of the queue?
+
+| Name            | Summary |
+|-----------------+---------|
+| Queue mirroring | [[https://www.rabbitmq.com/ha.html][link]]    |
+| Quorum queues   |         |
+
+- In RabbitMQ, for each mirrored queue there is one master replica and several mirrors, each on a different node. [[https://www.rabbitmq.com/ha.html#behaviour][link]]
+---------------------------------------------------------------------
 - Q: Delay queue?
 
+A: TODO
+---------------------------------------------------------------------
+- Q: Would the messages be in a wrong ordering, instead of FIFO?
+
+A: TODO
+
+---------------------------------------------------------------------
+- Q: For message delivery of at-most-once, at-least-once and exactly-once, how the different approach is implemented?
+
+A: TODO
 ---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall

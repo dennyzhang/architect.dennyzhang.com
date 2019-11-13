@@ -22,6 +22,17 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-eventualconsistency"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 ---------------------------------------------------------------------
+Q: Consistency model
+| Name                 | Summary                                      |
+|----------------------+----------------------------------------------|
+| Weak consistency     | After a write, reads may or may not see it   |
+| Eventual consistency | After a write, reads will eventually see it  |
+| Strong consistency   | After a write, reads will immediately see it |
+
+- Weak consistency: Used in scenarios like VoIP; live online video; Realtime multiplayer games, etc
+- Eventually consistency: Used in search engine indexing; DNS; Amazon S3; SimpleDB, etc
+- Strong consistency: Used in filesystem; RDMBS, etc
+---------------------------------------------------------------------
 Q: How to achieve eventual consistency?
 | Name         | Summary |
 |--------------+---------|

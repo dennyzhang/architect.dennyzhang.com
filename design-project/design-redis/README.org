@@ -25,9 +25,31 @@ Similar Posts:
 [[https://architect.dennyzhang.com/explain-cache][Design: How Does Caching Work]]
 
 ---------------------------------------------------------------------
+| Name            | Summary                                                                             |
+|-----------------+-------------------------------------------------------------------------------------|
+| Data persistent | All data is eventually persistent. But can also be immediately                      |
+| Availability    | Redis has built-in master/slave replication. Slave can be promoted to master on fly |
+| Atomic          | Support for atomic operations                                                       |
+| Reference       | [[https://www.slideshare.net/dvirsky/introduction-to-redis][SlideShare: What is redis]]                                                           |
+
+---------------------------------------------------------------------
 Q: What are Redis' typical use cases?
 
-A: 
+All data is in memory but also persists. Mostly operations are O(1) behavior.
+
+Redis is a single threaded application uses async IO. This helps to achieve high throughput.
+
+Redis Key features:
+| Name         | Summary                         |
+|--------------+---------------------------------|
+| Get/Set/Incr |                                 |
+| Lists        |                                 |
+| Sets         |                                 |
+| Sorted Sets  |                                 |
+| Hash Tables  |                                 |
+| PubSub       |                                 |
+| SORT         |                                 |
+| Transactions | Support for atomic transactions |
 ---------------------------------------------------------------------
 Q: How cache evictions works in Redis?
 
@@ -49,7 +71,7 @@ Q: how redis support high-throughput counter?
 
 A: 
 ---------------------------------------------------------------------
-Q: How redis wants to provide Pub/Sub messaging capability?
+Q: What are the use cases for redis Pub/Sub functionality?
 
 A:
 ---------------------------------------------------------------------
@@ -78,4 +100,3 @@ A:
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
-

@@ -57,7 +57,6 @@ ACID: Atomicity, Consistency, isolation, durability
 - Cassandra: TODO
 - MongoDB: TODO
 - Couchbase: TODO
-
 ---------------------------------------------------------------------
 - Q: Data store for big data
 | Name   | Summary |
@@ -65,6 +64,12 @@ ACID: Atomicity, Consistency, isolation, durability
 | Hadoop |         |
 | Spark  |         |
 | Impala |         |
+---------------------------------------------------------------------
+- Q: Cross-site DB replication/migration
+
+A: TODO
+---------------------------------------------------------------------
+
 ** More Resources
 https://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
 

@@ -1,16 +1,15 @@
-* Explain Data Partition & Sharding                                 :Concept:
+* Design: A Thread-safe Hashmap                                     :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designconcept
+:type: systemdesign, designfeature
 :END:
 ---------------------------------------------------------------------
-Explain Data Partition & Sharding
+Design: A Thread-safe Hashmap
 ---------------------------------------------------------------------
 Similar Posts:
-- [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
-- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
 ---------------------------------------------------------------------
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
@@ -19,49 +18,46 @@ Similar Posts:
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-partition"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-concurrent-hashmap"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
+---------------------------------------------------------------------
 
-| Name                                  | Example |
-|---------------------------------------+---------|
-| Parition horizontally vs vertically   |         |
-| Partition algorithms in data sharding |         |
-| Join tables in data sharding          |         |
-| Rebalancing in data sharding          |         |
+| Name                             | Summary                                                                  |
+|----------------------------------+--------------------------------------------------------------------------|
+| Typical methods of hashmap       | get, update, delete, exists, size                                        |
+| Avoid frequent write locking     | Instead of lock the whole array, lock at smaller granularity of segments |
+| To speed up lookup of conflicts  | Change linked list to balanced binary search tree                        |
+|----------------------------------+--------------------------------------------------------------------------|
+| Reference                        | [[https://www.geeksforgeeks.org/internal-working-of-hashmap-java/][Link: Internal Working of HashMap in Java]]                                |
+| Reference                        | [[https://dzone.com/articles/how-concurrenthashmap-works-internally-in-java][Link: How ConcurrentHashMap Works Internally in Java]]                     |
 
 ---------------------------------------------------------------------
-Q: When to scale up, when to scale out?
+Q: How support basic hashmap?
 
-A: Scale out bring complexities. Scale up may make more sense when data volume is relatively small. After a certain scale point, it is cheaper and more feasible to scale horizontally by adding more machines than to grow it vertically by adding beefier servers.
----------------------------------------------------------------------
-Q: What common partition methods are?
-
-| Name                         | Summary                                                           |
-|------------------------------+-------------------------------------------------------------------|
-| Horizontal partitioning      | a.k.a Data Sharding                                               |
-| Vertical Partitioning        | Store different data with different approaches per features       |
-| Directory Based Partitioning | create a lookup service to knows your current partitioning scheme |
+1. Eventually store data of hashmap in an array
+- Resize
 
 ---------------------------------------------------------------------
-Q: Partition algorithms of data sharding?
-| Name                     | Summary |
-|--------------------------+---------|
-| Hash-based partitioning  |         |
-| List partitioning        |         |
-| Round-robin partitioning |         |
----------------------------------------------------------------------
-Q: What are the typical problem of data partition?
-
-| Name                   | Summary                                                                   |
-|------------------------+---------------------------------------------------------------------------|
-| Table joins            |                                                                           |
-| Enforce data integrity |                                                                           |
-| Data Rebalancing       | Data distribution not uniform; Data visit not balanced with hot/cold data |
----------------------------------------------------------------------
-Q: Data Lookup workflow after data partition?
+Q: Use case of concurrent hashmap?
 
 A: TODO
 ---------------------------------------------------------------------
+Q: How to avoid hashing conflict?
+
+A: TODO
+---------------------------------------------------------------------
+Q: Would there be write conflicts or dirty reads?
+
+- Lock when updating the map
+- No locking for reading values
+---------------------------------------------------------------------
+Q: How hashmap extend the capacity? How to resize?
+
+A: TODO
+---------------------------------------------------------------------
+Q: How ConcurrentHashMap is implemented in popular programming languages?
+
+- [[https://dzone.com/articles/how-concurrenthashmap-works-internally-in-java#:~:targetText=ConcurrentHashMap:%20It%20allows%20concurrent%20access,was%20introduced%20to%20improve%20performance.][Link: How ConcurrentHashMap Works Internally in Java]]
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

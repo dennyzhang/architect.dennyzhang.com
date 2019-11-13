@@ -36,9 +36,11 @@ What does CAP Theorem tell us?
 
 It is impossible for a web service to provide the three following guarantees : Consistency, Availability and Partition-tolerance.
 
+When network partition happens, you can only choose either consistency or availability. Not both. [[http://ksat.me/a-plain-english-introduction-to-cap-theorem/][link]]
+
 [[image-blog:Explain CAP Theorem][https://raw.githubusercontent.com/dennyzhang/architect.dennyzhang.com/master/concept/explain-cap/cap.png]]
 
-To be consistent, all nodes should see the same set of updates in the same order. 
+To be consistent, all nodes should see the same set of updates in the same order.
 ---------------------------------------------------------------------
 Q: Does it mean I can only get two of CAP?
 

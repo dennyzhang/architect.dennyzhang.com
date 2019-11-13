@@ -26,18 +26,20 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-coordination"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-Lots of concepts to learn and understand! Yes, I know. Too many.
-#+BEGIN_EXAMPLE
-Atomic Operations, Thread-safe
+| Name                                | Summary |
+|-------------------------------------+---------|
+| Dead Lock                           |         |
+| Atomic Operations                   |         |
+| Lock & Metasphore                   |         |
+| Lock-free                           |         |
+| Async Programming                   |         |
+| Race Conditions                     |         |
+| Implement Thread-safe queue/hashmap |         |
 
-Lock, Metasphore
-
-Queue-Per-Process, Queue Service
-
-Lock-free, Async Programming
-#+END_EXAMPLE
 ---------------------------------------------------------------------
-What are the problems? And How you gonna solve them?
+Q: How to detect dead lock and prevent it?
+
+A:
 ---------------------------------------------------------------------
 Q: Synchronous vs. Asynchronous
 
@@ -46,6 +48,27 @@ With async architectures, we can scale out for better performance.
 But with sync architectures, *the performance may not improve, even if we are willing to add more infrastures*.
 
 e.g, performance bottlenecks are at applications, instead of Databases. And the application has lots of locks and even starvations.
+---------------------------------------------------------------------
+Q: Synchronized in Java. How it's implemented?
+
+Multi-threaded programs may often come to a situation where multiple threads try to access the same resources and finally produce erroneous and unforeseen results.
+
+#+BEGIN_EXAMPLE
+// Only one thread can execute at a time. 
+// sync_object is a reference to an object
+// whose lock associates with the monitor. 
+// The code is said to be synchronized on
+// the monitor object
+synchronized(sync_object)
+{
+   // Access shared variables and other
+   // shared resources
+}
+#+END_EXAMPLE
+
+[[https://www.geeksforgeeks.org/synchronized-in-java/][link]]
+---------------------------------------------------------------------
+
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

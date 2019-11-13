@@ -26,6 +26,17 @@ Similar Posts:
 
 - [[https://en.wikipedia.org/wiki/Two-phase_commit_protocol][Two-phase commit protocol]]
 - [[https://en.wikipedia.org/wiki/Three-phase_commit_protocol][Three-phase commit protocol]]
+---------------------------------------------------------------------
+Q: What problems that 2PC resolves
+
+Propose -> vote -> commit/abort
+
+TODO
+---------------------------------------------------------------------
+Q: What are the differences between 2PC and 3 PC?
+
+TODO
+---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

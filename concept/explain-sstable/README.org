@@ -1,4 +1,4 @@
-* Deep Dive Into HTTP Protocol                                      :Concept:
+* Explain SSTable (Sorted Strings Table)                            :Concept:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
@@ -6,35 +6,11 @@
 :type: systemdesign, designconcept
 :END:
 ---------------------------------------------------------------------
-Deep Dive Into HTTP Protocol
+Explain SSTable (Sorted Strings Table)
 ---------------------------------------------------------------------
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
----------------------------------------------------------------------
-Q: HTTP Methods
-
-| Name                  | Summary                          |
-|-----------------------+----------------------------------|
-| Http Post vs Http Put | Create objects vs Update objects |
-
----------------------------------------------------------------------
-Q: Typical HTTP Headers
-
-| Name                 | Summary |
-|----------------------+---------|
-| Last-Modified Header |         |
-| ETag Header          |         |
-
----------------------------------------------------------------------
-Q: Typical HTTP Return Code
-[[https://en.wikipedia.org/wiki/List_of_HTTP_status_codes][link: List of HTTP status codes]]
-
-| Name              | Summary |
-|-------------------+---------|
-| 301 vs 302        |         |
-| 401 vs 403 vs 400 |         |
-| 503 vs 504        |         |
 ---------------------------------------------------------------------
 #+BEGIN_HTML
 <div id="the whole thing" style="overflow: hidden;">
@@ -43,8 +19,13 @@ Q: Typical HTTP Return Code
 <div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
 </div>
 
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-http"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-sstable"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
+---------------------------------------------------------------------
+Q: What are the typical use cases of SSTable?
+
+A: Efficiently store large numbers of key-value pairs with high throughput of sequential read/write requests
+---------------------------------------------------------------------
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

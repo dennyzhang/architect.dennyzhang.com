@@ -21,6 +21,26 @@ Similar Posts:
 
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-lsm"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
+---------------------------------------------------------------------
+Q: What are common types of LSM Tree?
+
+Random write is slow; sequential writes can be fast.
+
+LSM Tree converts random write to sequential writes.
+1. Writes go to a commit log and im-memory storage. (Memtable)
+- The memtable is occasionally flushed to disk. (SSTable)
+- The disk stores are periodically compacted.
+---------------------------------------------------------------------
+Q: Data write and read workflow with LSM Tree?
+
+| Name                          | Summary |
+|-------------------------------+---------|
+| LSM Compaction                |         |
+| LSM Memtable Flush            |         |
+| LSM Write path                |         |
+| LSM Read path                 |         |
+| LSM Read path + Bloom Filters |         |
+
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
