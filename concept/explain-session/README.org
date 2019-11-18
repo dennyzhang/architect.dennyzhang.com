@@ -22,8 +22,21 @@ Similar Posts:
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-session"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
-** misc                                                            :noexport:
-https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651960128&idx=1&sn=8e0e409b10ab9db549432af461385314&chksm=bd2d069c8a5a8f8ab5cdee602d4062bbdbb25da290668515d36682afa854e374d2a5ff02004b&scene=21#wechat_redirect
+---------------------------------------------------------------------
+Q: Common issues with cookie?
+
+- Cookie is ephemeral. When end users close the web browser, it may be lost.
+- There is a size limit for cookie.
+---------------------------------------------------------------------
+Q: Difference between session and cookie?
+
+Cookie is the web browser of client side, while session is on server side.
+---------------------------------------------------------------------
+Q: How to manage the consistency of session across different servers?
+
+A: TODO
+---------------------------------------------------------------------
+
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:
@@ -49,3 +62,19 @@ https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651960128&idx=1&sn=8e0e40
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* notes                                                            :noexport:
+https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&mid=2651960128&idx=1&sn=8e0e409b10ab9db549432af461385314&chksm=bd2d069c8a5a8f8ab5cdee602d4062bbdbb25da290668515d36682afa854e374d2a5ff02004b&scene=21#wechat_redirect
+
+
+http://wiki.gyh.me/Interview/Design/
+#+BEGIN_EXAMPLE
+高并发带来的问题和解决方案事务问题（一致性）容器事务管理锁机制隔离机制状态问题(session)
+用cooke记录sesion
+缺点是有大小限制，另外不稳定，客户端可能关闭浏览器导致数据丢失，且不安全
+session复制
+即集群中的服务器都持有一份sesion，每次有数据变化时需要同步给其他服务器，适合小规模网站
+session绑定
+由负载均衡服务器将客户的IP/cookie与session绑定，实现会话粘滞。但这种方案缺乏高可用性，因为客户的关闭浏览器可能会改变cookie，客户端IP也可能变化，服务器端也可能宕机导致session丢失。
+session服务器
+包含两个层面，一个是利用分布式缓存，可以实现会话的保持，适合一般集群需求另一个是独立session服务器，适合更高要求的需求，例如单点登录（SSO）
+#+END_EXAMPLE

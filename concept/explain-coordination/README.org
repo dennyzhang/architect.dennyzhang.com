@@ -37,9 +37,40 @@ Similar Posts:
 | Implement Thread-safe queue/hashmap |         |
 
 ---------------------------------------------------------------------
+Q: Concurrency between multiple threads?
+
+A: TODO
+
+Cooperation:
+
+| Name          | Summary |
+|---------------+---------|
+| Pipe          |         |
+| Semophore     |         |
+| Message queue |         |
+| Signal        |         |
+| Shared Memory |         |
+| Socket        |         |
+
+Synchronize
+| Name             | Summary |
+|------------------+---------|
+| Critical section |         |
+| Mutex            |         |
+| Signal           |         |
+| Events           |         |
+---------------------------------------------------------------------
+Q: Multiprocessing vs Multithreading?
+
+A: TODO
+---------------------------------------------------------------------
+Q: Thread vs goroutine?
+
+A: TODO
+---------------------------------------------------------------------
 Q: How to detect dead lock and prevent it?
 
-A:
+A: TODO
 ---------------------------------------------------------------------
 Q: Synchronous vs. Asynchronous
 
@@ -94,3 +125,6 @@ synchronized(sync_object)
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* TODO notes                                                       :noexport:
+http://wiki.gyh.me/Interview/OS/
+

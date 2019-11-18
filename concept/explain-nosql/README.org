@@ -4756,3 +4756,5 @@ Graph Databases: These databases are used to store data whose relations are best
 * TODO how to you feel about mongodb, comparing to cassandra?      :noexport:
 * TODO Try Neo4J and Couchbase for real                            :noexport:
 * TODO Active directory, LDAP                                      :noexport:
+* TODO notes                                                       :noexport:
+https://zhuanlan.zhihu.com/p/23713529
