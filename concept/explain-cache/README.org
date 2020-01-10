@@ -29,7 +29,7 @@ Similar Posts:
 
 ---------------------------------------------------------------------
 Q: What are common types of database caches?
-[[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-featuredesign-A4/paper/database-caching-strategies-using-redis.pdf][Link: DB caching with redis]]
+[[https://github.com/dennyzhang/cheatsheet-paper-A4/blob/master/paper/database-caching-strategies-using-redis.pdf][Link: DB caching with redis]]
 1. Database-integrated caches. e.g Amazon Aurora offers an integrated cache that is managed within database engine and has built-in write-through capabilities. [[https://d0.awsstatic.com/whitepapers/Database/database-caching-strategies-using-redis.pdf][link]]
 - Local caches: cache within your application
 - Remote caches: separate instance(s) dedicated for storing the cached data in-memory. e.g, redis, memcached.
