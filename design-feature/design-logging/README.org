@@ -1,0 +1,80 @@
+* Design: Design a logging & metrics system                         :Feature:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+Design a logging & metrics system
+---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-logging"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+---------------------------------------------------------------------
+Q: Imagine multiple services in one host. One service keeps generating rapid logs, which blocks I/O. This blocks other services generating logs. How you can alleviate the problem?
+
+A: 
+* org-mode configuration                                           :noexport:
+#+STARTUP: overview customtime noalign logdone showall
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
+#+LaTeX_CLASS_OPTIONS: [8pt]
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage{lastpage}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \rhead{Updated: \today}
+#+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
+#+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}{GitHub: https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-leetcode-A4}}
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
+#+PRIORITIES: A D C
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:
+#+LINK_HOME:
+* 领英有很多host上面跑各种不同的services                           :noexport:
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=429962&extra=&highlight=%CF%B5%CD%B3%C9%E8%BC%C6&page=1
+
+#+BEGIN_EXAMPLE
+基本就是设计一个centralized log service.可以参考splunk设计.先分成几个部分
+1. 各个host上的log collector
+2. 中间录入log的processing server和data store
+3. 前端查log的UI和REST API server
+
+然后每个部分依次dive in.这里赞下面试官,过程当中有很多引导性的问题,不会出现stuck或者完全没方向的情况
+1. collector
+- 最straight forward的办法service写log file,另一个process边读边发,会有什么问题？如何改进？
+- log一条条发还是攒一波一起发？怎么确定上次发到哪？
+- 如果一个host上跑多个service,如何避免单个service太noisy占I/O等资源导致其他service发不了log?
+- logging process crash了怎么办？如何避免data loss?
+
+3. UI/API
+- 有哪些基本的use case？各自的REST API怎么写？
+- 如果要支持根据app name/hostname等来查询log,后端需要做什么改动？还有哪些可能的query criteria?
+
+- 出现一次查询返回1B log的情况怎么办？
+- 除了看log之外,这个系统还能提供其他一些什么功能来improve quality of life？后端需要做什么改动？
+
+
+2. processing serivce + data store
+- 数据库用sql还是nosql,为什么？
+- schema design
+
+- 数据库怎么扩展（提示:这里是write >> read的情况）,以及如何避免单点failure?
+- 为什么需要一个processing service而不是直接让collector写数据库？
+- processing service用sync还是async?
+- 如何scale processing service？扩展后如何避免同一个log写入多次？
+#+END_EXAMPLE
+* TODO 提个关于系统设计面试的问题                                  :noexport:
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=531609&highlight=%CF%B5%CD%B3%C9%E8%BC%C6

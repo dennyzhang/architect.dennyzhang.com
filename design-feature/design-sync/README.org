@@ -1,0 +1,73 @@
+* Design: Data Synchronization Service                              :Feature:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+Data Synchronization Service
+---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-sync"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+---------------------------------------------------------------------
+Q: Imagine you need to design dropbox client synchronization algorithm. How you can make it faster?
+
+A: 
+| Name                                      | Summary                                                                   |
+|-------------------------------------------+---------------------------------------------------------------------------|
+| [Use case] Miniumize the data scale       | Allow end users to add a blacklist for folders to be skipped              |
+| [Use case] Simplify the workflow          | If two clients in the same intranet, use P2P sync without centeral server |
+| [Engineering] Only sync for changed files | Check files' modified time; Use Merkle Tree to detect the difference      |
+| Reference                                 | [[https://www.quora.com/How-does-file-sync-work-Why-is-Dropbox-faster-than-other-services][Quora: Why is Dropbox faster than other services?]]                         |
+
+[[https://blogs.dropbox.com/tech/2014/07/streaming-file-synchronization/][Link: Dropbox Streaming File Synchronization]]
+
+Q: When client sync with server, how it knows the changeset since previous sync?
+A:
+
+Q: In terms of data sync, Pull vs Push model? And why?
+A:
+
+Q: Design an algorithm to support "diff a.txt b.txt"? And what if two files are with binary format and as big as 50 GB? What if the second file is not local?
+
+A: [[https://code.dennyzhang.com/followup-lcs][#lcs (Longest common subsequence)]] 
+
+Q: Design an algorithm to support remote copy a big file? e.g, "rsync -avhze ssh /src/big.dat user@remote-host:/tmp/"?
+A:
+
+Reference
+| Name      | Summary                                                                |
+|-----------+------------------------------------------------------------------------|
+| Web Pages | [[https://blogs.dropbox.com/tech/2014/07/streaming-file-synchronization/][Link: Streaming File Synchronization by Dropbox]]                        |
+| Web Pages | [[https://netflixtechblog.com/delta-a-data-synchronization-and-enrichment-platform-e82c36a79aee][Link: Delta: A Data Synchronization and Enrichment Platform by Netflix]] |
+
+* org-mode configuration                                           :noexport:
+#+STARTUP: overview customtime noalign logdone showall
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
+#+LaTeX_CLASS_OPTIONS: [8pt]
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage{lastpage}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \rhead{Updated: \today}
+#+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
+#+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}{GitHub: https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-leetcode-A4}}
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
+#+PRIORITIES: A D C
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:
+#+LINK_HOME:

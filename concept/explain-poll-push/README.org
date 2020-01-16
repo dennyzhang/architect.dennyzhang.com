@@ -8,19 +8,13 @@
 ---------------------------------------------------------------------
 Long-Polling, WebSockets, Server-Sent Events, Queue-based subscription.
 ---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-poll-push"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
----------------------------------------------------------------------
-#+BEGIN_HTML
-<div id="the whole thing" style="overflow: hidden;">
-<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
-</div>
-
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-poll-push"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
-#+END_HTML
 ---------------------------------------------------------------------
 Q: Say service A want to get the status of a job that is run by service B. What are the pros and cons of using push or pull mode?
 
@@ -32,12 +26,18 @@ Q: What are popular communication protocals between client with web browsers
 | Name                      | Summary                                                         |
 |---------------------------+-----------------------------------------------------------------|
 | Ajax Polling              | Repeatedly polls (or requests) a server for data.               |
-| Long-polling              |                                                                 |
 | Web sockets               | Full duplex communication channels over a single TCP connection |
+| Long-polling              |                                                                 |
 | Server-Sent Events (SSEs) |                                                                 |
 
-With Long-Polling, we expects to see the server may not respond immediately when no data. That's why this technique is sometimes a.k.a "Hanging GET".
+With Long-Polling, we expects to see the server may not respond immediately when no data. 
+That's why this technique is sometimes a.k.a "Hanging GET".
 ---------------------------------------------------------------------
+Q: How to dropbox client keep sync with synchronization service?
+
+A:
+---------------------------------------------------------------------
+
 Q: For monitoring systems, compared to typical push mode,  what are the advantages of Prometheus pull model?
 
 A: TODO

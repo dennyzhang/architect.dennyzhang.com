@@ -10,20 +10,14 @@ Pessimistic And Optimistic Locking.
 
 As a developer, how I can benefit from knowing the difference?
 ---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-locks"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
-#+BEGIN_HTML
-<div id="the whole thing" style="overflow: hidden;">
-<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
-</div>
-
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-locks"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
-#+END_HTML
-
 Q: What do *Pessimistic Locking* and *Optimistic Locking* mean?
 
 *Pessimistic Locking*: It assumes the worst. It thinks conflicts are very likely to happen. So it locks as early as it can.
@@ -36,7 +30,7 @@ Conclusions:
 
 Link: [[url-external:https://www.ibm.com/support/knowledgecenter/en/SSPK3V_7.0.0/com.ibm.swg.im.soliddb.sql.doc/doc/pessimistic.vs.optimistic.concurrency.control.html][PESSIMISTIC vs. OPTIMISTIC concurrency control]]
 YouTube: [[url-external:https://www.youtube.com/watch?v=VxGKvqHhU5c][Optimistic vs Pessimistic Locking]]
----------------------------------------------------------------------
+
 Q: What is *CAS*? Please explain the workflow of *Optimistic Locking*.
 
 CAS: check-and-set.
@@ -59,13 +53,13 @@ Each time a record is updated, the version number is updated as well.
 #+END_EXAMPLE
 Link: [[url-external:http://www.orafaq.com/papers/locking.pdf][Optimistic Locking with Concurrency in Oracle]]
 YouTube: [[url-external:https://www.youtube.com/watch?v=oKXGAOho1JM][SCPT 37: Optimistic and Pessimistic Locking]]
----------------------------------------------------------------------
+
 Q: Would pessimistic locking leads to dirty reads at application level?
 
 With pessimistic locking, *you may have read outdated data*.
 
 But thanks to CAS mechanism, the updates are guaranteed to be correct.
----------------------------------------------------------------------
+
 Q: Give me one example of locking usage in your real life.
 
 The workflow of using pessimistic lock and optimistic lock in couchbase database
@@ -84,7 +78,7 @@ Obtaining an optimistic lock in Couchbase Server consists of the following steps
 3. Perform these steps to manually release a lock
 4. Use CAS to modify the value and release the lock
 #+END_EXAMPLE
----------------------------------------------------------------------
+
 Q: *As a developer, how I can benefit from knowing the difference?*
 
 Let's say you need to implement a counter service.
@@ -93,7 +87,7 @@ You might choose pessimistic/optimistic locking differently, depending on the re
 
 - Optimistic Locking: This strategy is most applicable to high-volume systems and three-tier architectures where you do not necessarily maintain a connection to the database for your session. In this situation the client cannot actually maintain database locks as the connections are taken from a pool and you may not be using the same connection from one access to the next. See [[url-external:https://stackoverflow.com/a/129397][more]].
 - To use pessimistic locking you need either a direct connection to the database (as would typically be the case in a two tier client server application) or an externally available transaction ID that can be used independently of the connection.
----------------------------------------------------------------------
+
 More Reading:
 - StackOverflow: [[url-external:https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking/][Optimistic vs. Pessimistic locking]]
 - Couchbase Blog: [[url-external:https://blog.couchbase.com/optimistic-or-pessimistic-locking-which-one-should-you-pick/][Optimistic or pessimistic locking]]

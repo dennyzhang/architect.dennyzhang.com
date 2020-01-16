@@ -8,19 +8,13 @@
 ---------------------------------------------------------------------
 Design an API Rate Limiter
 ---------------------------------------------------------------------
-Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
----------------------------------------------------------------------
 #+BEGIN_HTML
-<div id="the whole thing" style="overflow: hidden;">
-<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
-</div>
-
 <a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-api-limiter"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+---------------------------------------------------------------------
 If you are deploying an API, it is generally a best practice to have a relatively small rate limit for anonymous access and then force users to log in to obtain a higher rate limit.
 
 *Clarifications*
@@ -35,6 +29,9 @@ If you are deploying an API, it is generally a best practice to have a relativel
 |------------------------------------------------+---------------------------------------------------------|
 | 3 Directions Of Implementing API rate-limiting | Request Queues; Throttling; Rate-limiting Algorithms    |
 | Rate-limiting Algorithms                       | Leaky Bucket; Fixed Window; Sliding Log; Sliding Window |
+| Reference                                      | [[https://hechao.li/2018/06/25/Rate-Limiter-Part1/][Link: Rate Limiting Part 1]], [[https://hechao.li/2018/06/27/Rate-Limiter-Part2/][Link: Rate Limiting Part 2]]  |
+| Reference                                      | [[https://cloud.google.com/solutions/rate-limiting-strategies-techniques][Link: Rate-limiting strategies and techniques]]           |
+| Reference                                      | [[https://github.com/hechaoli/simple-rate-limiters/tree/master/src][Github: simple-rate-limiters]] [[https://en.wikipedia.org/wiki/Rate_limiting][wikipedia: Rate limiting]]   |
 
 ** misc                                                            :noexport:
 # Question:

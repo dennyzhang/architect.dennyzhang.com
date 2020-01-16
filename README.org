@@ -237,7 +237,7 @@ https://github.com/rafalratajczyk/QuizJavaScript
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* Design Exercise: Marketplace System                              :BLOG:Project:
+* Design Exercise: Marketplace System                 :noexport:BLOG:Project:
 :PROPERTIES:
 :type: project
 :END:
@@ -779,7 +779,7 @@ Q: Decompose Project and Bid into two microservices: data management, communicat
     raise orm_exc.NoResultFound("No row was found for one()")
 sqlalchemy.orm.exc.NoResultFound: No row was found for one()
 *** TODO return error message with different type
-* Design Exercise: Budget Advising                                 :BLOG:Project:
+* Design Exercise: Budget Advising                    :noexport:BLOG:Project:
 :PROPERTIES:
 :type: project
 :END:

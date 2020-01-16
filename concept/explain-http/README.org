@@ -8,43 +8,56 @@
 ---------------------------------------------------------------------
 Deep Dive Into HTTP Protocol
 ---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-http"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
 Q: HTTP Methods
 
-| Name                  | Summary                          |
-|-----------------------+----------------------------------|
-| Http Post vs Http Put | Create objects vs Update objects |
+| Name   | Summary                                       |
+|--------+-----------------------------------------------|
+| GET    |                                               |
+| Post   | Post vs Put: Create objects vs Update objects |
+| PUT    |                                               |
+| Delete |                                               |
+| Patch  | Post vs Patch                                 |
 
----------------------------------------------------------------------
+Q: Typical HTTP Return Code
+
+| Name              | Summary                                             |
+|-------------------+-----------------------------------------------------|
+| 2xx Success       |                                                     |
+| 3xx Redirection   | 301(Moved Permanently) vs 302 (Moved temporarily)   |
+| 4xx Client errors | 401(Unauthorized) vs 403(Forbidden); 404(Not Found) |
+| 5xx Server errors | 503(Service Unavailable) vs 504(Gateway Timeout)    |
+
+[[https://en.wikipedia.org/wiki/List_of_HTTP_status_codes][Link: List of HTTP status codes]]
+
+Q: What are the differences between RPC vs REST?
+
+A: REST is noun-centric and RPC is verb-centric.
+e.g:
+| Operation                 | RPC (operation)                     | REST (resource)          |
+|---------------------------+-------------------------------------+--------------------------|
+| Signup                    | POST /signup                        | POST /persons            |
+| Resign                    | POST /resign                        | DELETE /persons/1234     |
+| Read person               | GET /readPerson?personid=1234       | GET /persons/1234        |
+| Read person's items list  | GET /readUsersItemsList?userid=1234 | GET /persons/1234/items  |
+| Add item to person's list | POST /addItemToUsersItemsList       | POST /persons/1234/items |
+| Update item               | POST /modifyItem                    | PUT /items/456           |
+| Delete item               | POST /removeItem?itemId=456         | DELETE /items/456        |
+[[https://stackoverflow.com/questions/26830431/web-service-differences-between-rest-and-rpc][Link: Web service differences between REST and RPC]]
+
 Q: Typical HTTP Headers
 
 | Name                 | Summary |
 |----------------------+---------|
 | Last-Modified Header |         |
 | ETag Header          |         |
-
----------------------------------------------------------------------
-Q: Typical HTTP Return Code
-[[https://en.wikipedia.org/wiki/List_of_HTTP_status_codes][link: List of HTTP status codes]]
-
-| Name              | Summary |
-|-------------------+---------|
-| 301 vs 302        |         |
-| 401 vs 403 vs 400 |         |
-| 503 vs 504        |         |
----------------------------------------------------------------------
-#+BEGIN_HTML
-<div id="the whole thing" style="overflow: hidden;">
-<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
-</div>
-
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/concept/explain-http"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
-#+END_HTML
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

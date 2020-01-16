@@ -8,19 +8,14 @@
 ---------------------------------------------------------------------
 Deep Dive Into Redis
 ---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-project/design-redis"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
 Similar Posts:
 - [[https://architect.dennyzhang.com/design-concept][Concepts For System Design]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]]
 ---------------------------------------------------------------------
-#+BEGIN_HTML
-<div id="the whole thing" style="overflow: hidden;">
-<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
-<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
-</div>
-
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-project/design-redis"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
-#+END_HTML
 
 [[https://architect.dennyzhang.com/explain-cache][Design: How Does Caching Work]]
 
@@ -51,6 +46,28 @@ Redis Key features:
 | SORT         |                                 |
 | Transactions | Support for atomic transactions |
 ---------------------------------------------------------------------
+
+[[https://redis.io/topics/lru-cache][Link: Using Redis as an LRU cache]]: 
+| Eviction Policy | Description                                                                           |
+|-----------------+---------------------------------------------------------------------------------------|
+| allkeys-lru     | The cache evicts the least recently used (LRU) keys regardless of TTL set.            |
+| allkeys-lfu     | The cache evicts the least frequently used (LFU) keys regardless of TTL set.          |
+| volatile-lru    | The cache evicts the least recently used (LRU) keys from those that have a TTL set.   |
+| volatile-lfu    | The cache evicts the least frequently used (LFU) keys from those that have a TTL set. |
+| volatile-ttl    | The cache evicts the keys with the shortest TTL set.                                  |
+| volatile-random | The cache randomly evicts keys with a TTL set.                                        |
+| allkeys-random  | The cache randomly evicts keys regardless of TTL set.                                 |
+| no-eviction     | The cache doesn't evict keys at all. This blocks future writes until memory frees up  |
+
+In general as a rule of thumb:
+
+- Use the allkeys-lru policy when you expect a power-law distribution in the popularity of your requests, that is, you expect that a subset of elements will be accessed far more often than the rest. This is a good pick if you are unsure.
+- Use the allkeys-random if you have a cyclic access where all the keys are scanned continuously, or when you expect the distribution to be uniform (all elements likely accessed with the same probability).
+- Use the volatile-ttl if you want to be able to provide hints to Redis about what are good candidate for expiration by using different TTL values when you create your cache objects.
+
+Generally, least recently used (LRU)-based policies are more common for basic caching use cases. Also, if you are experiencing evictions with your cluster, it is usually a sign that you should scale up or scale out to accommodate the additional data. 
+
+---------------------------------------------------------------------
 Q: How cache evictions works in Redis?
 
 A: [[https://redis.io/topics/lru-cache][link]]
@@ -62,6 +79,10 @@ A:
 Q: how redis supports transactions?
 
 A: 
+---------------------------------------------------------------------
+Q: how redis supports zset data type?
+
+A: [[https://redislabs.com/ebook/part-1-getting-started/chapter-1-getting-to-know-redis/1-2-what-redis-data-structures-look-like/1-2-5-sorted-sets-in-redis/][link]]
 ---------------------------------------------------------------------
 Q: how redis do the data partitioning?
 
@@ -100,3 +121,7 @@ A:
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
+* redis zset                                                       :noexport:
+https://zsr.github.io/2017/07/03/redis-zset%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0/
+
+skiplist为了避免这一问题,它不要求上下相邻两层链表之间的节点个数有严格的对应关系,而是为每个节点随机出一个层数(level).

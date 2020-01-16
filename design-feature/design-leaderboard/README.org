@@ -1,0 +1,271 @@
+* Design: Leaderboard                                               :Feature:
+#+STARTUP: showeverything
+#+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
+:PROPERTIES:
+:type: systemdesign, designfeature
+:END:
+---------------------------------------------------------------------
+Design: Leaderboard
+---------------------------------------------------------------------
+#+BEGIN_HTML
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-leaderboard"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
+
+Similar Posts:
+- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+---------------------------------------------------------------------
+Q: Design a leaderboard, which implements three functions:
+1. =add_score(player_id int, score int) float=
+- =top(num int) []int=
+- =reset(player_id int)=
+
+See interface defined at the bottom of this post.
+
+A: The most challenging part is how to deal with =reset function=. [[https://developers.google.com/games/services/management/api/scores/reset][Link: Google Play Games Services: reset scores]].
+
+Q: How to implement =hide(player_id int)= function?
+
+Q: [Scaling] What if you have 10 million users?
+
+A: Some consideration about the use cases might deserve dicussions:
+- Is it acceptable only top #10K users could see their exact ranking?
+- What the interval of the game/competition is?
+
+Interfaces:
+#+BEGIN_EXAMPLE
+/*
+Exercise Goals:
+ 
+- The goal of this exercise is to show us how you apply software engineering principles to create a maintainable software solution.
+ 
+How to approach this:
+ 
+    - Don't worry about persistence. It would make sense here, but for this exercise only use in-memory data structures.
+    - Don't worry about tricks or "gotchyas", as there aren't any.
+    - Just focus on writing clean maintainable code.
+ 
+Specification:
+ 
+  Create a class LeaderBoard whose interface includes the following methods:
+ 
+  Method Name: add_score
+ 
+    - Add a new score to the player's average. If a player doesn't exist in the 
+    LeaderBoard, they will be automatically added.
+ 
+    Args:
+ 
+            player_id (Integer): The player's ID.
+            score (Integer): The score to record for the player
+ 
+    Returns:
+ 
+            Double: The new average score for the given player
+ 
+  Method Name: top
+ 
+      - Get the top player_ids on the leaderboard ordered by their average scores
+      from highest to lowest
+ 
+      Args:
+ 
+              num_players (Integer): The maximum number of player_ids to return
+ 
+      Returns:
+ 
+              List<Integer>: a list of player_ids
+ 
+  Method Name: reset
+ 
+      - Removes any scoring information for a player, effectively 
+      resetting them to 0
+ 
+      Args:
+ 
+              player_id (Integer): The player's ID.
+ 
+Example Usage:
+ 
+ 
+  // Create a new LeaderBoard Instance
+  LeaderBoard leader_board = new LeaderBoard();
+ 
+  // Add scores for players to the LeaderBoard
+  leader_board.add_score(1, 50); // 50.0
+  leader_board.add_score(2, 80); // 80.0
+  leader_board.add_score(2, 70); // 75.0
+  leader_board.add_score(2, 60); // 70.0
+  leader_board.add_score(3, 90); // 90.0
+  leader_board.add_score(3, 85); // 87.5
+ 
+  // Get top positions for the leaderboard
+  leader_board.top(3); // [3, 2, 1]
+  leader_board.top(2); // [3, 2]
+  leader_board.top(1); // [3]
+ 
+  // Reset a player 3's scores
+  leader_board.reset(3); // void
+ 
+  // Player 3 is now at the bottom of the leaderboard
+  leader_board.top(3); // [2, 1, 3]
+ 
+Expected values
+ 
+  - Player IDs will always be positive integers small enough to be 
+  stored as a signed 32-bit integer Scores are integers ranging from 0-100
+ 
+ 
+We have provided stubbed out code and tests for you below. Please note that these tests are not exhaustive and do not cover all corner cases. We recommend extending the given tests to ensure your code is correct.
+*/
+ 
+// Your code goes here. Feel free to make helper classes if needed
+class LeaderBoard {
+   
+  class player{
+    int player_id;
+    int num_score = 0;
+    int total_score = 0;
+    double average_score = 0;
+    public player(int player_id) {
+      this.player_id = player_id;
+    }
+  }
+  }
+   
+  public List<Integer> top(Integer max) {
+  }
+   
+  public List<Integer> button(Integer max) {
+  }
+ 
+  public void reset(Integer player_id) {
+   
+  }
+ 
+}
+ 
+ 
+// Test code here
+class Solution {
+  public static void main(String[] args) {
+    LeaderBoard leaderBoard = new LeaderBoard();
+    leaderBoard.add_score(1, 50);
+    System.out.println(leaderBoard.add_score(2, 80) == 80);
+    System.out.println(leaderBoard.add_score(2, 70) == 75);
+    System.out.println(leaderBoard.add_score(2, 60) == 70);
+    System.out.println(leaderBoard.add_score(3, 90) == 90);
+    System.out.println(leaderBoard.add_score(3, 85) == 87.5);
+ 
+    
+    System.out.println(leaderBoard.top(3).equals(Arrays.asList(3, 2, 1)));  
+    System.out.println(leaderBoard.top(2).equals(Arrays.asList(3, 2)));
+ 
+    leaderBoard.reset(3);
+ 
+    System.out.println(leaderBoard.top(3).equals(Arrays.asList(2, 1, 3)));
+  }
+}
+#+END_EXAMPLE
+
+* org-mode configuration                                           :noexport:
+#+STARTUP: overview customtime noalign logdone showall
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
+#+LaTeX_CLASS_OPTIONS: [8pt]
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage{lastpage}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \rhead{Updated: \today}
+#+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
+#+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}{GitHub: https://github.com/dennyzhang/cheatsheet.dennyzhang.com/tree/master/cheatsheet-leetcode-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-leetcode-A4}}
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
+#+PRIORITIES: A D C
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:
+#+LINK_HOME:
+* TODO Q: Design leaderboard                                       :noexport:
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-469428.html
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=482629&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D63%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-455293.html
+
+
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-469428.html
+
+Design a leaderboard, which implements three functions
+1. add_score(player_id int, score int) int
+2. top(num int) []int
+3. reset(player_id int)
+
+https://www.1point3acres.com/bbs/interview/google-software-engineer-399966.html
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-456806.html
+
+一个Leaderboard,实现updateEntry(name, score)和getEntryByRank(rank)两个api,先假设name和score都是唯一的
+直接说了个map + priorityqueue的,然后他说这样get太慢了,要我换一个.我说那就用treemap,可能会好点（然而我treemap从来没用过,问他能不能看文档,真的抠脚）.
+就大致思路是用treemap保存<score, name>,然后用map保存<name, score>,这样update的时候就用map取出score,再把treemap里面对应score的点去掉,再把新的结果放进去即可.
+但getEntryByRank还是无法做到很好..我直接写了个treemap.keySet().toArray(),然后直接entry = ranks[rank-1],虽然就两行,但感觉对内存不友好..然后时间到了.
+他最后说了个 i like you code there, it's pretty straightforward, but there is a more elegant way. 减轻了我一丢丢心理压力..
+
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-472857.html
+技术面就是地里都有的leaderboard,拓展部分也是一样的,只是我的expiration time 部分需要代码实现并且跑testcase.技术面是两个人一起面我,另一个是shadow的,全程时间蛮紧的,非常注重代码的简洁,注重思路的清晰和表达.
+
+https://www.1point3acres.com/bbs/interview/google-software-engineer-216814.html
+讨论题,没写代码
+讨论如果实现一个分数的leaderboard
+(user-id, score)
+A 50
+B 40
+...
+支持两种操作
+1. getTopK(k) 返回(user-id, score)
+2. update(user-id, score),支持插入
+
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-502535.html
+写一个leaderboard 里面可以添加选手和分数 把选手排序 还有一个方法是输出前三名
+* TODO Q: Design leaderboard                                       :noexport:
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-469428.html
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=482629&extra=page%3D3%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D63%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311%26orderby%3Ddateline
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-455293.html
+
+
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-469428.html
+
+Design a leaderboard, which implements three functions
+1. add_score(player_id int, score int) int
+2. top(num int) []int
+3. reset(player_id int)
+
+https://www.1point3acres.com/bbs/interview/google-software-engineer-399966.html
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-456806.html
+
+一个Leaderboard,实现updateEntry(name, score)和getEntryByRank(rank)两个api,先假设name和score都是唯一的
+直接说了个map + priorityqueue的,然后他说这样get太慢了,要我换一个.我说那就用treemap,可能会好点（然而我treemap从来没用过,问他能不能看文档,真的抠脚）.
+就大致思路是用treemap保存<score, name>,然后用map保存<name, score>,这样update的时候就用map取出score,再把treemap里面对应score的点去掉,再把新的结果放进去即可.
+但getEntryByRank还是无法做到很好..我直接写了个treemap.keySet().toArray(),然后直接entry = ranks[rank-1],虽然就两行,但感觉对内存不友好..然后时间到了.
+他最后说了个 i like you code there, it's pretty straightforward, but there is a more elegant way. 减轻了我一丢丢心理压力..
+
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-472857.html
+技术面就是地里都有的leaderboard,拓展部分也是一样的,只是我的expiration time 部分需要代码实现并且跑testcase.技术面是两个人一起面我,另一个是shadow的,全程时间蛮紧的,非常注重代码的简洁,注重思路的清晰和表达.
+
+https://www.1point3acres.com/bbs/interview/google-software-engineer-216814.html
+讨论题,没写代码
+讨论如果实现一个分数的leaderboard
+(user-id, score)
+A 50
+B 40
+...
+支持两种操作
+1. getTopK(k) 返回(user-id, score)
+2. update(user-id, score),支持插入
+
+https://www.1point3acres.com/bbs/interview/wayfair-software-engineer-502535.html
+写一个leaderboard 里面可以添加选手和分数 把选手排序 还有一个方法是输出前三名
