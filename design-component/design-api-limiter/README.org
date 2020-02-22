@@ -3,7 +3,7 @@
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designcomponent
 :END:
 ---------------------------------------------------------------------
 Design an API Rate Limiter
@@ -13,25 +13,65 @@ Design an API Rate Limiter
 #+END_HTML
 
 Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+- Tag: [[https://architect.dennyzhang.com/tag/designcomponenty][#designcomponent]]
 ---------------------------------------------------------------------
 If you are deploying an API, it is generally a best practice to have a relatively small rate limit for anonymous access and then force users to log in to obtain a higher rate limit.
 
 *Clarifications*
-| Name                                | Summary |
-|-------------------------------------+---------|
-| A free tier or a premium tier       |         |
-| Limit per count or per user         |         |
-| Limit in client side or server side |         |
+| Name                                  | Summary |
+|---------------------------------------+---------|
+| A free tier or a premium tier         |         |
+| Limit per count or per user           |         |
+| Limit in client side or server side   |         |
+| Scale: whether it can fit in one node |         |
 
 *Key Parts*
 | Name                                           | Example                                                 |
 |------------------------------------------------+---------------------------------------------------------|
 | 3 Directions Of Implementing API rate-limiting | Request Queues; Throttling; Rate-limiting Algorithms    |
 | Rate-limiting Algorithms                       | Leaky Bucket; Fixed Window; Sliding Log; Sliding Window |
+| Reference                                      | [[https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm/][Link: How to Design a Scalable Rate Limiting Algorithm]]  |
+| Reference                                      | [[https://engineering.classdojo.com/blog/2015/02/06/rolling-rate-limiter/][Better Rate Limiting With Redis Sorted Sets]]             |
 | Reference                                      | [[https://hechao.li/2018/06/25/Rate-Limiter-Part1/][Link: Rate Limiting Part 1]], [[https://hechao.li/2018/06/27/Rate-Limiter-Part2/][Link: Rate Limiting Part 2]]  |
 | Reference                                      | [[https://cloud.google.com/solutions/rate-limiting-strategies-techniques][Link: Rate-limiting strategies and techniques]]           |
 | Reference                                      | [[https://github.com/hechaoli/simple-rate-limiters/tree/master/src][Github: simple-rate-limiters]] [[https://en.wikipedia.org/wiki/Rate_limiting][wikipedia: Rate limiting]]   |
+
+Q: Algorithm of rate limit?
+
+A: 
+- [[https://en.wikipedia.org/wiki/Token_bucket][token bucket/leaky bucket]]. Data structure: (counter). The integer counter will be constantly refilled/decreased.
+- fixed window. Data structure: (counter, the floor of current window).
+- sliding log. Data structure: (sorted hashset)
+- sliding window. Data structure: (counter, the floor of current window, weight)
+
+| Rate limit Algorithm | Pros                         | Cons                           |
+|----------------------+------------------------------+--------------------------------|
+| leaky bucket         | Space optimal                | Starving for new requests      |
+| fixed window         | No starving for new requests | Boundary conditions issue      |
+| sliding log          | Accurate                     | High time and space complexity |
+| sliding window       |                              |                                |
+
+Q: Follow-up: how to avoid conflict?
+
+A: 
+
+Q: Follow-up: Let's say we have supported rate limit for an endpoint. For rate limiting of the same endpoint, how we can support SLA for different types of servers?
+
+A:
+
+Q: Follow-up: Requests are 20K per seconds, how to implement the rate limiting feature?
+
+A: One server won't be powerful enough to handle the request. 
+
+With multiple servers involved, we need an external key-value store to sync state. Redis can be a good candidate in term of scale and performance.
+
+Alternatively routing same request to the same server, say enable sticky-session in load balancer. However this would result in a lack of fault tolerance and scale problems.
+
+Clarification: Could we sacrifice some accuracy to simplify the solution for big volume of requests? TODO
+
+Q: How to make the apit rate limit high available?
+
+A: TODO
 
 ** misc                                                            :noexport:
 # Question:

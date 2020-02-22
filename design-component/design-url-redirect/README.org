@@ -1,22 +1,22 @@
-* Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster    :Feature:
+* Design: A URL Redirecting Feature                             :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designcomponent
 :END:
 ---------------------------------------------------------------------
-Design: Speed Up DB Rebalancing For A Big NoSQL DB Cluster
+Design: A URL Redirecting Feature
 ---------------------------------------------------------------------
 #+BEGIN_HTML
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-speedup-rebalance"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-url-redirect"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
 Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+- [[https://architect.dennyzhang.com/design-tiny-url][Design: A URL Shorterner Service]]
+- Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
 TODO
-
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

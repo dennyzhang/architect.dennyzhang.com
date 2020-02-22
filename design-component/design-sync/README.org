@@ -3,7 +3,7 @@
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designcomponent
 :END:
 ---------------------------------------------------------------------
 Data Synchronization Service
@@ -13,7 +13,7 @@ Data Synchronization Service
 #+END_HTML
 
 Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+- Tag: [[https://architect.dennyzhang.com/tag/designcomponent][#designcomponent]]
 ---------------------------------------------------------------------
 Q: Imagine you need to design dropbox client synchronization algorithm. How you can make it faster?
 

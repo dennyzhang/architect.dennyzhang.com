@@ -1,22 +1,23 @@
-* Design: A URL Redirecting Feature                             :Feature:
+* Design: Twitter News Feed                                         :Feature:
 #+STARTUP: showeverything
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designcomponent
 :END:
 ---------------------------------------------------------------------
-Design: A URL Redirecting Feature
+Design twitter news feed
 ---------------------------------------------------------------------
 #+BEGIN_HTML
-<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-url-redirect"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/architect.dennyzhang.com/tree/master/design-feature/design-news-feed"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
 Similar Posts:
-- [[https://architect.dennyzhang.com/design-tiny-url][Design: A URL Shorterner Service]]
+- [[https://architect.dennyzhang.com/design-url-redirect][A URL Redirecting Feature]]
 - Tag: [[https://architect.dennyzhang.com/tag/systemdesign][#systemdesign]], [[https://architect.dennyzhang.com/tag/designservice][#designservice]]
 ---------------------------------------------------------------------
-TODO
+Related Reading: 
+- [[https://medium.com/@narengowda/system-design-for-twitter-e737284afc95][Link: System design for Twitter]]
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
 #+DESCRIPTION:

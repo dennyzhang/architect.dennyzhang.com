@@ -3,7 +3,7 @@
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designcomponent
 :END:
 ---------------------------------------------------------------------
 Design a logging & metrics system
@@ -13,7 +13,7 @@ Design a logging & metrics system
 #+END_HTML
 
 Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+- Tag: [[https://architect.dennyzhang.com/tag/designcomponent][#designcomponent]]
 ---------------------------------------------------------------------
 Q: Imagine multiple services in one host. One service keeps generating rapid logs, which blocks I/O. This blocks other services generating logs. How you can alleviate the problem?
 

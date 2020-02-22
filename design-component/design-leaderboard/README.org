@@ -3,7 +3,7 @@
 #+OPTIONS: toc:nil \n:t ^:nil creator:nil d:nil
 #+EXPORT_EXCLUDE_TAGS: exclude noexport BLOG
 :PROPERTIES:
-:type: systemdesign, designfeature
+:type: systemdesign, designcomponent
 :END:
 ---------------------------------------------------------------------
 Design: Leaderboard
@@ -13,7 +13,7 @@ Design: Leaderboard
 #+END_HTML
 
 Similar Posts:
-- Tag: [[https://architect.dennyzhang.com/tag/designfeature][#designfeature]]
+- Tag: [[https://architect.dennyzhang.com/tag/designcomponent][#designcomponent]]
 ---------------------------------------------------------------------
 Q: Design a leaderboard, which implements three functions:
 1. =add_score(player_id int, score int) float=
